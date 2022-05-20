@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 508252929}
   - component: {fileID: 508252931}
   - component: {fileID: 508252932}
+  - component: {fileID: 508252933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -581,6 +582,20 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 8
+  skin: {fileID: 69332091}
+--- !u!114 &508252933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508252928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070c82b94f1ab684b9cdc3b70d0332c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 10
   skin: {fileID: 69332091}
 --- !u!1 &519420028
 GameObject:

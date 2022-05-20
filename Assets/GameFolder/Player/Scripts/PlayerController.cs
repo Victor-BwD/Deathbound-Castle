@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform floorCollider;
     public LayerMask floorLayer;
     public Transform skin;
+    Caracters caractersController;
 
     int comboNumber;
     float timeCombo;
@@ -18,12 +19,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        caractersController = GetComponent<Caracters>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(caractersController.life <= 0)
+        {
+            this.enabled = false;
+        }
+
         timeCombo += Time.deltaTime;
 
         if (Input.GetButtonDown("Fire1") && timeCombo > 0.5f)
