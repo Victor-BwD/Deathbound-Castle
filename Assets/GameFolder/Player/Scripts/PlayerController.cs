@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
     public Transform skin;
 
+    int comboNumber;
+    float timeCombo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeCombo += Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1") && timeCombo > 0.5f)
+        {
+            comboNumber++;
+            if(comboNumber > 2)
+            {
+                comboNumber = 1;
+            }
+            timeCombo = 0;
+            skin.GetComponent<Animator>().Play("PlayerAttack" + comboNumber, -1);
+        }
+        
+        if(timeCombo >= 1)
+        {
+            comboNumber = 0;
+        }
+
         bool canJump = Physics2D.OverlapCircle(floorCollider.position, 0.1f, floorLayer);
         if (canJump && Input.GetButtonDown("Jump"))
         {
@@ -42,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
+            skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
             skin.GetComponent<Animator>().SetBool("PlayerRun", true);
         }
         else
