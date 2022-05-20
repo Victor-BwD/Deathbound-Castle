@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     
     public Transform floorCollider;
     public LayerMask floorLayer;
+    public Transform skin;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +24,13 @@ public class PlayerController : MonoBehaviour
         bool canJump = Physics2D.OverlapCircle(floorCollider.position, 0.1f, floorLayer);
         if (canJump && Input.GetButtonDown("Jump"))
         {
+            skin.GetComponent<Animator>().Play("PlayerJump", -1); // -1 search for all layers
             rb.velocity = Vector2.zero;
             
-            rb.AddForce(new Vector2(0, 100));
+            rb.AddForce(new Vector2(0, 150));
         }
+
+
 
     }
 
@@ -36,6 +40,13 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = speed;
 
-        
+        if(Input.GetAxisRaw("Horizontal") != 0)
+        {
+            skin.GetComponent<Animator>().SetBool("PlayerRun", true);
+        }
+        else
+        {
+            skin.GetComponent<Animator>().SetBool("PlayerRun", false);
+        }
     }
 }

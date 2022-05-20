@@ -581,6 +581,7 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 8
+  skin: {fileID: 69332091}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
