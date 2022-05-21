@@ -9,16 +9,22 @@ public class KeeperController : MonoBehaviour
     public bool goRight;
     float speedPatrol = 0.3f;
     public Transform skin;
+    Animator receiveSkinAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        receiveSkinAnimator = skin.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (receiveSkinAnimator.GetCurrentAnimatorStateInfo(0).IsName("KeeperAttack"))
+        {
+            return;
+        }
+
         if (goRight)
         {
             skin.localScale = new Vector3(1, 1, 1);
