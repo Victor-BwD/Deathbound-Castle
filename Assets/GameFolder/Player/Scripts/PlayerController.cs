@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
     public Transform skin;
     Caracters caractersController;
+    Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
 
     int dashPower = 150;
     int jumpPower = 150;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         caractersController = GetComponent<Caracters>();
-        
+        receiveSkinAnimator = skin.GetComponent<Animator>(); // Get animator from the skin
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && dashTime > 2) 
         {
             dashTime = 0;
-            skin.GetComponent<Animator>().Play("PlayerDash", -1); // -1 search for all layers
+            receiveSkinAnimator.Play("PlayerDash", -1); // -1 search for all layers
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
         }
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 comboNumber = 1;
             }
             timeCombo = 0;
-            skin.GetComponent<Animator>().Play("PlayerAttack" + comboNumber, -1);
+            receiveSkinAnimator.Play("PlayerAttack" + comboNumber, -1);
         }
         
         if(timeCombo >= 1)
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
         bool canJump = Physics2D.OverlapCircle(floorCollider.position, 0.1f, floorLayer);
         if (canJump && Input.GetButtonDown("Jump"))
         {
-            skin.GetComponent<Animator>().Play("PlayerJump", -1); // -1 search for all layers
+            receiveSkinAnimator.Play("PlayerJump", -1); // -1 search for all layers
             rb.velocity = Vector2.zero;
             
             rb.AddForce(new Vector2(0, jumpPower));
