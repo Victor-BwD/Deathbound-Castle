@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     int dashPower = 150;
     int jumpPower = 150;
-    int comboNumber;
+    public int comboNumber;
     float timeCombo;
     float dashTime;
 
