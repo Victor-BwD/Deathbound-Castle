@@ -9,6 +9,7 @@ public class KeeperController : MonoBehaviour
     public bool goRight;
     float speedPatrol = 0.3f;
     public Transform skin;
+    public Transform keeperRange;
     Animator receiveSkinAnimator;
 
     // Start is called before the first frame update
@@ -20,6 +21,14 @@ public class KeeperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GetComponent<Caracters>().life <= 0)
+        {
+            keeperRange.GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            this.enabled = false;
+            
+        }
+
         if (receiveSkinAnimator.GetCurrentAnimatorStateInfo(0).IsName("KeeperAttack"))
         {
             return;
