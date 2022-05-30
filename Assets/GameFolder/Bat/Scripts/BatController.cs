@@ -8,15 +8,33 @@ public class BatController : MonoBehaviour
 
     [SerializeField] private float attackTime;
 
+    private Caracters caractersController;
+
+    private Collider2D circleCollider2D;
+
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         attackTime = 0;
+        caractersController = GetComponent<Caracters>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (caractersController.life <= 0)
+        {
+            circleCollider2D.enabled = false;
+            rb.gravityScale = 1;
+            this.enabled = false;
+
+            Destroy(gameObject, 2);
+        }
+
         if (Vector2.Distance(transform.position, player.position) > 0.2f)
         {
             attackTime = 0;
