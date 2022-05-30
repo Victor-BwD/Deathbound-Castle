@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class BearTrap : MonoBehaviour
 {
     Transform player;
     [SerializeField] Transform skin;
-    
 
+    
     // Start is called before the first frame update
     void Start()
     {
