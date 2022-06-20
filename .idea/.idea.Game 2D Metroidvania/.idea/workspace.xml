@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/Tile/Dungeon1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/Tile/Dungeon1.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
@@ -69,7 +70,7 @@
       <updated>1653872006162</updated>
       <workItem from="1653872014112" duration="1000" />
       <workItem from="1653957419814" duration="22000" />
-      <workItem from="1655687857428" duration="738000" />
+      <workItem from="1655687857428" duration="1495000" />
     </task>
     <servers />
   </component>

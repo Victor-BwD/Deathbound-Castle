@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
 
     private int dashPower = 800;
-    private int jumpPower = 900;
+    private int jumpPower = 1100;
     public int comboNumber;
     private float timeCombo;
     private float dashTime;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        speed = new Vector2(Input.GetAxisRaw("Horizontal") * 5f, rb.velocity.y); // Gloval var to receive speed in X with input 
+        speed = new Vector2(Input.GetAxisRaw("Horizontal") * 7f, rb.velocity.y); // Gloval var to receive speed in X with input 
 
         // If to check if player has used dash or not
         if(dashTime > 0.4)
