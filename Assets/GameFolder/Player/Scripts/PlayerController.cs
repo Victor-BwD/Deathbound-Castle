@@ -5,19 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    Vector2 speed;
+    [SerializeField]private Vector2 speed;
     
     public Transform floorCollider;
     public LayerMask floorLayer;
     public Transform skin;
-    Caracters caractersController;
-    Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
+    private Caracters caractersController;
+    private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
 
-    int dashPower = 150;
-    int jumpPower = 150;
+    private int dashPower = 800;
+    private int jumpPower = 900;
     public int comboNumber;
-    float timeCombo;
-    float dashTime;
+    private float timeCombo;
+    private float dashTime;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        speed = new Vector2(Input.GetAxisRaw("Horizontal"), rb.velocity.y); // Gloval var to receive speed in X with input 
+        speed = new Vector2(Input.GetAxisRaw("Horizontal") * 5f, rb.velocity.y); // Gloval var to receive speed in X with input 
 
         // If to check if player has used dash or not
         if(dashTime > 0.4)
