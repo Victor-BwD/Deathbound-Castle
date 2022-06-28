@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/Decoration/Decoration.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/Decoration/Decoration.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +32,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;F:\Projects\Unity Projects\Game 2D Metroidvania&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="F:\Projects\Unity Projects\Game 2D Metroidvania" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -68,6 +71,7 @@
       <workItem from="1653872014112" duration="1000" />
       <workItem from="1653957419814" duration="22000" />
       <workItem from="1655687857428" duration="2100000" />
+      <workItem from="1656393786480" duration="599000" />
     </task>
     <servers />
   </component>
