@@ -219,6 +219,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -589,6 +590,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      FireTrap_13: 9171518054195450669
+      FireTrap_2: 2021689510740483255
+      FireTrap_5: -8575798016073631460
+      FireTrap_4: -6312923085947222159
+      FireTrap_11: -7539744369158464046
+      FireTrap_12: -3169787721322651440
+      FireTrap_0: 6420516211900325196
+      FireTrap_9: -3388927822379821011
+      FireTrap_10: -6434726305279562435
+      FireTrap_6: -4101514101266312964
+      FireTrap_8: -5840456064733399385
+      FireTrap_1: 2167500343187852549
+      FireTrap_7: -7393380067532852690
+      FireTrap_3: 1552343881494123127
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

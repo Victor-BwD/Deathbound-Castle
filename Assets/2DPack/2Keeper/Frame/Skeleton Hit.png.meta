@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -292,6 +293,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Skeleton Hit_3: 8452754394787171160
+      Skeleton Hit_5: 3860408454011024614
+      Skeleton Hit_6: -8501204524192146682
+      Skeleton Hit_1: 4277271011309529139
+      Skeleton Hit_4: 6079654374805429708
+      Skeleton Hit_0: -273567318796562241
+      Skeleton Hit_2: -1537884627087384292
+      Skeleton Hit_7: -8738580348800268814
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
