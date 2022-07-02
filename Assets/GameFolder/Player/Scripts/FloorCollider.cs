@@ -23,7 +23,7 @@ public class FloorCollider : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
-            audioSource.PlayOneShot(groundedSound, 0.3f);
+            audioSource.PlayOneShot(groundedSound, 0.1f);
         }
     }
 }

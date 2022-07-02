@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class GhostController : MonoBehaviour
 {
-    public Transform a_point, b_point;
-    public Transform skin;
-    float speedPatrol = 0.6f;
-
-    bool goRight;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform a_point, b_point;
+    [SerializeField]private float speedPatrol = 0.6f;
+    private Transform skin;
+    private bool goRight;
 
     // Update is called once per frame
     void Update()
