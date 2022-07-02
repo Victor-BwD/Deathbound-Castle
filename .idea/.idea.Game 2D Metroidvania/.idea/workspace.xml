@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +70,7 @@
       <workItem from="1655687857428" duration="2100000" />
       <workItem from="1656393786480" duration="599000" />
       <workItem from="1656731262243" duration="528000" />
-      <workItem from="1656732437376" duration="81000" />
+      <workItem from="1656732437376" duration="120000" />
     </task>
     <servers />
   </component>
