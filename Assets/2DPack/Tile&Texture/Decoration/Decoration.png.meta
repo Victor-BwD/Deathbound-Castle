@@ -1711,6 +1711,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Decoration_76
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6f1722b41032d4f941c17be13cea10
+      internalID: 195113463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_77
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ef8b643f1194f49b7cb216502f35ea
+      internalID: -414467494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_78
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b7139d679b3804b80d6f9b43484015
+      internalID: -1947232651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_79
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 48
+        width: 5
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602d1c7c89e61e244875ffe0216eec0b
+      internalID: -1637899136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1748,6 +1832,8 @@ TextureImporter:
       Decoration_24: 1054639689
       Decoration_4: 1534145838
       Decoration_3: -681537973
+      Decoration_79: -1637899136
+      Decoration_77: -414467494
       Decoration_45: 1671840590
       Decoration_37: 581021567
       Decoration_46: 1507310753
@@ -1772,6 +1858,7 @@ TextureImporter:
       Decoration_68: 46966538
       Decoration_41: -52666877
       Decoration_56: 1376398971
+      Decoration_78: -1947232651
       Decoration_55: -1653873890
       Decoration_26: -928222951
       Decoration_25: 983133650
@@ -1792,6 +1879,7 @@ TextureImporter:
       Decoration_10: -729231482
       Decoration_9: -635857681
       Decoration_53: 113369038
+      Decoration_76: 195113463
       Decoration_27: 481047194
       Decoration_67: 1386113734
       Decoration_16: 1528911222
