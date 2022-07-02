@@ -9,9 +9,8 @@ public class KeeperController : MonoBehaviour
     [SerializeField] private Transform skin;
     private bool goRight;
     private float speedPatrol = 1.1f;
-    
-    public Transform keeperRange;
-    Animator receiveSkinAnimator;
+    private Transform keeperRange;
+    private Animator receiveSkinAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,6 @@ public class KeeperController : MonoBehaviour
             keeperRange.GetComponent<CircleCollider2D>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
-            
         }
 
         if (receiveSkinAnimator.GetCurrentAnimatorStateInfo(0).IsName("KeeperAttack"))

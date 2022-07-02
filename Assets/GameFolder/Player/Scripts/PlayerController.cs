@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private int dashPower = 800;
     private int jumpPower = 1100;
-    public int comboNumber;
+    [SerializeField] private int comboNumber;
     private float timeCombo;
     private float dashTime;
 
