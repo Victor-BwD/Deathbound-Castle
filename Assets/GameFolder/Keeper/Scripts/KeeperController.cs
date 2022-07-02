@@ -5,10 +5,11 @@ using UnityEngine;
 public class KeeperController : MonoBehaviour
 {
     
-    public Transform a_point, b_point;
-    public bool goRight;
-    float speedPatrol = 0.3f;
-    public Transform skin;
+    [SerializeField] private Transform a_point, b_point;
+    [SerializeField] private Transform skin;
+    private bool goRight;
+    private float speedPatrol = 1.1f;
+    
     public Transform keeperRange;
     Animator receiveSkinAnimator;
 
