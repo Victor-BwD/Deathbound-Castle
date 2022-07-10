@@ -7,24 +7,31 @@ public class KeeperController : MonoBehaviour
     
     [SerializeField] private Transform a_point, b_point;
     [SerializeField] private Transform skin;
+    [SerializeField] private Transform keeperRange;
     private bool goRight;
     private float speedPatrol = 1.1f;
-    private Transform keeperRange;
+    private Collider2D circleCollider;
+    private Collider2D collider2D;
+    private Characters characters;
     private Animator receiveSkinAnimator;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        collider2D = GetComponent<Collider2D>();
+        circleCollider = GetComponentInChildren<CircleCollider2D>();
+        characters = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<Caracters>().life <= 0)
+        if(characters.life <= 0)
         {
-            keeperRange.GetComponent<CircleCollider2D>().enabled = false;
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            collider2D.enabled = false;
+            circleCollider.enabled = false;
             this.enabled = false;
         }
 

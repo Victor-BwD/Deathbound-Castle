@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform floorCollider;
     public LayerMask floorLayer;
     public Transform skin;
-    private Caracters caractersController;
+    private Characters charactersController;
     private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
 
     private int dashPower = 800;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        caractersController = GetComponent<Caracters>();
+        charactersController = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>(); // Get animator from the skin
     }
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
         }
 
-        if(caractersController.life <= 0)
+        if(charactersController.life <= 0)
         {
             this.enabled = false;
         }

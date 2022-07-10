@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Caracters : MonoBehaviour
+public class Characters : MonoBehaviour
 {
     public int life;
     public Transform skin;

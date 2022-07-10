@@ -24,11 +24,11 @@ public class AttackCollider : MonoBehaviour
         {
             if(player.GetComponent<PlayerController>().comboNumber == 1)
             {
-                collision.GetComponent<Caracters>().life--;
+                collision.GetComponent<Characters>().life--;
             }
             if(player.GetComponent<PlayerController>().comboNumber == 2)
             {
-                collision.GetComponent<Caracters>().life -= 2;
+                collision.GetComponent<Characters>().life -= 2;
             }
 
         }

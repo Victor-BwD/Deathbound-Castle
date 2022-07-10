@@ -39,7 +39,7 @@ public class GhostController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Caracters>().life--;
+            collision.GetComponent<Characters>().life--;
         }
     }
 }

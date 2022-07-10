@@ -3,9 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Caracters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Caracters.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/FloorCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/FloorCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Animation/KeeperIdle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Animation/KeeperIdle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AttackCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap/Script/SpikeTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap/Script/SpikeTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +83,8 @@
       <workItem from="1655687857428" duration="2100000" />
       <workItem from="1656393786480" duration="599000" />
       <workItem from="1656731262243" duration="528000" />
-      <workItem from="1656732437376" duration="484000" />
+      <workItem from="1656732437376" duration="1019000" />
+      <workItem from="1657479963786" duration="1662000" />
     </task>
     <servers />
   </component>
@@ -83,6 +94,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

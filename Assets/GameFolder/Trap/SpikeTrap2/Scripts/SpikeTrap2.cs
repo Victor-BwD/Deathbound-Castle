@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpikeTrap2 : MonoBehaviour
 {
-    private Caracters caracterScript;
+    private Characters characterScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        caracterScript = GameObject.Find("Player").GetComponent<Caracters>();
+        characterScript = GameObject.Find("Player").GetComponent<Characters>();
 
     }
 
@@ -24,9 +24,9 @@ public class SpikeTrap2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            caracterScript.life--;
+            characterScript.life--;
 
-            if (caracterScript.life <= 0)
+            if (characterScript.life <= 0)
             {
                 this.GetComponent<BoxCollider2D>().enabled = false;
             }

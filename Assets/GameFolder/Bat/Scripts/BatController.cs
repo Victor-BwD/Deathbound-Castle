@@ -8,7 +8,7 @@ public class BatController : MonoBehaviour
 
     [SerializeField] private float attackTime;
 
-    private Caracters caractersController;
+    private Characters charactersController;
 
     private Collider2D circleCollider2D;
 
@@ -18,7 +18,7 @@ public class BatController : MonoBehaviour
     void Start()
     {
         attackTime = 0;
-        caractersController = GetComponent<Caracters>();
+        charactersController = GetComponent<Characters>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,7 +26,7 @@ public class BatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (caractersController.life <= 0)
+        if (charactersController.life <= 0)
         {
             circleCollider2D.enabled = false;
             rb.gravityScale = 1;
@@ -46,7 +46,7 @@ public class BatController : MonoBehaviour
             if(attackTime >= 1)
             {
                 attackTime = 0;
-                player.GetComponent<Caracters>().life--;
+                player.GetComponent<Characters>().life--;
             }
         }
         
