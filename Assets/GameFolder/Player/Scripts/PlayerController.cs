@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
     [SerializeField]private Vector2 speed;
-    
+    private Rigidbody2D rb;
     public Transform floorCollider;
     public LayerMask floorLayer;
     public Transform skin;
     private Characters charactersController;
     private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
-
     private int dashPower = 800;
     private int jumpPower = 1100;
     public int comboNumber;
     private float timeCombo;
     private float dashTime;
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         charactersController = GetComponent<Characters>();
-        receiveSkinAnimator = skin.GetComponent<Animator>(); // Get animator from the skin
+        receiveSkinAnimator = skin.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         dashTime += Time.deltaTime;
@@ -69,11 +63,7 @@ public class PlayerController : MonoBehaviour
             
             rb.AddForce(new Vector2(0, jumpPower));
         }
-
-
-
     }
-
     private void FixedUpdate()
     {
         speed = new Vector2(Input.GetAxisRaw("Horizontal") * 7f, rb.velocity.y); // Gloval var to receive speed in X with input 
@@ -83,9 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = speed; // rb velocity receive speed
         }
-        
-
-        // If horizontal axis are =/= 0
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
             skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1); // Flip

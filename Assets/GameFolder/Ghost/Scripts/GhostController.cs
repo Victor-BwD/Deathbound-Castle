@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostController : MonoBehaviour
@@ -8,8 +6,6 @@ public class GhostController : MonoBehaviour
     [SerializeField]private float speedPatrol = 0.6f;
     private Transform skin;
     private bool goRight;
-
-    // Update is called once per frame
     void Update()
     {
         if (goRight)
@@ -34,7 +30,6 @@ public class GhostController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

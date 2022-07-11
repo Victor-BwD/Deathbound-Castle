@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeeperController : MonoBehaviour
@@ -14,9 +12,6 @@ public class KeeperController : MonoBehaviour
     private Collider2D collider2D;
     private Characters characters;
     private Animator receiveSkinAnimator;
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         collider2D = GetComponent<Collider2D>();
@@ -24,8 +19,6 @@ public class KeeperController : MonoBehaviour
         characters = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(characters.life <= 0)
@@ -61,7 +54,5 @@ public class KeeperController : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
         }
-
-        
     }
 }
