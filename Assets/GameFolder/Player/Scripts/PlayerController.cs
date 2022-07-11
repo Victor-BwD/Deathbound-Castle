@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
         if(charactersController.life <= 0)
         {
+            rb.simulated = false;
             this.enabled = false;
         }
 
