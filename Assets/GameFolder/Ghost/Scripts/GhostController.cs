@@ -6,6 +6,7 @@ public class GhostController : MonoBehaviour
     [SerializeField]private float speedPatrol = 11f;
     [SerializeField]private Transform skin;
     private bool goRight;
+    private int damage = 1;
     void Update()
     {
         if (goRight)
@@ -34,7 +35,7 @@ public class GhostController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Characters>().life--;
+            collision.GetComponent<Characters>().PlayerTakaDamage(damage);
         }
     }
 }

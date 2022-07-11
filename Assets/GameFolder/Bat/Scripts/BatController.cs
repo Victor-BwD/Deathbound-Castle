@@ -14,6 +14,8 @@ public class BatController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private int damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,7 @@ public class BatController : MonoBehaviour
             if(attackTime >= 1)
             {
                 attackTime = 0;
-                player.GetComponent<Characters>().life--;
+                player.GetComponent<Characters>().PlayerTakaDamage(damage);
             }
         }
         

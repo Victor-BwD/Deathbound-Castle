@@ -4,10 +4,10 @@
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Animation/adventurer-idle-00.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Animation/adventurer-idle-00.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <workItem from="1656731262243" duration="528000" />
       <workItem from="1656732437376" duration="1019000" />
       <workItem from="1657479963786" duration="1668000" />
-      <workItem from="1657503884120" duration="3314000" />
+      <workItem from="1657503884120" duration="4576000" />
     </task>
     <servers />
   </component>
