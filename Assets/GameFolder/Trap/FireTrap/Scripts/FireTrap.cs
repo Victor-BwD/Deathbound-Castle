@@ -24,7 +24,7 @@ public class FireTrap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            characterScript.life--;
+            characterScript.PlayerTakaDamage(1);
 
             if (characterScript.life <= 0)
             {

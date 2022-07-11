@@ -7,7 +7,7 @@ public class KeeperController : MonoBehaviour
     [SerializeField] private Transform skin;
     [SerializeField] private Transform keeperRange;
     private bool goRight;
-    private float speedPatrol = 1.1f;
+    private float speedPatrol = 2.2f;
     private Collider2D circleCollider;
     private Collider2D collider2D;
     private Characters characters;

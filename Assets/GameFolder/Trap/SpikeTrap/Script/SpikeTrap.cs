@@ -26,7 +26,7 @@ public class SpikeTrap : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0, 150));
-            characterScript.life--;
+            characterScript.PlayerTakaDamage(1);
 
             if (characterScript.life <= 0)
             {
