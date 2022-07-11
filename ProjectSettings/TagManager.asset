@@ -13,8 +13,8 @@ TagManager:
   - TileMapFloor
   - Water
   - UI
-  - 
-  - 
+  - Bat
+  - PlayerAttackCollider
   - 
   - 
   - 

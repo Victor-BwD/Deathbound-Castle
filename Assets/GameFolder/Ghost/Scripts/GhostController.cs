@@ -3,8 +3,8 @@ using UnityEngine;
 public class GhostController : MonoBehaviour
 {
     [SerializeField] private Transform a_point, b_point;
-    [SerializeField]private float speedPatrol = 0.6f;
-    private Transform skin;
+    [SerializeField]private float speedPatrol = 11f;
+    [SerializeField]private Transform skin;
     private bool goRight;
     void Update()
     {
