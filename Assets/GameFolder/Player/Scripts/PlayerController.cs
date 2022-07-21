@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]private Vector2 speed;
-    private Rigidbody2D rb;
-    public Transform floorCollider;
+    [SerializeField]private Transform floorCollider;
+    [SerializeField]private Transform skin;
+    
     public LayerMask floorLayer;
-    public Transform skin;
+    public int comboNumber;
+    
+    private Rigidbody2D rb;
     private Characters charactersController;
     private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
     private int dashPower = 800;
     private int jumpPower = 1100;
-    public int comboNumber;
     private float timeCombo;
     private float dashTime;
     void Start()

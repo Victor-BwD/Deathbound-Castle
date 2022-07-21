@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Characters : MonoBehaviour
 {
-    public int life;
     public Transform skin;
+    public int life;
     void Update()
     {
         if(life <= 0)
         {
             skin.GetComponent<Animator>().Play("Die", -1);
-        }   
+        }
     }
 
     public void PlayerTakaDamage(int damage)

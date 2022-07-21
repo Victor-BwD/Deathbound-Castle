@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/HUD/HeartFrame.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/HUD/HeartFrame.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/HUD/HeartIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2DPack/Tile&amp;Texture/HUD/HeartIcon.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Caracters/Scripts/Characters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -74,6 +88,7 @@
       <workItem from="1657479963786" duration="1668000" />
       <workItem from="1657503884120" duration="4688000" />
       <workItem from="1657515257363" duration="2805000" />
+      <workItem from="1658374277007" duration="3237000" />
     </task>
     <servers />
   </component>

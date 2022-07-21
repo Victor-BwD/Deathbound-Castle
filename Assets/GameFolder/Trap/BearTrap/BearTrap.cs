@@ -6,18 +6,18 @@ using UnityEngine;
 public class BearTrap : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    [SerializeField] Transform skin;
-    private Characters character;
+    [SerializeField] private Transform skin;
+    private PlayerHealth playerHealth;
     
     
     void Start()
     {
-        character = FindObjectOfType<Characters>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")){
-            character.PlayerTakaDamage(1);
+            playerHealth.PlayerTakaDamage(1);
             player = collision.transform;
             collision.transform.position = transform.position;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
