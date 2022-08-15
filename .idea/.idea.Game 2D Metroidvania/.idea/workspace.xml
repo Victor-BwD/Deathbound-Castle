@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" afterDir="false" />
-    </list>
+    <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +77,7 @@
       <workItem from="1657503884120" duration="4688000" />
       <workItem from="1657515257363" duration="2805000" />
       <workItem from="1658374277007" duration="3693000" />
-      <workItem from="1658897704092" duration="2769000" />
+      <workItem from="1658897704092" duration="3369000" />
     </task>
     <servers />
   </component>
