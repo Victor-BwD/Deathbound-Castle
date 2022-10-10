@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BatController : MonoBehaviour
@@ -40,17 +38,17 @@ public class BatController : MonoBehaviour
         if (Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center) > 0.8f)
         {
             attackTime = 0;
-            transform.position = Vector2.MoveTowards(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center, 2f * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position,
+                player.GetComponent<CapsuleCollider2D>().bounds.center, 2f * Time.deltaTime);
         }
         else
         {
             attackTime += Time.deltaTime;
-            if(attackTime >= 0.5)
+            if (attackTime >= 0.5)
             {
                 attackTime = 0;
                 player.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
             }
         }
-        
     }
 }
