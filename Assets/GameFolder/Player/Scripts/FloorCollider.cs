@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class FloorCollider : MonoBehaviour
-{
-    public AudioSource audioSource;
-    public AudioClip groundedSound;
-    private void OnTriggerEnter2D(Collider2D other)
+namespace Player {
+    public class FloorCollider : MonoBehaviour
     {
-        if (other.CompareTag("Floor"))
+        public AudioSource audioSource;
+        public AudioClip groundedSound;
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            audioSource.PlayOneShot(groundedSound, 0.1f);
+            if (other.CompareTag("Floor"))
+            {
+                audioSource.PlayOneShot(groundedSound, 0.1f);
+            }
         }
     }
 }
+

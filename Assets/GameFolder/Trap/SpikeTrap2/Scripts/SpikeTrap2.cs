@@ -1,37 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
-public class SpikeTrap2 : MonoBehaviour
+namespace Traps
 {
-    private PlayerHealth playerHealth;
-    private Characters characters;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class SpikeTrap2 : MonoBehaviour
     {
-        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-        characters = GameObject.Find("Player").GetComponent<Characters>();
+        private PlayerHealth playerHealth;
+        private Characters characters;
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        // Start is called before the first frame update
+        void Start()
         {
-            playerHealth.PlayerTakaDamage(1);
+            playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+            characters = GameObject.Find("Player").GetComponent<Characters>();
 
-            if (characters.life <= 0)
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
             {
-                this.GetComponent<BoxCollider2D>().enabled = false;
+                playerHealth.PlayerTakaDamage(1);
+
+                if (characters.life <= 0)
+                {
+                    this.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
         }
     }
 }
+

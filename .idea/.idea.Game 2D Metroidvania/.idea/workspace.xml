@@ -5,15 +5,21 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Ghost/Scripts/GhostController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperAttackCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperRange.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AttackCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AttackCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/FloorCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/FloorCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/FireTrap/Scripts/FireTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap/Script/SpikeTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap/Script/SpikeTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Scripts/SpikeTrap2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -94,7 +101,7 @@
       <workItem from="1658897704092" duration="3369000" />
       <workItem from="1661369989644" duration="959000" />
       <workItem from="1661552275243" duration="2340000" />
-      <workItem from="1665360432967" duration="822000" />
+      <workItem from="1665360432967" duration="5043000" />
     </task>
     <servers />
   </component>

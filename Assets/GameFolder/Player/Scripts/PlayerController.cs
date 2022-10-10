@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+namespace Player
+{
+    public class PlayerController : MonoBehaviour {
     [SerializeField] private Vector2 speed;
     [SerializeField] private Transform floorCollider;
     [SerializeField] private Transform skin;
@@ -104,4 +106,5 @@ public class PlayerController : MonoBehaviour {
             receiveSkinAnimator.SetBool("PlayerRun", false); // False in animation run
         }
     }
+}
 }
