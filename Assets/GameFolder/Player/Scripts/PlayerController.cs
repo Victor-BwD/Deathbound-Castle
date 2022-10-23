@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -18,13 +19,25 @@ namespace Player
     private float timeCombo;
     private float dashTime;
 
+    private string currentLevel;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         charactersController = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>();
+        
+        currentLevel = SceneManager.GetActiveScene().name;
+        
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update() {
+        if (!currentLevel.Equals(SceneManager.GetActiveScene().name))
+        {
+            currentLevel = SceneManager.GetActiveScene().name;
+            transform.position = GameObject.Find("Spawn").transform.position;
+        }
+        
         dashTime += Time.deltaTime;
         CheckDash();
 
