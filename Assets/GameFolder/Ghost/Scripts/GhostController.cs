@@ -1,41 +1,46 @@
+using Player;
 using UnityEngine;
 
-public class GhostController : MonoBehaviour
+namespace Ghost
 {
-    [SerializeField] private Transform a_point, b_point;
-    [SerializeField]private float speedPatrol = 11f;
-    [SerializeField]private Transform skin;
-    private bool goRight;
-    private int damage = 1;
-    void Update()
+    public class GhostController : MonoBehaviour
     {
-        if (goRight)
+        [SerializeField] private Transform a_point, b_point;
+        [SerializeField]private float speedPatrol = 11f;
+        [SerializeField]private Transform skin;
+        private bool goRight;
+        private int damage = 1;
+        void Update()
         {
-            skin.localScale = new Vector3(-1, 1, 1);
-
-            if (Vector2.Distance(transform.position, b_point.position) < 0.1f)
+            if (goRight)
             {
-                transform.position = a_point.position;
+                skin.localScale = new Vector3(-1, 1, 1);
+
+                if (Vector2.Distance(transform.position, b_point.position) < 0.1f)
+                {
+                    transform.position = a_point.position;
+                }
+
+                transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
-        }
-        else
-        {
-            skin.localScale = new Vector3(1, 1, 1);
-
-            if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
+            else
             {
-                transform.position = b_point.position;
+                skin.localScale = new Vector3(1, 1, 1);
+
+                if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
+                {
+                    transform.position = b_point.position;
+                }
+                transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
             }
-            transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
+            if (collision.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
+            }
         }
     }
 }
+

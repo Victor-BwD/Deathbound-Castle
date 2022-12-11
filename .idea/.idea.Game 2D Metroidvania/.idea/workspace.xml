@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Candle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Candle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Torch.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Torch.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +24,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29rX66nwcBZZNRoNW9vLaGUNwbm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -86,6 +91,12 @@
       <workItem from="1658374277007" duration="3693000" />
       <workItem from="1658897704092" duration="3369000" />
       <workItem from="1661369989644" duration="959000" />
+      <workItem from="1661552275243" duration="2340000" />
+      <workItem from="1665360432967" duration="5043000" />
+      <workItem from="1666495462211" duration="1000" />
+      <workItem from="1666497282223" duration="1443000" />
+      <workItem from="1667973715873" duration="1020000" />
+      <workItem from="1670796818909" duration="4434000" />
     </task>
     <servers />
   </component>

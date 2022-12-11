@@ -1,36 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollider : MonoBehaviour
-{
-    public Transform player;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Player {
+    public class AttackCollider : MonoBehaviour {
+        public Transform player;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            if(player.GetComponent<PlayerController>().comboNumber == 1)
-            {
-                collision.GetComponent<Characters>().life--;
+        private void OnTriggerEnter2D(Collider2D collision) {
+            if (collision.CompareTag("Enemy")) {
+                if(player.GetComponent<PlayerController>().comboNumber == 1) {
+                    collision.GetComponent<Characters>().life--;
+                }
+                if(player.GetComponent<PlayerController>().comboNumber == 2) {
+                    collision.GetComponent<Characters>().life -= 2;
+                }
             }
-            if(player.GetComponent<PlayerController>().comboNumber == 2)
-            {
-                collision.GetComponent<Characters>().life -= 2;
-            }
-
         }
     }
 }
+
