@@ -18,13 +18,14 @@ namespace Player
     private int jumpPower = 1100;
     private float timeCombo;
     private float dashTime;
-
+    private AudioPlayer audioPlayer;
     private string currentLevel;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         charactersController = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>();
+        audioPlayer = GetComponent<AudioPlayer>();
         
         currentLevel = SceneManager.GetActiveScene().name;
         
@@ -72,8 +73,10 @@ namespace Player
     {
         if (Input.GetButtonDown("Fire1") && timeCombo > 0.5f) {
             comboNumber++;
+            audioPlayer.audioSource.PlayOneShot(audioPlayer.attack1Sound);
             if (comboNumber > 2) {
                 comboNumber = 1;
+                audioPlayer.audioSource.PlayOneShot(audioPlayer.attack2Sound);
             }
 
             timeCombo = 0;
@@ -93,6 +96,7 @@ namespace Player
             receiveSkinAnimator.Play("PlayerDash", -1); // -1 search for all layers
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
+            audioPlayer.audioSource.PlayOneShot(audioPlayer.dashSound);
         }
     }
 
