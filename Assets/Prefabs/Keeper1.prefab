@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 8856666760929596992}
   - component: {fileID: 8856666760929597006}
   - component: {fileID: 8856666760929597007}
+  - component: {fileID: 6895645594123301576}
   m_Layer: 0
   m_Name: Skin
   m_TagString: Untagged
@@ -168,6 +169,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6895645594123301576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856666760929596993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f388235f80402d8a12e0bc7a6fdfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keeperDieSound: {fileID: 8300000, guid: 8c38c4cf0445b194f93d2706020a248d, type: 3}
+  keeperAttackSound: {fileID: 8300000, guid: fb81184d9774e414b8b2228769ecabc1, type: 3}
 --- !u!1 &8856666761057010425
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +352,6 @@ GameObject:
   - component: {fileID: 8856666762635231968}
   - component: {fileID: 8856666762635231983}
   - component: {fileID: 8856666762635231982}
-  - component: {fileID: 8763787197272659671}
   m_Layer: 0
   m_Name: Keeper
   m_TagString: Enemy
@@ -407,17 +421,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin: {fileID: 8856666760929596992}
   life: 2
---- !u!114 &8763787197272659671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856666762635231970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f388235f80402d8a12e0bc7a6fdfb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keeperDieSound: {fileID: 8300000, guid: 8c38c4cf0445b194f93d2706020a248d, type: 3}
-  keeperAttackSound: {fileID: 8300000, guid: fb81184d9774e414b8b2228769ecabc1, type: 3}

@@ -7,6 +7,8 @@ namespace GameFolder.Scripts
         // Audio players components.
         public AudioSource EffectsSource;
         public AudioSource MusicSource;
+        // Audio for monster.
+        public AudioSource MonsterEffectSource;
         // Random pitch adjustment range.
         public float LowPitchRange = .95f;
         public float HighPitchRange = 1.05f;
@@ -34,6 +36,12 @@ namespace GameFolder.Scripts
         {
             EffectsSource.clip = clip;
             EffectsSource.Play();
+        }
+        
+        public void PlayMonsterEffect(AudioClip clip)
+        {
+            MonsterEffectSource.clip = clip;
+            MonsterEffectSource.Play();
         }
         // Play a single clip through the music source.
         public void PlayMusic(AudioClip clip)

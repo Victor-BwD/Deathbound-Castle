@@ -10,12 +10,12 @@ namespace Keeper
         
         public void DieSound()
         {
-            SoundManager.Instance.Play(keeperDieSound);
+            SoundManager.Instance.PlayMonsterEffect(keeperDieSound);
         }
 
-        public void KeeperAttackSound()
+        public void KeeperAttackSound() // call in animation event
         {
-            SoundManager.Instance.Play(keeperAttackSound);
+            SoundManager.Instance.PlayMonsterEffect(keeperAttackSound);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Keeper
             circleCollider = GetComponentInChildren<CircleCollider2D>();
             characters = GetComponent<Characters>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
-            keeperSounds = GetComponent<KeeperSounds>();
+            keeperSounds = GetComponentInChildren<KeeperSounds>();
         }
         void Update() {
             if(characters.life <= 0) {
