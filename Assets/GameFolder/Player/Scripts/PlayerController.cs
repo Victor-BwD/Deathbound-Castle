@@ -1,3 +1,4 @@
+using GameFolder.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +27,7 @@ namespace Player
         charactersController = GetComponent<Characters>();
         receiveSkinAnimator = skin.GetComponent<Animator>();
         audioPlayer = GetComponent<AudioPlayer>();
-        
+
         currentLevel = SceneManager.GetActiveScene().name;
         
         DontDestroyOnLoad(this.gameObject);
@@ -73,10 +74,10 @@ namespace Player
     {
         if (Input.GetButtonDown("Fire1") && timeCombo > 0.5f) {
             comboNumber++;
-            audioPlayer.audioSource.PlayOneShot(audioPlayer.attack1Sound);
+            SoundManager.Instance.Play(audioPlayer.attack1Sound);
             if (comboNumber > 2) {
                 comboNumber = 1;
-                audioPlayer.audioSource.PlayOneShot(audioPlayer.attack2Sound);
+                SoundManager.Instance.Play(audioPlayer.attack2Sound);
             }
 
             timeCombo = 0;
@@ -96,7 +97,7 @@ namespace Player
             receiveSkinAnimator.Play("PlayerDash", -1); // -1 search for all layers
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
-            audioPlayer.audioSource.PlayOneShot(audioPlayer.dashSound);
+            SoundManager.Instance.Play(audioPlayer.dashSound);
         }
     }
 
