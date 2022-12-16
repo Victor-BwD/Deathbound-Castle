@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpikeTrap2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpikeTrap2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Animation/SpikeTrap2.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Trap/SpikeTrap2/Animation/SpikeTrap2.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BearTrap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BearTrap.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ghost1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ghost1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +99,7 @@
       <workItem from="1670796818909" duration="4434000" />
       <workItem from="1671043345654" duration="6843000" />
       <workItem from="1671077146249" duration="1920000" />
-      <workItem from="1671211881532" duration="125000" />
+      <workItem from="1671211881532" duration="1507000" />
     </task>
     <servers />
   </component>

@@ -16710,6 +16710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80421323}
     m_Modifications:
+    - target: {fileID: 4029156680515945326, guid: 1d2603c80b317fa4e99d0884013d6148, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4652769309738979822, guid: 1d2603c80b317fa4e99d0884013d6148, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -17437,6 +17441,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80421323}
     m_Modifications:
+    - target: {fileID: 4029156680515945326, guid: 1d2603c80b317fa4e99d0884013d6148, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029156680515945326, guid: 1d2603c80b317fa4e99d0884013d6148, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4652769309738979822, guid: 1d2603c80b317fa4e99d0884013d6148, type: 3}
       propertyPath: m_RootOrder
       value: 0
