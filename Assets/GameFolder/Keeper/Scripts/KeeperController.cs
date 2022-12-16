@@ -13,14 +13,17 @@ namespace Keeper
         private Collider2D collider2D;
         private Characters characters;
         private Animator receiveSkinAnimator;
+        private KeeperSounds keeperSounds;
         void Start() {
             collider2D = GetComponent<Collider2D>();
             circleCollider = GetComponentInChildren<CircleCollider2D>();
             characters = GetComponent<Characters>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
+            keeperSounds = GetComponentInChildren<KeeperSounds>();
         }
         void Update() {
             if(characters.life <= 0) {
+                keeperSounds.DieSound();
                 collider2D.enabled = false;
                 circleCollider.enabled = false;
                 this.enabled = false;

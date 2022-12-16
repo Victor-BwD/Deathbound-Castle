@@ -9,6 +9,8 @@ namespace Traps
     {
         [SerializeField] private Transform player;
         [SerializeField] private Transform skin;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip bearTrapAudio;
         private PlayerHealth playerHealth;
     
     
@@ -19,6 +21,7 @@ namespace Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player")){
+                _audioSource.PlayOneShot(bearTrapAudio);
                 playerHealth.PlayerTakaDamage(1);
                 player = collision.transform;
                 collision.transform.position = transform.position;
