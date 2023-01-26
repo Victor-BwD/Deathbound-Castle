@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-
     <list default="true" id="1cae2470-9225-4e60-b240-d30cbb453d67" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,28 +13,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61d61d5f64f449e3a5da7a3ba725297ffc00/05/89f9bf61/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/AddHealth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/AudioPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/AudioPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/AudioPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/AudioPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Player/Scripts/PlayerHealth.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/GameFolder/Trap/BearTrap/BearTrap.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/Assets/Scenes/Level1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.6/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity Projects/Game 2D Metroidvania/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -91,7 +71,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="66348e03-b4d8-4773-997c-2f01db9bdddb" name="Changes" comment="" />
+      <changelist id="1cae2470-9225-4e60-b240-d30cbb453d67" name="Changes" comment="" />
       <created>1653872006162</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -117,6 +97,7 @@
       <workItem from="1671043345654" duration="6843000" />
       <workItem from="1671077146249" duration="1920000" />
       <workItem from="1671211881532" duration="1507000" />
+      <workItem from="1674765280538" duration="1351000" />
     </task>
     <servers />
   </component>
