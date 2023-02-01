@@ -8,6 +8,7 @@ namespace Player
     [SerializeField] private Vector2 speed;
     [SerializeField] private Transform floorCollider;
     [SerializeField] private Transform skin;
+    [SerializeField] private GameObject GameOverScreen;
 
     public LayerMask floorLayer;
     public int comboNumber;
@@ -56,6 +57,7 @@ namespace Player
         if (charactersController.life <= 0) {
             rb.simulated = false;
             this.enabled = false;
+            GameOverScreen.SetActive(true);
         }
     }
 
@@ -123,6 +125,11 @@ namespace Player
         else {
             receiveSkinAnimator.SetBool("PlayerRun", false); // False in animation run
         }
+    }
+
+    public void DestroyPlayer()
+    {
+        Destroy(transform.gameObject);
     }
 }
 }
