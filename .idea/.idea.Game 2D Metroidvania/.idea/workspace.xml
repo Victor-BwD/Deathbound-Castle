@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cae2470-9225-4e60-b240-d30cbb453d67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Bat/Scripts/BatTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
       <workItem from="1674765280538" duration="1464000" />
       <workItem from="1675281947868" duration="3406000" />
       <workItem from="1676222095793" duration="1824000" />
-      <workItem from="1676339295490" duration="146000" />
+      <workItem from="1676339295490" duration="405000" />
     </task>
     <servers />
   </component>
