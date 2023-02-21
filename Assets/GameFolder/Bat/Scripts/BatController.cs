@@ -32,6 +32,8 @@ namespace Bats
                 this.enabled = false;
     
                 Destroy(gameObject, 2);
+                BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
+                batTrigger.RemoveGameObject(this.gameObject.transform);
             }
     
             if (Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center) > 0.8f)

@@ -17719,11 +17719,23 @@ PrefabInstance:
       value: 0.7066405
       objectReference: {fileID: 0}
     - target: {fileID: 3202357042579198479, guid: 99abff1d0b6b9384ea2d02b9f6c0af8a, type: 3}
+      propertyPath: bats.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202357042579198479, guid: 99abff1d0b6b9384ea2d02b9f6c0af8a, type: 3}
       propertyPath: bat.Array.data[0]
       value: 
       objectReference: {fileID: 375941310}
     - target: {fileID: 3202357042579198479, guid: 99abff1d0b6b9384ea2d02b9f6c0af8a, type: 3}
       propertyPath: bat.Array.data[1]
+      value: 
+      objectReference: {fileID: 1005770036}
+    - target: {fileID: 3202357042579198479, guid: 99abff1d0b6b9384ea2d02b9f6c0af8a, type: 3}
+      propertyPath: bats.Array.data[0]
+      value: 
+      objectReference: {fileID: 375941310}
+    - target: {fileID: 3202357042579198479, guid: 99abff1d0b6b9384ea2d02b9f6c0af8a, type: 3}
+      propertyPath: bats.Array.data[1]
       value: 
       objectReference: {fileID: 1005770036}
     m_RemovedComponents: []
