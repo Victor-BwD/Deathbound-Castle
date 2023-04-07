@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class EnemyDoorController : MonoBehaviour
 {
-    private Characters characters;
-    private int lifeChange;
-
     [SerializeField] private Transform lifebar;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private Characters characters;
+    private int previousLife;
+    
+    private void Start()
     {
         characters = GetComponent<Characters>();
-        lifeChange = GetComponent<Characters>().life;
+        previousLife = characters.life;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (lifeChange != GetComponent<Characters>().life)
+        if (previousLife != characters.life)
         {
-            lifeChange = GetComponent<Characters>().life;
+            previousLife = characters.life;
             characters.skin.GetComponent<Animator>().Play("DoorEnemy", -1);
         }
 
         if (characters.life <= 0)
         {
-            Destroy(transform.gameObject);
+            Destroy(gameObject);
         }
 
-        lifebar.localScale = new Vector3((1 * characters.life) / 10f, 1, 1);
+        lifebar.localScale = new Vector3((float)characters.life / 10f, 1f, 1f);
     }
 }
