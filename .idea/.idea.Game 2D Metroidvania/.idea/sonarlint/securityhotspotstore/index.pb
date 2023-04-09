@@ -13,3 +13,7 @@ d
 -Assets/GameFolder/Player/Scripts/AddHealth.cs,b\f\bf46e697b4b92aa3c424926908e7ae84b004af45
 k
 ;Assets/GameFolder/Decoration/Scripts/EnemyDoorController.cs,e\a\ea4c05c62874640fff41daaecc2643e2e1432be9
+^
+.Assets/GameFolder/Scripts/DontDestroyOnLoad.cs,9\e\9ec87b27a1b3855bf330d68c0a8889e80b77b84d
+a
+1Assets/GameFolder/Caracters/Scripts/Characters.cs,b\3\b3029b2d6deaf1134b2080f4a99ab5e604584727

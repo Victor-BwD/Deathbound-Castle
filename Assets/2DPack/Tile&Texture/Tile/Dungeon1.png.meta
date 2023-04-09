@@ -265,6 +265,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1569,12 +1605,12 @@ TextureImporter:
       Dungeon1_15: 2514186836580232427
       Dungeon1_27: -7709005597328439393
       Dungeon1_38: -2438852851090020894
-      Dungeon1_17: 987281739001786223
+      Dungeon1_56: 2335776488672700395
       Dungeon1_54: 5306523622356713066
       Dungeon1_29: 638278476714730106
-      Dungeon1_35: -428181685804181366
+      Dungeon1_17: 987281739001786223
       Dungeon1_30: -6734875551623697568
-      Dungeon1_56: 2335776488672700395
+      Dungeon1_35: -428181685804181366
       Dungeon1_48: 6325221034391241994
       Dungeon1_21: -6570963964425333347
       Dungeon1_2: 3775088828492989452
