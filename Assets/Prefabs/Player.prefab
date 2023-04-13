@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 3688359788709692164}
   - component: {fileID: 1606315681}
   - component: {fileID: 5646296424444116089}
+  - component: {fileID: 1946726429625899259}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1615,6 +1616,18 @@ MonoBehaviour:
   playerGroundedSound: {fileID: 8300000, guid: 6b9bd895c2047b946b30112b138a5fac, type: 3}
   damageSound: {fileID: 8300000, guid: 9b609f10a860f5b40a1d7e3a2e031e98, type: 3}
   dashSound: {fileID: 8300000, guid: c384c772134522340ae8260aa0322605, type: 3}
+--- !u!114 &1946726429625899259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688359788709692161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1dade94d724ebe8afd326740d0d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3688359788766750372
 GameObject:
   m_ObjectHideFlags: 0

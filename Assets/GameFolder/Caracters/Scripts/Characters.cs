@@ -4,6 +4,7 @@ public class Characters : MonoBehaviour
 {
     public Transform skin;
     public int life;
+    
     void Update()
     {
         if(life <= 0)

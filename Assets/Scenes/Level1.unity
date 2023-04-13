@@ -244,6 +244,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 917139199639587630, guid: cdbe5a4bbe80c3a489c868bf9307338b, type: 3}
   m_PrefabInstance: {fileID: 1951479771}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &122907194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3688359789140311162, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
+  m_PrefabInstance: {fileID: 3688359789209522177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &126455951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 962462660751631470, guid: 03415b29eebf5014381207bcf16b1422, type: 3}
@@ -1082,7 +1087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &346347086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45863,6 +45868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1946726429625899259, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 122907194}
     - target: {fileID: 3688359788709692160, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_Size.x
       value: 0.12283647
@@ -45919,7 +45928,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1946726429625899259, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
 --- !u!1001 &3819860566922113167
 PrefabInstance:
