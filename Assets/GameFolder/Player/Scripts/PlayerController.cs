@@ -11,14 +11,12 @@ namespace Player
     [SerializeField] private GameObject GameOverScreen;
 
     public LayerMask floorLayer;
-    public int comboNumber;
 
     private Rigidbody2D rb;
     private Characters charactersController;
     private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
     private int dashPower = 800;
     private int jumpPower = 1100;
-    private float timeCombo;
     private float dashTime;
     private AudioPlayer audioPlayer;
     private string currentLevel;
@@ -46,9 +44,6 @@ namespace Player
 
         DisableControls();
 
-        timeCombo += Time.deltaTime;
-        ComboCheck();
-
         JumpCheck();
     }
 
@@ -71,25 +66,7 @@ namespace Player
             rb.AddForce(new Vector2(0, jumpPower));
         }
     }
-
-    private void ComboCheck()
-    {
-        if (Input.GetButtonDown("Fire1") && timeCombo > 0.5f) {
-            comboNumber++;
-            SoundManager.Instance.Play(audioPlayer.attack1Sound);
-            if (comboNumber > 2) {
-                comboNumber = 1;
-                SoundManager.Instance.Play(audioPlayer.attack2Sound);
-            }
-
-            timeCombo = 0;
-            receiveSkinAnimator.Play("PlayerAttack" + comboNumber, -1);
-        }
-
-        if (timeCombo >= 1) {
-            comboNumber = 0;
-        }
-    }
+    
 
     private void CheckDash()
     {

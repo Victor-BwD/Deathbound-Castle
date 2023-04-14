@@ -1472,7 +1472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16530e9ac43d5644998ed6aa564d4538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3688359788709692163}
 --- !u!1 &3688359788709692161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1487,8 @@ GameObject:
   - component: {fileID: 3688359788709692164}
   - component: {fileID: 1606315681}
   - component: {fileID: 5646296424444116089}
-  - component: {fileID: 1946726429625899259}
+  - component: {fileID: 4457947227051598721}
+  - component: {fileID: 2496632135629512319}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1571,7 +1571,6 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 8
-  comboNumber: 0
 --- !u!114 &3688359788709692164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,7 +1615,7 @@ MonoBehaviour:
   playerGroundedSound: {fileID: 8300000, guid: 6b9bd895c2047b946b30112b138a5fac, type: 3}
   damageSound: {fileID: 8300000, guid: 9b609f10a860f5b40a1d7e3a2e031e98, type: 3}
   dashSound: {fileID: 8300000, guid: c384c772134522340ae8260aa0322605, type: 3}
---- !u!114 &1946726429625899259
+--- !u!114 &4457947227051598721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1625,9 +1624,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3688359788709692161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a1dade94d724ebe8afd326740d0d3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a94c7c32f3e4a1ab8b5e7200e08182f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin: {fileID: 3688359789140311162}
+--- !u!114 &2496632135629512319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688359788709692161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe7490f3e7b47079c937ab8e2a243fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
+  floorCollider: {fileID: 3688359788766750375}
+  skin: {fileID: 3688359789140311162}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &3688359788766750372
 GameObject:
   m_ObjectHideFlags: 0
