@@ -21,7 +21,7 @@ namespace Keeper
             receiveSkinAnimator = skin.GetComponent<Animator>();
             keeperSounds = GetComponentInChildren<KeeperSounds>();
         }
-        void Update() {
+        void FixedUpdate() {
             if(characters.life <= 0) {
                 keeperSounds.DieSound();
                 collider2D.enabled = false;

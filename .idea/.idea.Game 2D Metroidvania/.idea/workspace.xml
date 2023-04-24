@@ -2,11 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cae2470-9225-4e60-b240-d30cbb453d67" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/0/9/0969a10a28dd87f196a8fc629576f5e4564a5e20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/0/9/09e7b16e64c564e8aee9078d9ddac5ce2a53b88e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/2/8/28681532ce74259e4e5564225f864786f3486c97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/4/7/47af1e9f8d980efccbbf3c30ebed067b460cd802" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/6/4/649db4ef1e49e7252234c31fc75c5fe442852a02" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/7/c/7c0690269cd36d1615202475fd687d26c8c39c7e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/9/1/917bb721807dddd623863edd804f44ba3934a51a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/c/3/c389e3a2cca2b2cd4bd28f218cee807dfd0a5d53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/e/a/ea4c05c62874640fff41daaecc2643e2e1432be9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/f/9/f95b422c2ea7d68c51656d7869e6a3ed7e6970e6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/0/9/0969a10a28dd87f196a8fc629576f5e4564a5e20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/0/9/09e7b16e64c564e8aee9078d9ddac5ce2a53b88e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/2/8/28681532ce74259e4e5564225f864786f3486c97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/4/7/47af1e9f8d980efccbbf3c30ebed067b460cd802" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/6/4/649db4ef1e49e7252234c31fc75c5fe442852a02" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/7/c/7c0690269cd36d1615202475fd687d26c8c39c7e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/9/1/917bb721807dddd623863edd804f44ba3934a51a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/c/3/c389e3a2cca2b2cd4bd28f218cee807dfd0a5d53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/e/a/ea4c05c62874640fff41daaecc2643e2e1432be9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/f/9/f95b422c2ea7d68c51656d7869e6a3ed7e6970e6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game 2D Metroidvania/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameFolder/Keeper/Scripts/KeeperController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +135,7 @@
       <workItem from="1681336985325" duration="3010000" />
       <workItem from="1681500731741" duration="7606000" />
       <workItem from="1682225669888" duration="207000" />
+      <workItem from="1682300946905" duration="787000" />
     </task>
     <servers />
   </component>
