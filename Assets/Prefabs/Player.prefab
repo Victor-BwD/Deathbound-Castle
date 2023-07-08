@@ -323,6 +323,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -437,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -523,7 +525,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &677837085
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -540,7 +542,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &766178296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,12 +1643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe7490f3e7b47079c937ab8e2a243fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0}
-  floorCollider: {fileID: 3688359788766750375}
-  skin: {fileID: 3688359789140311162}
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &3688359788766750372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,7 +1891,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &3688359789140311165
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1911,4 +1908,5 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

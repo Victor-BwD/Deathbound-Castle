@@ -155,7 +155,7 @@ Transform:
   - {fileID: 1081555622}
   - {fileID: 1657779652}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &102115937
 PrefabInstance:
@@ -1139,7 +1139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367781423
 GameObject:
@@ -1596,7 +1596,7 @@ Transform:
   - {fileID: 1813272627}
   - {fileID: 441640772}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &546916141
 PrefabInstance:
@@ -1812,7 +1812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 962462660751631470, guid: 03415b29eebf5014381207bcf16b1422, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 962462660751631470, guid: 03415b29eebf5014381207bcf16b1422, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2258,7 +2258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &865384336
 AudioSource:
@@ -17150,7 +17150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1378563935
 GameObject:
@@ -18098,7 +18098,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1843788736
 PrefabInstance:
@@ -18352,7 +18352,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1873027788
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18369,7 +18369,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1879680292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8499031643107225678, guid: dfc6beeae59dd2b488d95585402f11ac, type: 3}
@@ -18503,6 +18504,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -18570,7 +18572,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1951479771
 PrefabInstance:
@@ -45222,7 +45224,7 @@ Transform:
   - {fileID: 2133935927}
   - {fileID: 712077057}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2117594232 stripped
 Transform:
@@ -45273,7 +45275,7 @@ Transform:
   - {fileID: 1995109306}
   - {fileID: 1093606130}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133935925
 GameObject:
@@ -45886,7 +45888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688359788709692163, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3688359788709692163, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46065,7 +46067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6510838401107107324, guid: 9e99c294d9b05e247bc5a921c2a2bcdb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6510838401107107324, guid: 9e99c294d9b05e247bc5a921c2a2bcdb, type: 3}
       propertyPath: m_LocalPosition.x
