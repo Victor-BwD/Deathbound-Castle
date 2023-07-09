@@ -1643,6 +1643,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe7490f3e7b47079c937ab8e2a243fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
+  floorCollider: {fileID: 3688359788766750375}
+  skin: {fileID: 3688359789140311162}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &3688359788766750372
 GameObject:
   m_ObjectHideFlags: 0
