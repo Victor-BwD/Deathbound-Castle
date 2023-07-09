@@ -34,6 +34,7 @@ namespace Player
         {
             dashTime += Time.deltaTime;
             CheckDash();
+            JumpCheck();
         }
 
         private void FixedUpdate()
@@ -46,9 +47,7 @@ namespace Player
                 rb.velocity = speed; // rb velocity receive speed
             }
             
-            WalkAnimation();
-
-            JumpCheck();
+            WalkAnimation(); 
         }
 
         private void WalkAnimation()
