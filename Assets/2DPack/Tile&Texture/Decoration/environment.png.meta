@@ -494,7 +494,7 @@ TextureImporter:
         width: 31
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -515,7 +515,7 @@ TextureImporter:
         width: 17
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -536,7 +536,7 @@ TextureImporter:
         width: 62
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -544,6 +544,27 @@ TextureImporter:
       bones: []
       spriteID: 1878a9701bd57834598077c770201869
       internalID: -946523710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: environment_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 128
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1af8bc48b2156246a510e38fe9ada1f
+      internalID: -1054060433
       vertices: []
       indices: 
       edges: []
@@ -572,6 +593,7 @@ TextureImporter:
       environment_18: 1671313564
       environment_19: -946523710
       environment_2: 717170988
+      environment_20: -1054060433
       environment_3: -757458601
       environment_4: -1672016776
       environment_5: 1606913163
