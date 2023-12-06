@@ -1817,7 +1817,7 @@ TextureImporter:
         width: 3
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1825,6 +1825,69 @@ TextureImporter:
       bones: []
       spriteID: a9c07c2f14f82e1498a32232303c9d69
       internalID: -707130779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_81
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01338824b5a1604c85f13b8c9d2b76c
+      internalID: 840035271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_82
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 65
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113b221acd4a0d14b9cd244daa2870af
+      internalID: 80390964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_83
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 96
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac23ae5922121a34297f7c348480be3a
+      internalID: -953492094
       vertices: []
       indices: 
       edges: []
@@ -1920,6 +1983,9 @@ TextureImporter:
       Decoration_79: -1637899136
       Decoration_8: -1304085528
       Decoration_80: -707130779
+      Decoration_81: 840035271
+      Decoration_82: 80390964
+      Decoration_83: -953492094
       Decoration_9: -635857681
   spritePackingTag: 
   pSDRemoveMatte: 0
