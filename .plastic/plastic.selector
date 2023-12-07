@@ -1,4 +1,0 @@
-repository "Game-2D-Metroidvania@VictorBwD@cloud"
-  path "/"
-    br "/main"
-    co "/main"
