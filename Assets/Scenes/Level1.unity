@@ -28147,6 +28147,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decoration_76
       objectReference: {fileID: 0}
+    - target: {fileID: 8631618086803229409, guid: 138bb7a4702fd9b40b4a51e1b9e6ed9b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5724457
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631618086803229409, guid: 138bb7a4702fd9b40b4a51e1b9e6ed9b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5724457
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631618086803229409, guid: 138bb7a4702fd9b40b4a51e1b9e6ed9b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
     - target: {fileID: 8631618086803229422, guid: 138bb7a4702fd9b40b4a51e1b9e6ed9b, type: 3}
       propertyPath: m_RootOrder
       value: 48
