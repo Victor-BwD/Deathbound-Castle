@@ -3,7 +3,7 @@ guid: 3dc45b0274d4c7e42bfa75713a7ef90b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1783,7 +1796,7 @@ TextureImporter:
         width: 5
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1791,6 +1804,90 @@ TextureImporter:
       bones: []
       spriteID: 602d1c7c89e61e244875ffe0216eec0b
       internalID: -1637899136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_80
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 50
+        width: 3
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c07c2f14f82e1498a32232303c9d69
+      internalID: -707130779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_81
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01338824b5a1604c85f13b8c9d2b76c
+      internalID: 840035271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_82
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 65
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113b221acd4a0d14b9cd244daa2870af
+      internalID: 80390964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration_83
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 96
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac23ae5922121a34297f7c348480be3a
+      internalID: -953492094
       vertices: []
       indices: 
       edges: []
@@ -1806,86 +1903,90 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Decoration_34: 1356673703
-      Decoration_31: -741730327
-      Decoration_38: 1918202487
-      Decoration_66: -239729910
-      Decoration_61: 652008424
-      Decoration_15: 765203968
-      Decoration_50: 246027776
-      Decoration_11: 408123587
-      Decoration_70: 699518814
-      Decoration_28: -1844655152
-      Decoration_72: 2076222317
-      Decoration_6: -823244239
-      Decoration_30: -184485908
-      Decoration_43: 53214069
-      Decoration_13: -680887855
-      Decoration_44: 1163976270
-      Decoration_69: 222409662
-      Decoration_48: -1097748774
-      Decoration_71: 1035674301
-      Decoration_36: 311069469
-      Decoration_52: -626260689
-      Decoration_42: -1867741106
-      Decoration_54: 1763271878
-      Decoration_24: 1054639689
-      Decoration_4: 1534145838
-      Decoration_3: -681537973
-      Decoration_79: -1637899136
-      Decoration_77: -414467494
-      Decoration_45: 1671840590
-      Decoration_37: 581021567
-      Decoration_46: 1507310753
       Decoration_0: 308727494
       Decoration_1: -1231896022
-      Decoration_5: -22347618
-      Decoration_17: -1710419314
-      Decoration_57: 310056076
-      Decoration_60: -596650187
-      Decoration_32: 1044674763
-      Decoration_23: 1051676796
-      Decoration_59: -201972430
-      Decoration_7: 285982640
-      Decoration_14: -1643135543
-      Decoration_21: 1459935444
-      Decoration_40: -2102669943
-      Decoration_8: -1304085528
-      Decoration_29: 135953541
-      Decoration_62: -753680988
-      Decoration_2: 1192014714
-      Decoration_65: -1800704274
-      Decoration_68: 46966538
-      Decoration_41: -52666877
-      Decoration_56: 1376398971
-      Decoration_78: -1947232651
-      Decoration_55: -1653873890
-      Decoration_26: -928222951
-      Decoration_25: 983133650
-      Decoration_49: 1212534183
-      Decoration_12: -910621801
-      Decoration_33: -1162735698
-      Decoration_63: 1723684254
-      Decoration_51: -1909431225
-      Decoration_73: -2105011940
-      Decoration_22: 123019588
-      Decoration_39: 1391478669
-      Decoration_47: -73193378
-      Decoration_74: 1540763290
-      Decoration_19: -601684950
-      Decoration_75: 1477592213
-      Decoration_20: 1054208704
-      Decoration_58: 2092615416
       Decoration_10: -729231482
-      Decoration_9: -635857681
-      Decoration_53: 113369038
-      Decoration_76: 195113463
-      Decoration_27: 481047194
-      Decoration_67: 1386113734
+      Decoration_11: 408123587
+      Decoration_12: -910621801
+      Decoration_13: -680887855
+      Decoration_14: -1643135543
+      Decoration_15: 765203968
       Decoration_16: 1528911222
+      Decoration_17: -1710419314
       Decoration_18: 418747673
+      Decoration_19: -601684950
+      Decoration_2: 1192014714
+      Decoration_20: 1054208704
+      Decoration_21: 1459935444
+      Decoration_22: 123019588
+      Decoration_23: 1051676796
+      Decoration_24: 1054639689
+      Decoration_25: 983133650
+      Decoration_26: -928222951
+      Decoration_27: 481047194
+      Decoration_28: -1844655152
+      Decoration_29: 135953541
+      Decoration_3: -681537973
+      Decoration_30: -184485908
+      Decoration_31: -741730327
+      Decoration_32: 1044674763
+      Decoration_33: -1162735698
+      Decoration_34: 1356673703
       Decoration_35: -837957678
+      Decoration_36: 311069469
+      Decoration_37: 581021567
+      Decoration_38: 1918202487
+      Decoration_39: 1391478669
+      Decoration_4: 1534145838
+      Decoration_40: -2102669943
+      Decoration_41: -52666877
+      Decoration_42: -1867741106
+      Decoration_43: 53214069
+      Decoration_44: 1163976270
+      Decoration_45: 1671840590
+      Decoration_46: 1507310753
+      Decoration_47: -73193378
+      Decoration_48: -1097748774
+      Decoration_49: 1212534183
+      Decoration_5: -22347618
+      Decoration_50: 246027776
+      Decoration_51: -1909431225
+      Decoration_52: -626260689
+      Decoration_53: 113369038
+      Decoration_54: 1763271878
+      Decoration_55: -1653873890
+      Decoration_56: 1376398971
+      Decoration_57: 310056076
+      Decoration_58: 2092615416
+      Decoration_59: -201972430
+      Decoration_6: -823244239
+      Decoration_60: -596650187
+      Decoration_61: 652008424
+      Decoration_62: -753680988
+      Decoration_63: 1723684254
       Decoration_64: 872863779
+      Decoration_65: -1800704274
+      Decoration_66: -239729910
+      Decoration_67: 1386113734
+      Decoration_68: 46966538
+      Decoration_69: 222409662
+      Decoration_7: 285982640
+      Decoration_70: 699518814
+      Decoration_71: 1035674301
+      Decoration_72: 2076222317
+      Decoration_73: -2105011940
+      Decoration_74: 1540763290
+      Decoration_75: 1477592213
+      Decoration_76: 195113463
+      Decoration_77: -414467494
+      Decoration_78: -1947232651
+      Decoration_79: -1637899136
+      Decoration_8: -1304085528
+      Decoration_80: -707130779
+      Decoration_81: 840035271
+      Decoration_82: 80390964
+      Decoration_83: -953492094
+      Decoration_9: -635857681
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
