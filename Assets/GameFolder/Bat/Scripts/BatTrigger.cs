@@ -11,6 +11,7 @@ namespace Bats {
             {
                 foreach (Transform obj in bats) {
                     obj.GetComponent<BatController>().enabled = true;
+                    obj.GetComponent<BatController>().player = collision.transform;
                 }
             }
         }
