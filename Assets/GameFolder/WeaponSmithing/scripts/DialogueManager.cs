@@ -1,23 +1,36 @@
+using Player;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
     private string[] dialogueLines;
-    private float textSpeed = 0.1f;
+    private float textSpeed = 0.3f;
     private int index;
     private bool isPlayerInRange = false;
 
     [SerializeField]
     private TMP_Text dialogueText;
+    [SerializeField]
+    private GameObject dialogueBox;
+
+    [SerializeField]
+    private Button yesButton;
+    [SerializeField]
+    private Button noButton;
+
+    private AttackCollider attackCollider; 
+
 
     void Start()
     {
         dialogueText.text = string.Empty;
+        attackCollider = FindObjectOfType<AttackCollider>();
         StartDialogue();
     }
 
@@ -33,6 +46,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
                 dialogueText.text = dialogueLines[index];
+                
             }
         }
     }
@@ -71,6 +85,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    void ActivePopUp()
+    {
+        dialogueBox.SetActive(true);
+        yesButton.onClick.AddListener(UpgradeWeapon);
+        noButton.onClick.AddListener(CloseUpgradePopup);
+    }
+
     void NextLine()
     {
         if (index < dialogueLines.Length - 1)
@@ -83,6 +104,21 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text = string.Empty;
             index = 0;
+            ActivePopUp();
         }
     }
+
+    void UpgradeWeapon()
+    {
+        attackCollider.UpgradeWeapon(1);
+        Debug.Log("Weapon Upgraded!");
+        CloseUpgradePopup();
+    }
+
+    void CloseUpgradePopup()
+    {
+        dialogueBox.SetActive(false);
+    }
+
+
 }
