@@ -31155,7 +31155,7 @@ GameObject:
   - component: {fileID: 1378388977}
   - component: {fileID: 1378388978}
   m_Layer: 0
-  m_Name: SpeedUpActive
+  m_Name: SpeedUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
