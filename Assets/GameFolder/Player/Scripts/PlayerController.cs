@@ -59,5 +59,7 @@ namespace Player
         {
             Destroy(transform.gameObject);
         }
+
+        
     }
 }

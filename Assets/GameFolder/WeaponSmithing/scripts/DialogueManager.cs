@@ -24,7 +24,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Button noButton;
 
-    private AttackCollider attackCollider; 
+    private AttackCollider attackCollider;
+
+    private Image powerUpActiveObject;
 
 
     void Start()
@@ -111,7 +113,10 @@ public class DialogueManager : MonoBehaviour
     void UpgradeWeapon()
     {
         attackCollider.UpgradeWeapon(1);
+        powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
+        powerUpActiveObject.enabled = true;
         Debug.Log("Weapon Upgraded!");
+      
         CloseUpgradePopup();
     }
 
