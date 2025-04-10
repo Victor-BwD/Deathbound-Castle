@@ -15,6 +15,7 @@ namespace Player
         public LayerMask floorLayer;
 
         private Rigidbody2D rb;
+        private float speedXMultiply = 7f;
         private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
         private Characters charactersController;
         private int dashPower = 800;
@@ -39,7 +40,7 @@ namespace Player
 
         private void FixedUpdate()
         {
-            speed = new Vector2(Input.GetAxisRaw("Horizontal") * 7f, rb.velocity.y); // Global var to receive speed in X with input 
+            speed = new Vector2(Input.GetAxisRaw("Horizontal") * speedXMultiply, rb.velocity.y); // Global var to receive speed in X with input 
 
             // If to check if player has used dash or not
             if (dashTime > 0.4)
@@ -85,6 +86,12 @@ namespace Player
                 rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
                 SoundManager.Instance.Play(playerController.AudioPlayer.dashSound);
             }
+        }
+
+        public void IncreaseSpeed()
+        {
+            speedXMultiply += 3f;
+            Debug.Log("Velocidade aumentada: " + speed);
         }
     }
 }

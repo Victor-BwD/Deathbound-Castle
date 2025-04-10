@@ -5,7 +5,7 @@ namespace Bats
 {
     public class BatController : MonoBehaviour
     {
-        [SerializeField] private Transform player;
+        [SerializeField] public Transform player;
         [SerializeField] private float attackTime;
     
         private Characters charactersController;
