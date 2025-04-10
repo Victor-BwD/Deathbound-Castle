@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = string.Empty;
         attackCollider = FindObjectOfType<AttackCollider>();
+        powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         StartDialogue();
     }
 
@@ -62,6 +63,9 @@ public class DialogueManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (powerUpActiveObject.enabled == true) return;
+
         if (collision.CompareTag("Player"))
         {
             isPlayerInRange = true;
