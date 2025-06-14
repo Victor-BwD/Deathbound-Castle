@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8031077487403547520}
   - component: {fileID: 8031077487403547523}
   - component: {fileID: 8031077487403547550}
-  - component: {fileID: 48220721}
+  - component: {fileID: 3877008245957473498}
   - component: {fileID: 1553347910569434325}
   m_Layer: 0
   m_Name: Bat
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   attackTime: 0
---- !u!114 &48220721
+--- !u!114 &3877008245957473498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,11 +97,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8031077487403547522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 070c82b94f1ab684b9cdc3b70d0332c3, type: 3}
+  m_Script: {fileID: 11500000, guid: aae4143b3a2156d4c96b53f3044dcbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 8031077488998365200}
   life: 1
+  soulValue: 30
 --- !u!82 &1553347910569434325
 AudioSource:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 8031077488998365205}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.8184, y: 4.8184, z: 4.8184}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8031077487403547521}
@@ -269,8 +270,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1597428015
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4754826937556007664, guid: 43e105305ca78cd4788fac2dd2353b0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,7 +286,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &8031077488998365202
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -302,4 +303,5 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
