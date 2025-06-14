@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 142
+  controlID: 140
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 143
+  controlID: 141
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 144
+  controlID: 142
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,7 +229,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 04d7ffff7eddffff88ddffff94ddffffc2ddffffbee0ffffb4e2ffff36e3ffff2afbffff
+      m_ExpandedIDs: f4f7ffff00f8ffff2ef8ffff2afbffffcc5d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -528,9 +528,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 481.406, y: 156.71411, z: -0.81460565}
+    m_Target: {x: 545.2249, y: 123.49197, z: -0.83659506}
     speed: 2
-    m_Value: {x: 481.406, y: 156.71411, z: -0.81460565}
+    m_Value: {x: 545.2249, y: 123.49197, z: -0.83659506}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -581,9 +581,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 160.45831
+    m_Target: 162.65724
     speed: 2
-    m_Value: 160.45831
+    m_Value: 162.65724
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -888,23 +888,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/GameFolder/HUD
+    - Assets/GameFolder/Player/Scripts
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/GameFolder/HUD
+  - Assets/GameFolder/Player/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\victo\Documents\Projetos\Deathbound-Castle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 195}
-    m_SelectedIDs: 82640000
-    m_LastClickedID: 25730
-    m_ExpandedIDs: 000000007c6400007e6400008064000082640000846400008664000000ca9a3b
+    m_SelectedIDs: 48660000
+    m_LastClickedID: 26184
+    m_ExpandedIDs: 0000000026660000286600002a6600002c6600002e6600003066000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -932,7 +932,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c6400007e64000080640000826400008464000086640000
+    m_ExpandedIDs: 0000000026660000286600002a6600002c6600002e66000030660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -957,8 +957,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 306effff
-    m_LastClickedInstanceID: -37328
+    m_SelectedInstanceIDs: cc5d0000
+    m_LastClickedInstanceID: 24012
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000147b00007c530000c6530000fa530000805400002898000000000000d8650000fe62000042670000a26300001a640000d65d0000f65f0000645e0000
     m_RenameOverlay:
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -38022
+  m_LastSelectedObjectID: -2178
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1176,8 +1176,8 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -37328
-  m_LastVerticalScrollValue: 108
+  m_LastInspectedObjectInstanceID: 24012
+  m_LastVerticalScrollValue: 23
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
