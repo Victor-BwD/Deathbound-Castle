@@ -13,6 +13,5 @@ public class BlackSmithingController : MonoBehaviour
             return;
         }
         playerInRange = true;
-        Debug.Log("Pressione para falar.");
     }
 }

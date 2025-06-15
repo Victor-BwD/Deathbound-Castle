@@ -123,7 +123,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (soulManager.GetSoulCount() < SOUL_COST)
         {
-            Debug.Log("Not enough souls to upgrade weapon!");
             CloseUpgradePopup();
             return;
         }
@@ -132,7 +131,6 @@ public class DialogueManager : MonoBehaviour
         attackCollider.UpgradeWeapon(1);
         powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         powerUpActiveObject.enabled = true;
-        Debug.Log("Weapon Upgraded!");
       
         CloseUpgradePopup();
     }
@@ -141,6 +139,4 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueBox.SetActive(false);
     }
-
-
 }
