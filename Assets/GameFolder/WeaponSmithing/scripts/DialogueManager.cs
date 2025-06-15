@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
 
     private SoulManager soulManager;
 
+    private const int SOUL_COST = 1000;
+
 
     void Start()
     {
@@ -119,14 +121,14 @@ public class DialogueManager : MonoBehaviour
 
     void UpgradeWeapon()
     {
-        if (soulManager.GetSoulCount() < 1000)
+        if (soulManager.GetSoulCount() < SOUL_COST)
         {
             Debug.Log("Not enough souls to upgrade weapon!");
             CloseUpgradePopup();
             return;
         }
 
-        soulManager.SpendSouls(1000);
+        soulManager.SpendSouls(SOUL_COST);
         attackCollider.UpgradeWeapon(1);
         powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         powerUpActiveObject.enabled = true;
