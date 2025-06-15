@@ -41857,7 +41857,7 @@ RectTransform:
   - {fileID: 1938840229}
   - {fileID: 1976008483}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -42995,7 +42995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3966956093844057101, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3966956093844057101, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43056,6 +43056,10 @@ PrefabInstance:
     - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: powerUpActiveObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
+      propertyPath: dialogueLines.Array.data[2]
+      value: Would you like to upgrade your weapon for 1000 souls?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}

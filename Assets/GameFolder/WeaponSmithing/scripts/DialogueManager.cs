@@ -28,11 +28,14 @@ public class DialogueManager : MonoBehaviour
 
     private Image powerUpActiveObject;
 
+    private SoulManager soulManager;
+
 
     void Start()
     {
         dialogueText.text = string.Empty;
         attackCollider = FindObjectOfType<AttackCollider>();
+        soulManager = FindObjectOfType<SoulManager>();
         powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         StartDialogue();
     }
@@ -116,6 +119,14 @@ public class DialogueManager : MonoBehaviour
 
     void UpgradeWeapon()
     {
+        if (soulManager.GetSoulCount() < 1000)
+        {
+            Debug.Log("Not enough souls to upgrade weapon!");
+            CloseUpgradePopup();
+            return;
+        }
+
+        soulManager.SpendSouls(1000);
         attackCollider.UpgradeWeapon(1);
         powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         powerUpActiveObject.enabled = true;

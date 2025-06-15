@@ -10,6 +10,11 @@ public class SoulManager : MonoBehaviour
     [SerializeField]
     private GameObject lostSoulsPrefab;
 
+    [Header("Debug")]
+    [SerializeField] private KeyCode cheatKey = KeyCode.F10; // Tecla para ativar o cheat
+    [SerializeField]
+    private int cheatSoulAmount = 1000;
+
     private static SoulManager _instance;
     public static SoulManager Instance { get { return _instance; } }
 
@@ -51,6 +56,24 @@ public class SoulManager : MonoBehaviour
         soul_count = GetComponentInChildren<TextMeshProUGUI>();
         Debug.Log("SoulManager Start: " + soul_count);
         UpdateSoulUI();
+    }
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void Update()
+    {
+        if (Input.GetKeyDown(cheatKey))
+        {
+            AddSouls(cheatSoulAmount);
+            Debug.Log("CHEAT ATIVADO: Adicionadas " + cheatSoulAmount + " almas");
+        }
+    }
+#endif
+
+    public void SetSoulCount(int amount)
+    {
+        soulCount = amount;
+        UpdateSoulUI();
+        Debug.Log("CHEAT: Soul count definido para " + amount);
     }
 
     void OnEnable()
