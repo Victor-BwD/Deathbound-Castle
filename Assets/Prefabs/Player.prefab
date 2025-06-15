@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 1886641365}
   - component: {fileID: 1886641368}
   - component: {fileID: 1886641367}
-  - component: {fileID: 1886641366}
+  - component: {fileID: 8849554216893927242}
   m_Layer: 5
   m_Name: RestartGameButton
   m_TagString: Untagged
@@ -1348,9 +1348,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1886641366}
-        m_TargetAssemblyTypeName: GameFolder.Scripts.MainMenu, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 8849554216893927242}
+        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1360,19 +1360,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3688359788709692165}
-        m_TargetAssemblyTypeName: Player.PlayerController, Assembly-CSharp
-        m_MethodName: DestroyPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1886641366
+--- !u!114 &8849554216893927242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1381,10 +1369,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1886641364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b6e7ec5bf84a77a46bfe92475bb4d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dfa0f96ff90a0345b5801fe84940840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: Level1
 --- !u!1 &1931268544
 GameObject:
   m_ObjectHideFlags: 0
