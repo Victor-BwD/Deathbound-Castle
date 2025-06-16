@@ -14,4 +14,9 @@ public class BlackSmithingController : MonoBehaviour
         }
         playerInRange = true;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerInRange = false;
+    }
 }
