@@ -8,8 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
     private string[] dialogueLines;
-    [SerializeField]
-    private float textSpeed = 1f;
+
+    private float textSpeed = 0.1f;
     private int index;
     private bool isPlayerInRange = false;
 

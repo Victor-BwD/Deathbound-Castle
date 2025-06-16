@@ -43046,6 +43046,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 520179339}
     - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
+      propertyPath: textSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: yesButton
       value: 
       objectReference: {fileID: 487304961}
@@ -43060,6 +43064,14 @@ PrefabInstance:
     - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: powerUpActiveObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
+      propertyPath: dialogueLines.Array.data[0]
+      value: Hello adventurer, I'm the blacksmithing of this area. Press E to advance.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: Walk through this walls is danger. Press E to advance.
       objectReference: {fileID: 0}
     - target: {fileID: 3966956093844057102, guid: a185d9fcef017c34da5c827c284bcfe1, type: 3}
       propertyPath: dialogueLines.Array.data[2]
