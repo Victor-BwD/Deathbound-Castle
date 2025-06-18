@@ -32,7 +32,9 @@ public class SoulManager : MonoBehaviour
     private const string DEATH_POS_Y_KEY = "DeathPosY";
     private const string DEATH_POS_Z_KEY = "DeathPosZ";
     private const string DEATH_SCENE_KEY = "DeathSceneName";
-    private const string NEW_GAME_STARTED = "NewGameStarted"; 
+    private const string NEW_GAME_STARTED = "NewGameStarted";
+
+    private const float SPAWN_DELAY = 0.5f;
 
 
     private void Awake()
@@ -169,7 +171,7 @@ public class SoulManager : MonoBehaviour
 
         if (hasSoulsToRecover && scene.name == deathSceneName)
         {
-            Invoke("SpawnLostSouls", 0.5f);
+            Invoke("SpawnLostSouls", SPAWN_DELAY);
         }
     }
 
