@@ -11,7 +11,7 @@ public class SoulManager : MonoBehaviour
     private GameObject lostSoulsPrefab;
 
     [Header("Debug")]
-    [SerializeField] private KeyCode cheatKey = KeyCode.F10; // Tecla para ativar o cheat
+    [SerializeField] private KeyCode cheatKey = KeyCode.F10;
     [SerializeField]
     private int cheatSoulAmount = 1000;
 
@@ -56,7 +56,7 @@ public class SoulManager : MonoBehaviour
     void Start()
     {
         soul_count = GetComponentInChildren<TextMeshProUGUI>();
-        Debug.Log("SoulManager Start: " + soul_count);
+
         UpdateSoulUI();
     }
 
@@ -98,7 +98,7 @@ public class SoulManager : MonoBehaviour
             ClearSoulData();
             PlayerPrefs.DeleteKey(NEW_GAME_STARTED);
             PlayerPrefs.Save();
-            Debug.Log("Novo jogo detectado: dados de almas não carregados");
+
             return;
         }
 
@@ -114,8 +114,6 @@ public class SoulManager : MonoBehaviour
             deathPosition = new Vector3(x, y, z);
 
             deathSceneName = PlayerPrefs.GetString(DEATH_SCENE_KEY, "");
-
-            Debug.Log("Carregou dados salvos: " + hasSoulsToRecover + ", almas: " + lostSouls + ", posição: " + deathPosition);
         }
     }
 
@@ -132,8 +130,6 @@ public class SoulManager : MonoBehaviour
             PlayerPrefs.SetFloat(DEATH_POS_Z_KEY, deathPosition.z);
 
             PlayerPrefs.SetString(DEATH_SCENE_KEY, deathSceneName);
-
-            Debug.Log("Salvou dados: " + hasSoulsToRecover + ", almas: " + lostSouls + ", posição: " + deathPosition);
         }
 
         PlayerPrefs.Save();
@@ -160,15 +156,11 @@ public class SoulManager : MonoBehaviour
         PlayerPrefs.DeleteKey(DEATH_SCENE_KEY);
         PlayerPrefs.Save();
 
-        Debug.Log("Dados de almas foram limpos para novo jogo");
-
         UpdateSoulUI();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded: " + scene.name + ", hasSoulsToRecover: " + hasSoulsToRecover + ", deathSceneName: " + deathSceneName);
-
         if (hasSoulsToRecover && scene.name == deathSceneName)
         {
             Invoke("SpawnLostSouls", SPAWN_DELAY);
@@ -177,8 +169,6 @@ public class SoulManager : MonoBehaviour
 
     private void SpawnLostSouls()
     {
-        Debug.Log("Tentando spawnar almas perdidas em: " + deathPosition + " com " + lostSouls + " almas");
-
         if (lostSoulsPrefab == null)
         {
             Debug.LogError("lostSoulsPrefab não está atribuído no SoulManager!");
@@ -208,7 +198,6 @@ public class SoulManager : MonoBehaviour
             if (currentLostSoulsObject != null)
             {
                 Destroy(currentLostSoulsObject);
-                Debug.Log("Almas antigas destruídas para criar novas");
             }
         }
 
@@ -221,14 +210,11 @@ public class SoulManager : MonoBehaviour
             hasSoulsToRecover = true;
 
             SaveData();
-
-            Debug.Log("Jogador morreu em: " + deathPosition + " com " + lostSouls + " almas perdidas");
         }
         else
         {
             hasSoulsToRecover = false;
             SaveData();
-            Debug.Log("Jogador morreu sem almas para perder");
         }
 
         UpdateSoulUI();
@@ -242,15 +228,12 @@ public class SoulManager : MonoBehaviour
         currentLostSoulsObject = null;
 
         SaveData();
-
-        Debug.Log("Almas recuperadas: " + amount);
     }
 
     public void AddSouls(int amount)
     {
         soulCount += amount;
         UpdateSoulUI();
-        Debug.Log("Souls added: " + amount + " | Total: " + soulCount);
     }
 
     public bool SpendSouls(int amount)
