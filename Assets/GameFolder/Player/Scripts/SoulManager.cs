@@ -13,7 +13,7 @@ public class SoulManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private KeyCode cheatKey = KeyCode.F10;
     [SerializeField]
-    private int cheatSoulAmount = 1000;
+    private readonly int cheatSoulAmount = 1000;
 
     private static SoulManager _instance;
     public static SoulManager Instance { get { return _instance; } }
@@ -171,7 +171,6 @@ public class SoulManager : MonoBehaviour
     {
         if (lostSoulsPrefab == null)
         {
-            Debug.LogError("lostSoulsPrefab não está atribuído no SoulManager!");
             return;
         }
 
@@ -183,22 +182,14 @@ public class SoulManager : MonoBehaviour
         if (lostSoulsComponent != null)
         {
             lostSoulsComponent.SetSoulAmount(lostSouls);
-            Debug.Log("Almas perdidas spawnadas com sucesso: " + lostSouls);
-        }
-        else
-        {
-            Debug.LogError("Prefab não contém componente LostSouls!");
         }
     }
 
     public void PlayerDied(Vector3 position)
     {
-        if (hasSoulsToRecover)
+        if (hasSoulsToRecover && currentLostSoulsObject != null)
         {
-            if (currentLostSoulsObject != null)
-            {
-                Destroy(currentLostSoulsObject);
-            }
+            Destroy(currentLostSoulsObject);
         }
 
         if (soulCount > 0)

@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private string[] dialogueLines;
 
-    private float textSpeed = 0.1f;
+    private readonly float textSpeed = 0.1f;
     private int index;
     private bool isPlayerInRange = false;
 

@@ -17,7 +17,7 @@ public class BlackSmithingController : MonoBehaviour
     private AttackCollider attackCollider;
     private SoulManager soulManager;
 
-    private int upgradeCost = 1000;
+    private readonly int upgradeCost = 1000;
 
     private void Start()
     {
@@ -70,13 +70,11 @@ public class BlackSmithingController : MonoBehaviour
     {
         if (soulManager == null || attackCollider == null || powerUpActiveObject == null)
         {
-            Debug.LogError("Referências necessárias não encontradas!");
             return;
         }
 
         if (soulManager.GetSoulCount() < upgradeCost)
         {
-            Debug.Log($"Almas insuficientes! Necessário: {upgradeCost}, Atual: {soulManager.GetSoulCount()}");
             return;
         }
 
@@ -86,6 +84,6 @@ public class BlackSmithingController : MonoBehaviour
 
         powerUpActiveObject.enabled = true;
 
-        Debug.Log("Arma melhorada com sucesso!");
+
     }
 }
