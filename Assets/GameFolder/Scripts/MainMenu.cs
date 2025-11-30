@@ -24,10 +24,7 @@ namespace GameFolder.Scripts
             if (SoulManager.Instance != null)
             {
                 SoulManager.Instance.ClearSoulData();
-                Debug.Log("Almas resetadas pelo início de um novo jogo via SoulManager");
             }
-
-            Debug.Log("PlayerPrefs de almas limpos diretamente para novo jogo");
 
             SceneManager.LoadScene(firstScene);
 

@@ -17,7 +17,7 @@ public class BlackSmithingController : MonoBehaviour
     private AttackCollider attackCollider;
     private SoulManager soulManager;
 
-    private int upgradeCost = 1000;
+    private readonly int upgradeCost = 1000;
 
     private void Start()
     {
@@ -50,12 +50,10 @@ public class BlackSmithingController : MonoBehaviour
 
         if (powerUpActiveObject != null && powerUpActiveObject.enabled)
         {
-            Debug.Log("Arma já foi melhorada.");
             return;
         }
 
         playerInRange = true;
-        Debug.Log("Pressione E para falar com o ferreiro.");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -70,13 +68,11 @@ public class BlackSmithingController : MonoBehaviour
     {
         if (soulManager == null || attackCollider == null || powerUpActiveObject == null)
         {
-            Debug.LogError("Referências necessárias não encontradas!");
             return;
         }
 
         if (soulManager.GetSoulCount() < upgradeCost)
         {
-            Debug.Log($"Almas insuficientes! Necessário: {upgradeCost}, Atual: {soulManager.GetSoulCount()}");
             return;
         }
 
@@ -85,7 +81,5 @@ public class BlackSmithingController : MonoBehaviour
         attackCollider.UpgradeWeapon(1);
 
         powerUpActiveObject.enabled = true;
-
-        Debug.Log("Arma melhorada com sucesso!");
     }
 }
