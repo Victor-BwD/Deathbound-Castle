@@ -7,10 +7,6 @@ public class DestroyOnLoadAssets : MonoBehaviour
 {
     private void Awake()
     {
-        var findPlayer = GameObject.Find("Player");
-        if (!ReferenceEquals(findPlayer, null))
-        {
-            DestroyImmediate(findPlayer);
-        }
+       
     }
 }

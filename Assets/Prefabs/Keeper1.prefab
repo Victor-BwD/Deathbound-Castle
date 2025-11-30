@@ -135,8 +135,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 213824113
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7928858964255100155, guid: a3ff25d2d7faa69469a9f01e2737145b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 8856666761057010425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.458, y: 0.046860848, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.83206, y: 0.83206, z: 0.83206}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8856666762635231969}
@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856666761203947168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36075252, y: 0.0011391528, z: 0.9868247}
+  m_LocalPosition: {x: -1.48, y: -1.18, z: 0.9868247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856666762473910813}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6002475, y: -0.0058608465, z: 0.9868247}
+  m_LocalPosition: {x: 12.13, y: -1.32, z: 0.9868247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 8856666762635231969}
   - component: {fileID: 8856666762635231968}
   - component: {fileID: 8856666762635231983}
-  - component: {fileID: 8856666762635231982}
+  - component: {fileID: 2065964131}
   m_Layer: 0
   m_Name: Keeper
   m_TagString: Enemy
@@ -368,8 +368,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856666762635231970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03375252, y: -0.024860848, z: 0.9868247}
-  m_LocalScale: {x: 1.545715, y: 1.545715, z: 1.545715}
+  m_LocalPosition: {x: 5.74, y: -1.29, z: 0.9868247}
+  m_LocalScale: {x: 7.5981164, y: 7.5981164, z: 7.5981164}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8856666760929596992}
@@ -408,7 +408,7 @@ MonoBehaviour:
   b_point: {fileID: 8856666762473910812}
   skin: {fileID: 8856666760929596992}
   keeperRange: {fileID: 8856666760884094302}
---- !u!114 &8856666762635231982
+--- !u!114 &2065964131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,8 +417,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8856666762635231970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 070c82b94f1ab684b9cdc3b70d0332c3, type: 3}
+  m_Script: {fileID: 11500000, guid: aae4143b3a2156d4c96b53f3044dcbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 8856666760929596992}
   life: 3
+  soulValue: 100

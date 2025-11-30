@@ -1,16 +1,15 @@
-using Player;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
     private string[] dialogueLines;
-    private float textSpeed = 0.3f;
+
+    private float textSpeed = 0.1f;
     private int index;
     private bool isPlayerInRange = false;
 
@@ -24,16 +23,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Button noButton;
 
-    private AttackCollider attackCollider;
+    public UnityEvent onDialogueCompleteYes;
 
-    private Image powerUpActiveObject;
-
+    public UnityEvent onDialogueCompleteNo;
 
     void Start()
     {
         dialogueText.text = string.Empty;
-        attackCollider = FindObjectOfType<AttackCollider>();
-        powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
         StartDialogue();
     }
 
@@ -49,7 +45,6 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
                 dialogueText.text = dialogueLines[index];
-                
             }
         }
     }
@@ -57,20 +52,31 @@ public class DialogueManager : MonoBehaviour
     void StartDialogue()
     {
         index = 0;
-        
     }
 
+    public void ShowDialogue()
+    {
+        if (!dialogueBox.activeInHierarchy)
+        {
+            dialogueText.text = string.Empty;
+            StartCoroutine(TypeLine());
+        }
+    }
+
+    public void SetPlayerInRange(bool inRange)
+    {
+        isPlayerInRange = inRange;
+        if (inRange)
+        {
+            ShowDialogue();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (powerUpActiveObject.enabled == true) return;
-
         if (collision.CompareTag("Player"))
         {
-            isPlayerInRange = true;
-            dialogueText.text = string.Empty;
-            StartCoroutine(TypeLine());
+            SetPlayerInRange(true);
         }
     }
 
@@ -78,7 +84,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerInRange = false;
+            SetPlayerInRange(false);
         }
     }
 
@@ -94,8 +100,18 @@ public class DialogueManager : MonoBehaviour
     void ActivePopUp()
     {
         dialogueBox.SetActive(true);
-        yesButton.onClick.AddListener(UpgradeWeapon);
-        noButton.onClick.AddListener(CloseUpgradePopup);
+        yesButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
+        
+        yesButton.onClick.AddListener(() => {
+            onDialogueCompleteYes?.Invoke();
+            CloseDialogueBox();
+        });
+        
+        noButton.onClick.AddListener(() => {
+            onDialogueCompleteNo?.Invoke();
+            CloseDialogueBox();
+        });
     }
 
     void NextLine()
@@ -114,20 +130,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void UpgradeWeapon()
-    {
-        attackCollider.UpgradeWeapon(1);
-        powerUpActiveObject = GameObject.Find("PowerUpActive").GetComponent<Image>();
-        powerUpActiveObject.enabled = true;
-        Debug.Log("Weapon Upgraded!");
-      
-        CloseUpgradePopup();
-    }
-
-    void CloseUpgradePopup()
+    public void CloseDialogueBox()
     {
         dialogueBox.SetActive(false);
     }
-
-
 }

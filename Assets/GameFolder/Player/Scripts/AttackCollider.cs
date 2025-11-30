@@ -4,12 +4,13 @@ using UnityEngine;
 namespace Player {
     public class AttackCollider : MonoBehaviour {
         private PlayerCombo _playerCombo;
-
+        private static int currentDamage = 1;
         private int damage = 1;
 
         private void Start()
         {
             _playerCombo = GetComponentInParent<PlayerCombo>();
+            damage = currentDamage;
         }
         
         private void OnTriggerEnter2D(Collider2D collision) {
@@ -26,6 +27,7 @@ namespace Player {
         public void UpgradeWeapon(int additionalDamage)
         {
             damage += additionalDamage;
+            currentDamage = damage;
         }
     }
 }

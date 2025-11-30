@@ -9,7 +9,7 @@ public class Characters : MonoBehaviour
     {
         if(life <= 0)
         {
-            skin.GetComponent<Animator>().Play("Die", -1);
+            OnDeath();
         }
     }
 
@@ -17,5 +17,10 @@ public class Characters : MonoBehaviour
     {
         life -= damage;
         skin.GetComponent<Animator>().Play("PlayerTakeDamage", 1);
+    }
+
+    protected virtual void OnDeath()
+    {
+        skin.GetComponent<Animator>().Play("Die", -1);
     }
 }

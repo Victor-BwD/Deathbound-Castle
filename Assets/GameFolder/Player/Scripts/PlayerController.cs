@@ -47,6 +47,11 @@ namespace Player
         private void DisableControls()
         {
             if (charactersController.life <= 0) {
+                if (SoulManager.Instance != null)
+                {
+                    SoulManager.Instance.PlayerDied(transform.position);
+                }
+
                 rb.simulated = false;
                 this.enabled = false;
                 playerMovement.enabled = false;
