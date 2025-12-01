@@ -71,18 +71,14 @@ namespace Keeper
 
         public void OnPlayerAttack(Vector3 attackerPosition)
         {
-            // Calcular a direção do jogador em relação ao Keeper
             float directionToPlayer = attackerPosition.x - transform.position.x;
             
-            // Determinar para qual ponto ir baseado na posição do jogador
             if (directionToPlayer > 0)
             {
-                // Jogador está à direita, ir para o ponto mais à direita
                 goRight = (b_point.position.x > a_point.position.x);
             }
             else if (directionToPlayer < 0)
             {
-                // Jogador está à esquerda, ir para o ponto mais à esquerda
                 goRight = (b_point.position.x < a_point.position.x);
             }
         }

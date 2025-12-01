@@ -12,7 +12,7 @@ namespace Player
         [SerializeField] private Transform skin;
         [SerializeField] private float dashDuration = 0.2f;
         [SerializeField] private int jumpPower = 25;
-        [SerializeField] private int dashPower = 100;
+        [SerializeField] private int dashPower = 50;
         [SerializeField] private float speedXMultiply = 7f;
 
         public LayerMask floorLayer;
