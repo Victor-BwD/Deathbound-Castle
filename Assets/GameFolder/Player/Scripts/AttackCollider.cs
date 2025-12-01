@@ -1,4 +1,5 @@
 using System;
+using GameFolder.Scripts;
 using UnityEngine;
 
 namespace Player {
@@ -15,11 +16,23 @@ namespace Player {
         
         private void OnTriggerEnter2D(Collider2D collision) {
             if (collision.CompareTag("Enemy")) {
-                if(_playerCombo.ComboNumber == 1) {
-                    collision.GetComponent<Characters>().life -= damage;
-                }
-                if(_playerCombo.ComboNumber == 2) {
-                    collision.GetComponent<Characters>().life -= damage + 1;
+                Characters targetCharacters = collision.GetComponent<Characters>();
+                
+                if (targetCharacters != null)
+                {
+                    if(_playerCombo.ComboNumber == 1) {
+                        targetCharacters.life -= damage;
+                    }
+                    if(_playerCombo.ComboNumber == 2) {
+                        targetCharacters.life -= damage + 1;
+                    }
+
+                    // Notify Keeper if it's a Keeper enemy
+                    Keeper.KeeperController keeper = collision.GetComponent<Keeper.KeeperController>();
+                    if (keeper != null)
+                    {
+                        keeper.OnPlayerAttack();
+                    }
                 }
             }
         }

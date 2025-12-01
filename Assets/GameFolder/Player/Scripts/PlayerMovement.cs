@@ -11,17 +11,17 @@ namespace Player
         [SerializeField] private Transform floorCollider;
         [SerializeField] private Transform skin;
         [SerializeField] private float dashDuration = 0.2f;
+        [SerializeField] private int jumpPower = 25;
+        [SerializeField] private int dashPower = 100;
+        [SerializeField] private float speedXMultiply = 7f;
 
         public LayerMask floorLayer;
 
         private Rigidbody2D rb;
-        private float speedXMultiply = 7f;
         private Animator receiveSkinAnimator;
         private Characters charactersController;
-        private int dashPower = 40;
         private float dashCooldown;
         private float dashCooldownMax = 2f;
-        private int jumpPower = 25;
         private PlayerController playerController;
         
         private float horizontalInput;
@@ -33,13 +33,14 @@ namespace Player
 
         private bool isDashing;
         private float dashTimeLeft;
+        private float lastGroundCheckTime;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             charactersController = GetComponent<Characters>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
-            playerController = GetComponent<PlayerController>();
+            playerController = GetComponent<PlayerController>();    
 
             if (rb == null || charactersController == null || receiveSkinAnimator == null)
             {
@@ -90,13 +91,20 @@ namespace Player
         private void UpdateGroundCheck()
         {
             isGrounded = Physics2D.OverlapCircle(floorCollider.position, groundCheckRadius, floorLayer);
+            if (isGrounded)
+            {
+                lastGroundCheckTime = Time.time;
+            }
         }
 
         private void ProcessJumpInput()
         {
-            if (!jumpInputBuffer || !isGrounded) return;
-
-            Jump();
+            if (!jumpInputBuffer) return;
+            
+            if (isGrounded || (Time.time - lastGroundCheckTime < 0.1f))
+            {
+                Jump();
+            }
         }
 
         private void ProcessDashInput()
@@ -111,6 +119,7 @@ namespace Player
             receiveSkinAnimator.Play("PlayerJump", -1);
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+            lastGroundCheckTime = -1f;
         }
 
         private void Dash()
