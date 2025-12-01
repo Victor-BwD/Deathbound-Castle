@@ -8,20 +8,31 @@ namespace Player
     [RequireComponent(typeof(Characters))]
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private Vector2 speed;
         [SerializeField] private Transform floorCollider;
         [SerializeField] private Transform skin;
+        [SerializeField] private float dashDuration = 0.2f;
 
         public LayerMask floorLayer;
 
         private Rigidbody2D rb;
         private float speedXMultiply = 7f;
-        private Animator receiveSkinAnimator; // Variable to receive animator from the skin game object
+        private Animator receiveSkinAnimator;
         private Characters charactersController;
-        private int dashPower = 800;
-        private float dashTime;
-        private int jumpPower = 1100;
+        private int dashPower = 40;
+        private float dashCooldown;
+        private float dashCooldownMax = 2f;
+        private int jumpPower = 25;
         private PlayerController playerController;
+        
+        private float horizontalInput;
+        private bool jumpInputBuffer;
+        private bool dashInputBuffer;
+        private bool isGrounded;
+        private float groundCheckRadius = 0.1f;
+        private int dashDirection = 1;
+
+        private bool isDashing;
+        private float dashTimeLeft;
 
         private void Awake()
         {
@@ -29,69 +40,127 @@ namespace Player
             charactersController = GetComponent<Characters>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
             playerController = GetComponent<PlayerController>();
+
+            if (rb == null || charactersController == null || receiveSkinAnimator == null)
+            {
+                Debug.LogError("PlayerMovement: Missing required components!");
+                enabled = false;
+            }
         }
 
         private void Update()
         {
-            dashTime += Time.deltaTime;
-            CheckDash();
-            JumpCheck();
+            CacheInput();
+            UpdateGroundCheck();
+            ProcessJumpInput();
+            ProcessDashInput();
+            UpdateAnimations();
+            UpdateDashCooldown();
+
+            if (horizontalInput != 0)
+            {
+                dashDirection = (int)horizontalInput;
+            }
         }
 
         private void FixedUpdate()
         {
-            speed = new Vector2(Input.GetAxisRaw("Horizontal") * speedXMultiply, rb.velocity.y); // Global var to receive speed in X with input 
-
-            // If to check if player has used dash or not
-            if (dashTime > 0.4)
+            if (isDashing)
             {
-                rb.velocity = speed; // rb velocity receive speed
+                dashTimeLeft -= Time.fixedDeltaTime;
+                if (dashTimeLeft <= 0)
+                {
+                    isDashing = false;
+                    rb.velocity = Vector2.zero;
+                }
+
+                return;
             }
-            
-            WalkAnimation(); 
+
+            ApplyMovement();
         }
 
-        private void WalkAnimation()
+        private void CacheInput()
         {
-            if (Input.GetAxisRaw("Horizontal") != 0)
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            jumpInputBuffer = Input.GetButtonDown("Jump");
+            dashInputBuffer = Input.GetButtonDown("Fire2");
+        }
+
+        private void UpdateGroundCheck()
+        {
+            isGrounded = Physics2D.OverlapCircle(floorCollider.position, groundCheckRadius, floorLayer);
+        }
+
+        private void ProcessJumpInput()
+        {
+            if (!jumpInputBuffer || !isGrounded) return;
+
+            Jump();
+        }
+
+        private void ProcessDashInput()
+        {
+            if (!dashInputBuffer || dashCooldown > 0) return;
+
+            Dash();
+        }
+
+        private void Jump()
+        {
+            receiveSkinAnimator.Play("PlayerJump", -1);
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+        }
+
+        private void Dash()
+        {
+            isDashing = true;
+            dashTimeLeft = dashDuration;
+            dashCooldown = dashCooldownMax;
+            receiveSkinAnimator.Play("PlayerDash", -1);
+            rb.velocity = Vector2.zero;
+            rb.AddForce(new Vector2(dashDirection * dashPower, 0), ForceMode2D.Impulse);
+            
+            if (SoundManager.Instance != null && playerController != null && playerController.AudioPlayer != null)
             {
-                skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1); // Flip
-                receiveSkinAnimator.SetBool("PlayerRun", true); // True in animation run
+                SoundManager.Instance.Play(playerController.AudioPlayer.dashSound);
+            }
+        }
+
+        private void ApplyMovement()
+        {
+            float targetVelocityX = horizontalInput * speedXMultiply;
+            rb.velocity = new Vector2(targetVelocityX, rb.velocity.y);
+        }
+
+        private void UpdateAnimations()
+        {
+            bool isMoving = horizontalInput != 0;
+
+            if (isMoving)
+            {
+                skin.localScale = new Vector3(horizontalInput, 1, 1);
+                receiveSkinAnimator.SetBool("PlayerRun", true);
             }
             else
             {
-                receiveSkinAnimator.SetBool("PlayerRun", false); // False in animation run
+                receiveSkinAnimator.SetBool("PlayerRun", false);
             }
         }
 
-        private void JumpCheck()
+        private void UpdateDashCooldown()
         {
-            bool canJump = Physics2D.OverlapCircle(floorCollider.position, 0.1f, floorLayer);
-            if (canJump && Input.GetButtonDown("Jump"))
+            if (dashCooldown > 0)
             {
-                receiveSkinAnimator.Play("PlayerJump", -1); // -1 search for all layers
-                rb.velocity = Vector2.zero;
-
-                rb.AddForce(new Vector2(0, jumpPower));
-            }
-        }
-
-        private void CheckDash()
-        {
-            if (Input.GetButtonDown("Fire2") && dashTime >= 2)
-            {
-                dashTime = 0;
-                receiveSkinAnimator.Play("PlayerDash", -1); // -1 search for all layers
-                rb.velocity = Vector2.zero;
-                rb.AddForce(new Vector2(skin.localScale.x * dashPower, 0));
-                SoundManager.Instance.Play(playerController.AudioPlayer.dashSound);
+                dashCooldown -= Time.deltaTime;
             }
         }
 
         public void IncreaseSpeed()
         {
             speedXMultiply += 3f;
-            Debug.Log("Velocidade aumentada: " + speed);
+            Debug.Log("Velocidade aumentada: " + speedXMultiply);
         }
     }
 }

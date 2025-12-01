@@ -34,17 +34,17 @@ namespace Keeper
             }
     
             if (goRight) {
-                skin.localScale = new Vector3(1, 1, 1);
-    
-                if(Vector2.Distance(transform.position, b_point.position) < 0.1f) {
+                skin.localScale = new Vector3(Mathf.Abs(skin.localScale.x), skin.localScale.y, skin.localScale.z);
+
+                if (Vector2.Distance(transform.position, b_point.position) < 0.1f) {
                     goRight = false;
                 }
     
                 transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
             }
             else {
-                skin.localScale = new Vector3(-1, 1, 1);
-    
+                skin.localScale = new Vector3(-Mathf.Abs(skin.localScale.x), skin.localScale.y, skin.localScale.z);
+
                 if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
                 {
                     goRight = true;
