@@ -27,11 +27,10 @@ namespace Player {
                         targetCharacters.life -= damage + 1;
                     }
 
-                    // Notify Keeper if it's a Keeper enemy
-                    Keeper.KeeperController keeper = collision.GetComponent<Keeper.KeeperController>();
-                    if (keeper != null)
+                    IAttackable attackableEnemy = collision.GetComponent<IAttackable>();
+                    if (attackableEnemy != null)
                     {
-                        keeper.OnPlayerAttack();
+                        attackableEnemy.OnPlayerAttack(transform.position);
                     }
                 }
             }
