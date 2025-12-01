@@ -6,65 +6,112 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour {
 
-    [SerializeField] private Vector2 speed;
-    [SerializeField] private Transform floorCollider;
-    [SerializeField] private Transform skin;
-    [SerializeField] private GameObject GameOverScreen;
+        [SerializeField] private GameObject GameOverScreen;
+        
+        private Rigidbody2D rb;
+        private Characters charactersController;
+        private PlayerMovement playerMovement;
+        private AudioPlayer audioPlayer;
+        private string currentLevel;
+        private bool isInitialized;
+        private bool playerDead;
 
-    public LayerMask floorLayer;
-
-    private Rigidbody2D rb;
-    private Characters charactersController;
-    private PlayerMovement playerMovement;
-    private AudioPlayer audioPlayer;
-    private string currentLevel;
-
-    public AudioPlayer AudioPlayer => audioPlayer;
+        public AudioPlayer AudioPlayer => audioPlayer;
 
         void Start() {
+            InitializeComponents();
+            DontDestroyOnLoad(this.gameObject);
+        }
+
+        void Update()
+        {
+            CheckSceneChange();
+        }
+
+        void FixedUpdate()
+        {
+            if (!isInitialized || playerDead) return;
+            
+            CheckPlayerDeath();
+        }
+
+        private void InitializeComponents()
+        {
             rb = GetComponent<Rigidbody2D>();
             charactersController = GetComponent<Characters>();
             audioPlayer = GetComponent<AudioPlayer>();
             playerMovement = GetComponent<PlayerMovement>();
-    
-            currentLevel = SceneManager.GetActiveScene().name;
-        
-            DontDestroyOnLoad(this.gameObject);
-        }
 
-        void Update() 
-        {
-            if (!currentLevel.Equals(SceneManager.GetActiveScene().name))
+            if (rb == null || charactersController == null || playerMovement == null)
             {
-                currentLevel = SceneManager.GetActiveScene().name;
-                transform.position = GameObject.Find("Spawn").transform.position;
+                Debug.LogError("PlayerController: Missing required components!");
+                isInitialized = false;
+                return;
             }
 
-            DisableControls();
-
+            currentLevel = SceneManager.GetActiveScene().name;
+            isInitialized = true;
+            playerDead = false;
         }
 
-        private void DisableControls()
+        private void CheckSceneChange()
         {
-            if (charactersController.life <= 0) {
-                if (SoulManager.Instance != null)
-                {
-                    SoulManager.Instance.PlayerDied(transform.position);
-                }
+            if (!isInitialized) return;
+            
+            string activeScene = SceneManager.GetActiveScene().name;
+            if (!currentLevel.Equals(activeScene))
+            {
+                HandleSceneChange(activeScene);
+            }
+        }
 
-                rb.simulated = false;
-                this.enabled = false;
-                playerMovement.enabled = false;
+        private void HandleSceneChange(string newScene)
+        {
+            currentLevel = newScene;
+            GameObject spawnPoint = GameObject.Find("Spawn");
+            
+            if (spawnPoint != null)
+            {
+                transform.position = spawnPoint.transform.position;
+            }
+            else
+            {
+                Debug.LogWarning($"Spawn point not found in scene: {newScene}");
+            }
+        }
+
+        private void CheckPlayerDeath()
+        {
+            if (charactersController.life <= 0)
+            {
+                HandlePlayerDeath();
+            }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            if (playerDead) return;
+            
+            playerDead = true;
+
+            if (SoulManager.Instance != null)
+            {
+                SoulManager.Instance.PlayerDied(transform.position);
+            }
+
+            rb.simulated = false;
+            playerMovement.enabled = false;
+            this.enabled = false;
+            
+            if (GameOverScreen != null)
+            {
                 GameOverScreen.SetActive(true);
             }
         }
-
 
         public void DestroyPlayer()
         {
             Destroy(transform.gameObject);
         }
-
-        
     }
 }
