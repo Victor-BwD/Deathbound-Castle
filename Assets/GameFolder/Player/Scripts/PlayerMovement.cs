@@ -5,19 +5,21 @@ using UnityEngine;
 namespace Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Characters))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private Transform floorCollider;
         [SerializeField] private Transform skin;
         [SerializeField] private float dashDuration = 0.2f;
-        [SerializeField] private int jumpPower = 25;
-        [SerializeField] private int dashPower = 50;
+        [SerializeField] private int jumpPower = 20;
+        [SerializeField] private int dashPower = 30;
         [SerializeField] private float speedXMultiply = 7f;
 
         public LayerMask floorLayer;
 
         private Rigidbody2D rb;
+        private Collider2D bodyCollider;
         private Animator receiveSkinAnimator;
         private Characters charactersController;
         private float dashCooldown;
@@ -28,21 +30,25 @@ namespace Player
         private bool jumpInputBuffer;
         private bool dashInputBuffer;
         private bool isGrounded;
-        private float groundCheckRadius = 0.1f;
         private int dashDirection = 1;
 
         private bool isDashing;
         private float dashTimeLeft;
         private float lastGroundCheckTime;
+        private bool previousGroundedState;
+
+        [SerializeField] private float coyoteTime = 0.1f;
+        [SerializeField] private float groundProbeHeight = 0.08f;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            bodyCollider = GetComponent<Collider2D>();
             charactersController = GetComponent<Characters>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
             playerController = GetComponent<PlayerController>();    
 
-            if (rb == null || charactersController == null || receiveSkinAnimator == null)
+            if (rb == null || bodyCollider == null || charactersController == null || receiveSkinAnimator == null)
             {
                 Debug.LogError("PlayerMovement: Missing required components!");
                 enabled = false;
@@ -90,10 +96,24 @@ namespace Player
 
         private void UpdateGroundCheck()
         {
-            isGrounded = Physics2D.OverlapCircle(floorCollider.position, groundCheckRadius, floorLayer);
+            Bounds bounds = bodyCollider.bounds;
+            Vector2 probeCenter = new Vector2(bounds.center.x, bounds.min.y - (groundProbeHeight * 0.5f));
+            Vector2 probeSize = new Vector2(Mathf.Max(0.05f, bounds.size.x * 0.8f), groundProbeHeight);
+
+            bool groundedByFeetProbe = Physics2D.OverlapBox(probeCenter, probeSize, 0f, floorLayer);
+
+            // Only accept grounded while falling/settled to avoid false states around head hits.
+            isGrounded = groundedByFeetProbe && rb.velocity.y <= 0.05f;
+
             if (isGrounded)
             {
                 lastGroundCheckTime = Time.time;
+            }
+
+            if (isGrounded != previousGroundedState)
+            {
+                Debug.Log(isGrounded ? "Player is grounded." : "Player is in the air.");
+                previousGroundedState = isGrounded;
             }
         }
 
@@ -101,7 +121,7 @@ namespace Player
         {
             if (!jumpInputBuffer) return;
             
-            if (isGrounded || (Time.time - lastGroundCheckTime < 0.1f))
+            if (isGrounded || (Time.time - lastGroundCheckTime < coyoteTime))
             {
                 Jump();
             }
