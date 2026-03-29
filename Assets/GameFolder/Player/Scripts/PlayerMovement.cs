@@ -12,9 +12,13 @@ namespace Player
         [SerializeField] private Transform floorCollider;
         [SerializeField] private Transform skin;
         [SerializeField] private float dashDuration = 0.2f;
-        [SerializeField] private int jumpPower = 20;
+        [SerializeField] private int jumpPower = 13;
         [SerializeField] private int dashPower = 30;
         [SerializeField] private float speedXMultiply = 7f;
+        [SerializeField] private float gravityScale = 2.2f;
+        [SerializeField] private float maxFallSpeed = 14f;
+        [SerializeField] private float fallMultiplier = 2.2f;
+        [SerializeField] private float lowJumpMultiplier = 2.8f;
 
         public LayerMask floorLayer;
 
@@ -28,6 +32,7 @@ namespace Player
         
         private float horizontalInput;
         private bool jumpInputBuffer;
+        private bool jumpHeld;
         private bool dashInputBuffer;
         private bool isGrounded;
         private int dashDirection = 1;
@@ -52,7 +57,10 @@ namespace Player
             {
                 Debug.LogError("PlayerMovement: Missing required components!");
                 enabled = false;
+                return;
             }
+
+            rb.gravityScale = gravityScale;
         }
 
         private void Update()
@@ -85,12 +93,15 @@ namespace Player
             }
 
             ApplyMovement();
+            ApplyBetterGravity();
+            ApplyFallClamp();
         }
 
         private void CacheInput()
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             jumpInputBuffer = Input.GetButtonDown("Jump");
+            jumpHeld = Input.GetButton("Jump");
             dashInputBuffer = Input.GetButtonDown("Fire2");
         }
 
@@ -112,7 +123,6 @@ namespace Player
 
             if (isGrounded != previousGroundedState)
             {
-                Debug.Log(isGrounded ? "Player is grounded." : "Player is in the air.");
                 previousGroundedState = isGrounded;
             }
         }
@@ -161,6 +171,47 @@ namespace Player
         {
             float targetVelocityX = horizontalInput * speedXMultiply;
             rb.velocity = new Vector2(targetVelocityX, rb.velocity.y);
+        }
+
+        private void ApplyFallClamp()
+        {
+            if (isGrounded)
+            {
+                return;
+            }
+
+            float clampedY = Mathf.Max(rb.velocity.y, -Mathf.Abs(maxFallSpeed));
+            if (!Mathf.Approximately(clampedY, rb.velocity.y))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, clampedY);
+            }
+        }
+
+        private void ApplyBetterGravity()
+        {
+            if (isGrounded)
+            {
+                return;
+            }
+
+            float extraGravityMultiplier = 0f;
+
+            if (rb.velocity.y < 0f)
+            {
+                extraGravityMultiplier = Mathf.Max(0f, fallMultiplier - 1f);
+            }
+            else if (rb.velocity.y > 0f && !jumpHeld)
+            {
+                extraGravityMultiplier = Mathf.Max(0f, lowJumpMultiplier - 1f);
+            }
+
+            if (extraGravityMultiplier <= 0f)
+            {
+                return;
+            }
+
+            float gravityDeltaY = Physics2D.gravity.y * extraGravityMultiplier * Time.fixedDeltaTime;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + gravityDeltaY);
         }
 
         private void UpdateAnimations()
