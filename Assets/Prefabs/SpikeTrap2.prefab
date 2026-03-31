@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4652769310620912401
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,7 +140,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &4652769310620912414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 4029156680515945326}
   spikeTrap2Sound: {fileID: 8300000, guid: 5859cf043cf7cdf47a9256fc6523d6f1, type: 3}
+  minDistance: 0.2
+  maxDistance: 0.5
 --- !u!82 &4029156680515945326
 AudioSource:
   m_ObjectHideFlags: 0
