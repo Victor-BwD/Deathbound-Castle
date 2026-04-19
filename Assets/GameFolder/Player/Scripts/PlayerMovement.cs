@@ -86,7 +86,7 @@ namespace Player
                 if (dashTimeLeft <= 0)
                 {
                     isDashing = false;
-                    rb.velocity = Vector2.zero;
+                    rb.linearVelocity = Vector2.zero;
                 }
 
                 return;
@@ -114,7 +114,7 @@ namespace Player
             bool groundedByFeetProbe = Physics2D.OverlapBox(probeCenter, probeSize, 0f, floorLayer);
 
             // Only accept grounded while falling/settled to avoid false states around head hits.
-            isGrounded = groundedByFeetProbe && rb.velocity.y <= 0.05f;
+            isGrounded = groundedByFeetProbe && rb.linearVelocity.y <= 0.05f;
 
             if (isGrounded)
             {
@@ -147,7 +147,7 @@ namespace Player
         private void Jump()
         {
             receiveSkinAnimator.Play("PlayerJump", -1);
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
             rb.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
             lastGroundCheckTime = -1f;
         }
@@ -158,7 +158,7 @@ namespace Player
             dashTimeLeft = dashDuration;
             dashCooldown = dashCooldownMax;
             receiveSkinAnimator.Play("PlayerDash", -1);
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(new Vector2(dashDirection * dashPower, 0), ForceMode2D.Impulse);
             
             if (SoundManager.Instance != null && playerController != null && playerController.AudioPlayer != null)
@@ -170,7 +170,7 @@ namespace Player
         private void ApplyMovement()
         {
             float targetVelocityX = horizontalInput * speedXMultiply;
-            rb.velocity = new Vector2(targetVelocityX, rb.velocity.y);
+            rb.linearVelocity = new Vector2(targetVelocityX, rb.linearVelocity.y);
         }
 
         private void ApplyFallClamp()
@@ -180,10 +180,10 @@ namespace Player
                 return;
             }
 
-            float clampedY = Mathf.Max(rb.velocity.y, -Mathf.Abs(maxFallSpeed));
-            if (!Mathf.Approximately(clampedY, rb.velocity.y))
+            float clampedY = Mathf.Max(rb.linearVelocity.y, -Mathf.Abs(maxFallSpeed));
+            if (!Mathf.Approximately(clampedY, rb.linearVelocity.y))
             {
-                rb.velocity = new Vector2(rb.velocity.x, clampedY);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, clampedY);
             }
         }
 
@@ -196,11 +196,11 @@ namespace Player
 
             float extraGravityMultiplier = 0f;
 
-            if (rb.velocity.y < 0f)
+            if (rb.linearVelocity.y < 0f)
             {
                 extraGravityMultiplier = Mathf.Max(0f, fallMultiplier - 1f);
             }
-            else if (rb.velocity.y > 0f && !jumpHeld)
+            else if (rb.linearVelocity.y > 0f && !jumpHeld)
             {
                 extraGravityMultiplier = Mathf.Max(0f, lowJumpMultiplier - 1f);
             }
@@ -211,7 +211,7 @@ namespace Player
             }
 
             float gravityDeltaY = Physics2D.gravity.y * extraGravityMultiplier * Time.fixedDeltaTime;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + gravityDeltaY);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y + gravityDeltaY);
         }
 
         private void UpdateAnimations()

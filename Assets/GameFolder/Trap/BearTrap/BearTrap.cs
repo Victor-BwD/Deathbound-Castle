@@ -25,7 +25,7 @@ namespace Traps
                 playerHealth.PlayerTakaDamage(1);
                 player = collision.transform;
                 collision.transform.position = transform.position;
-                collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                collision.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
                 skin.GetComponent<Animator>().Play("Stuck");
                 GetComponent<BoxCollider2D>().enabled = false;
                 collision.GetComponent<PlayerController>().enabled = false;

@@ -26,7 +26,7 @@ namespace Traps
         {
             if (collision.CompareTag("Player"))
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 rb.AddForce(new Vector2(0, 150));
                 characterScript.PlayerTakaDamage(1);
 
