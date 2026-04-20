@@ -13,8 +13,11 @@ namespace Core.Characters
         private bool isDead;
 
         // Events para desacoplamento
+        [HideInInspector]
         public UnityEvent<int> OnHealthChanged = new();  // Envia novo health
+        [HideInInspector]
         public UnityEvent OnDeath = new();
+        [HideInInspector]
         public UnityEvent<int> OnDamageReceived = new();  // Envia dano
 
         public int CurrentHealth => currentHealth;

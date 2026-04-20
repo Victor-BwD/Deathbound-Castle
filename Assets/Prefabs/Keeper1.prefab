@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 8856666760929597007}
   - component: {fileID: 8891200922710423114}
   - component: {fileID: 6895645594123301576}
+  - component: {fileID: 7657105164294192062}
   m_Layer: 0
   m_Name: Skin
   m_TagString: Untagged
@@ -221,6 +222,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keeperDieSound: {fileID: 8300000, guid: 8c38c4cf0445b194f93d2706020a248d, type: 3}
   keeperAttackSound: {fileID: 8300000, guid: fb81184d9774e414b8b2228769ecabc1, type: 3}
+--- !u!114 &7657105164294192062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856666760929596993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac7b405b5afe0f4888180d73b99734b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+  attackCooldown: 0.5
+  targetTag: Player
+  autoAttackOnTrigger: 1
 --- !u!1 &8856666761057010425
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8856666761072097487}
   - component: {fileID: 8856666761072097485}
-  - component: {fileID: 8856666761072097486}
   m_Layer: 0
   m_Name: AttackCollider
   m_TagString: Untagged
@@ -324,18 +340,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.03488879, y: 0.014173567}
   m_Radius: 0.14879417
---- !u!114 &8856666761072097486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856666761072097472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f98e6953f23a48498013a146f3a70c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8856666761203947168
 GameObject:
   m_ObjectHideFlags: 0

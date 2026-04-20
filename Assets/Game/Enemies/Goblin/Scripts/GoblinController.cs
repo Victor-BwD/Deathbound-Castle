@@ -1,7 +1,8 @@
 using Core.Characters;
+using Core.Combat;
 using UnityEngine;
 
-public class GoblinController : MonoBehaviour, IAttackable
+public class GoblinController : MonoBehaviour
 {
     private enum GoblinState
     {
@@ -22,6 +23,7 @@ public class GoblinController : MonoBehaviour, IAttackable
 
     private Animator _animator;
     private HealthComponent _healthComponent;
+    private EnemyAttackComponent _attackComponent;
     private Transform _target;
     private string _currentAnimation;
     private GoblinState _state;
@@ -41,6 +43,12 @@ public class GoblinController : MonoBehaviour, IAttackable
         
         _animator = skin.GetComponent<Animator>();
         _healthComponent = GetComponent<HealthComponent>();
+        _attackComponent = GetComponent<EnemyAttackComponent>();
+        
+        if (_attackComponent != null)
+        {
+            _attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+        }
 
         if (lockBoundsOnAwake)
         {
@@ -107,6 +115,15 @@ public class GoblinController : MonoBehaviour, IAttackable
         {
             if (Time.time >= _nextAttackTime)
             {
+                if (_attackComponent != null && _target != null)
+                {
+                    var targetCollider = _target.GetComponent<Collider2D>();
+                    if (targetCollider != null)
+                    {
+                        _attackComponent.DoAttack(targetCollider);
+                    }
+                }
+
                 _nextAttackTime = Time.time + attackCooldown;
                 SetState(GoblinState.Attacking);
             }
@@ -117,7 +134,7 @@ public class GoblinController : MonoBehaviour, IAttackable
             
             return; 
         }
-
+        
         var current = transform.position;
         var targetX = GetClampedTargetX();
         var nextX = Mathf.MoveTowards(current.x, targetX, moveSpeed * Time.deltaTime);

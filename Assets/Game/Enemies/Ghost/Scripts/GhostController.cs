@@ -1,4 +1,5 @@
 using Core.Characters;
+using Core.Combat;
 using Player;
 using System.Collections;
 using UnityEngine;
@@ -14,17 +15,19 @@ namespace Ghost
         private SpriteRenderer ghostRenderer;
         private CircleCollider2D ghostCollider;
         private HealthComponent healthComponent;
+        private EnemyAttackComponent attackComponent;
 
         private bool goRight;
-        private int damage = 1;
 
         private void Start()
         {
             ghostRenderer = GetComponentInChildren<SpriteRenderer>();
             ghostCollider = GetComponent<CircleCollider2D>();
             healthComponent = GetComponent<HealthComponent>();
-
-            // Conectar evento de morte
+            attackComponent = GetComponent<EnemyAttackComponent>();
+            
+            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            
             if (healthComponent != null)
             {
                 healthComponent.OnDeath.AddListener(HandleDeath);
@@ -65,13 +68,6 @@ namespace Ghost
         }
 
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Player"))
-            {
-                collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
-            }
-        }
 
         private void HandleDeath()
         {

@@ -8,16 +8,25 @@ namespace Traps
 {
     public class FireTrap : MonoBehaviour
     {
-        private Characters characters;
-        private PlayerHealth playerHealth;
+        private HealthComponent playerHealth;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            characters = GameObject.Find("Player").GetComponent<Characters>();
-            playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-       
+            var playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                playerHealth = playerObj.GetComponent<HealthComponent>();
+                if (playerHealth == null)
+                {
+                    Debug.LogError("FireTrap: Player não tem HealthComponent!");
+                }
+            }
+            else
+            {
+                Debug.LogError("FireTrap: Player não encontrado!");
+            }
         }
     
 
@@ -25,11 +34,9 @@ namespace Traps
         {
             if (collision.CompareTag("Player"))
             {
-                playerHealth.PlayerTakaDamage(1);
-
-                if (characters.life <= 0)
+                if (playerHealth != null)
                 {
-                    this.GetComponent<BoxCollider2D>().enabled = false;
+                    playerHealth.TakeDamage(1);
                 }
             }
         }

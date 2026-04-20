@@ -1,4 +1,6 @@
 using Core.Characters;
+using Core.Combat;
+using Core.Services;
 using UnityEngine;
 
 namespace Keeper
@@ -14,24 +16,41 @@ namespace Keeper
         private Collider2D circleCollider;
         private Collider2D collider2D;
         private HealthComponent healthComponent;
+        private EnemyAttackComponent attackComponent;
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
         private Transform playerTransform;
+        
+        private void Awake()
+        {
+            attackComponent = GetComponentInChildren<EnemyAttackComponent>();
+            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            
+            if (ServiceLocator.TryGet<KeeperSounds>(out var sounds))
+            {
+                keeperSounds = sounds;
+            }
+            else
+            {
+                Debug.LogWarning("KeeperSounds não registrado no ServiceLocator!");
+                keeperSounds = GetComponentInChildren<KeeperSounds>();
+            }
+        }
 
         void Start() {
             collider2D = GetComponent<Collider2D>();
             circleCollider = GetComponentInChildren<CircleCollider2D>();
             healthComponent = GetComponent<HealthComponent>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
-            keeperSounds = GetComponentInChildren<KeeperSounds>();
+
+
             
-            GameObject playerObj = GameObject.FindWithTag("Player");
+            var playerObj = GameObject.FindWithTag("Player");
             if (playerObj != null)
             {
                 playerTransform = playerObj.transform;
             }
-
-            // Conectar evento de morte do HealthComponent
+            
             if (healthComponent != null)
             {
                 healthComponent.OnDeath.AddListener(HandleDeath);

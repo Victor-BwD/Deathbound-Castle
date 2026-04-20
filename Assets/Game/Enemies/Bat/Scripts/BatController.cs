@@ -1,4 +1,5 @@
 using Core.Characters;
+using Core.Combat;
 using Player;
 using UnityEngine;
 
@@ -7,20 +8,23 @@ namespace Bats
     public class BatController : MonoBehaviour
     {
         [SerializeField] public Transform player;
-        [SerializeField] private float attackTime;
+        [SerializeField] private float chaseSpeed = 2f;
+        [SerializeField] private float attackRange = 0.8f;
     
         private HealthComponent healthComponent;
         private Collider2D circleCollider2D;
         private Rigidbody2D rb;
-        private int damage = 1;
+        private EnemyAttackComponent attackComponent;
     
-        // Start is called before the first frame update
         void Start()
         {
-            attackTime = 0;
             healthComponent = GetComponent<HealthComponent>();
             circleCollider2D = GetComponent<CircleCollider2D>();
             rb = GetComponent<Rigidbody2D>();
+            attackComponent = GetComponent<EnemyAttackComponent>();
+            
+            // Configurar estratégia de ataque (Strategy Pattern!)
+            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
             
             if (healthComponent != null)
             {
@@ -28,7 +32,6 @@ namespace Bats
             }
         }
     
-        // Update is called once per frame
         void Update()
         {
             if (healthComponent != null && healthComponent.IsDead)
@@ -36,19 +39,32 @@ namespace Bats
                 return;
             }
     
-            if (Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center) > 0.8f)
+            if (player == null)
             {
-                attackTime = 0;
-                transform.position = Vector2.MoveTowards(transform.position,
-                    player.GetComponent<CapsuleCollider2D>().bounds.center, 2f * Time.deltaTime);
+                return;
+            }
+
+            float distance = Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center);
+            
+            if (distance > attackRange)
+            {
+                // Chase
+                transform.position = Vector2.MoveTowards(
+                    transform.position,
+                    player.GetComponent<CapsuleCollider2D>().bounds.center,
+                    chaseSpeed * Time.deltaTime
+                );
             }
             else
             {
-                attackTime += Time.deltaTime;
-                if (attackTime >= 0.5)
+                // Attack
+                if (attackComponent != null && attackComponent.CanAttack())
                 {
-                    attackTime = 0;
-                    player.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
+                    var playerCollider = player.GetComponent<Collider2D>();
+                    if (playerCollider != null)
+                    {
+                        attackComponent.DoAttack(playerCollider);
+                    }
                 }
             }
         }
