@@ -11,7 +11,6 @@ namespace Keeper
         [SerializeField] private Transform skin;
         [SerializeField] private Transform keeperRange;
         [SerializeField] private float speedPatrol = 2.2f;
-        
         private bool goRight;
         private Collider2D circleCollider;
         private Collider2D collider2D;
@@ -20,6 +19,8 @@ namespace Keeper
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
         private Transform playerTransform;
+        private KeeperRange keeperRangeComponent;
+        private float nextAttackTime;
         
         private void Awake()
         {
@@ -42,9 +43,8 @@ namespace Keeper
             circleCollider = GetComponentInChildren<CircleCollider2D>();
             healthComponent = GetComponent<HealthComponent>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
+            keeperRangeComponent = keeperRange.GetComponent<KeeperRange>();
 
-
-            
             var playerObj = GameObject.FindWithTag("Player");
             if (playerObj != null)
             {
@@ -63,6 +63,17 @@ namespace Keeper
             }
     
             if (receiveSkinAnimator.GetCurrentAnimatorStateInfo(0).IsName("KeeperAttack")) {
+                return;
+            }
+
+            // Checar se player está no range e atacar em loop
+            if (keeperRangeComponent != null && keeperRangeComponent.IsPlayerInRange)
+            {
+                if (Time.time >= nextAttackTime && attackComponent != null)
+                {
+                    receiveSkinAnimator.Play("KeeperAttack", -1);
+                    nextAttackTime = Time.time + attackComponent.AttackCooldown;
+                }
                 return;
             }
 
@@ -110,6 +121,16 @@ namespace Keeper
             else if (directionToPlayer < 0)
             {
                 goRight = (b_point.position.x < a_point.position.x);
+            }
+        }
+
+        // Método chamado pelo Animation Event no frame de impacto da animação
+        public void OnAttackAnimationEvent()
+        {
+            if (attackComponent != null)
+            {
+                Debug.Log("KeeperController: OnAttackAnimationEvent chamado, executando ataque!");
+                attackComponent.DoAttackAnimationEvent();
             }
         }
     }

@@ -74,7 +74,6 @@ namespace Bats
             circleCollider2D.enabled = false;
             rb.gravityScale = 1;
             this.enabled = false;
-            
             Destroy(gameObject, 2);
             BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
             if (batTrigger != null)
