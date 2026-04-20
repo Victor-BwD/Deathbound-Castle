@@ -1,3 +1,4 @@
+using Core.Characters;
 using UnityEngine;
 
 namespace Keeper
@@ -12,7 +13,7 @@ namespace Keeper
         private bool goRight;
         private Collider2D circleCollider;
         private Collider2D collider2D;
-        private Characters characters;
+        private HealthComponent healthComponent;
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
         private Transform playerTransform;
@@ -20,7 +21,7 @@ namespace Keeper
         void Start() {
             collider2D = GetComponent<Collider2D>();
             circleCollider = GetComponentInChildren<CircleCollider2D>();
-            characters = GetComponent<Characters>();
+            healthComponent = GetComponent<HealthComponent>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
             keeperSounds = GetComponentInChildren<KeeperSounds>();
             
@@ -29,14 +30,16 @@ namespace Keeper
             {
                 playerTransform = playerObj.transform;
             }
+
+            // Conectar evento de morte do HealthComponent
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
 
         void FixedUpdate() {
-            if(characters.life <= 0) {
-                keeperSounds.DieSound();
-                collider2D.enabled = false;
-                circleCollider.enabled = false;
-                this.enabled = false;
+            if(healthComponent != null && healthComponent.IsDead) {
                 return;
             }
     
@@ -45,6 +48,14 @@ namespace Keeper
             }
 
             Patrol();
+        }
+
+        private void HandleDeath()
+        {
+            keeperSounds.DieSound();
+            collider2D.enabled = false;
+            circleCollider.enabled = false;
+            this.enabled = false;
         }
 
         private void Patrol()

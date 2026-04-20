@@ -1,3 +1,4 @@
+using Core.Characters;
 using Player;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Bats
         [SerializeField] public Transform player;
         [SerializeField] private float attackTime;
     
-        private Characters charactersController;
+        private HealthComponent healthComponent;
         private Collider2D circleCollider2D;
         private Rigidbody2D rb;
         private int damage = 1;
@@ -17,23 +18,22 @@ namespace Bats
         void Start()
         {
             attackTime = 0;
-            charactersController = GetComponent<Characters>();
+            healthComponent = GetComponent<HealthComponent>();
             circleCollider2D = GetComponent<CircleCollider2D>();
             rb = GetComponent<Rigidbody2D>();
+            
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
     
         // Update is called once per frame
         void Update()
         {
-            if (charactersController.life <= 0)
+            if (healthComponent != null && healthComponent.IsDead)
             {
-                circleCollider2D.enabled = false;
-                rb.gravityScale = 1;
-                this.enabled = false;
-    
-                Destroy(gameObject, 2);
-                BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
-                batTrigger.RemoveGameObject(this.gameObject.transform);
+                return;
             }
     
             if (Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center) > 0.8f)
@@ -50,6 +50,20 @@ namespace Bats
                     attackTime = 0;
                     player.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
                 }
+            }
+        }
+
+        private void HandleDeath()
+        {
+            circleCollider2D.enabled = false;
+            rb.gravityScale = 1;
+            this.enabled = false;
+            
+            Destroy(gameObject, 2);
+            BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
+            if (batTrigger != null)
+            {
+                batTrigger.RemoveGameObject(this.gameObject.transform);
             }
         }
     }

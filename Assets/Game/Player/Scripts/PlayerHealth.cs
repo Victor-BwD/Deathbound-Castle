@@ -1,3 +1,4 @@
+using Core.Characters;
 using GameFolder.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace Player
     
         public void PlayerTakaDamage(int damage) {
             characters.life -= damage;
-            characters.skin.GetComponent<Animator>().Play("PlayerTakeDamage", 1);
+            characters.Skin.GetComponent<Animator>().Play("PlayerTakeDamage", 1);
             SoundManager.Instance.Play(_audioPlayer.damageSound);
         }
     }

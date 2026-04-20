@@ -1,4 +1,5 @@
 using System;
+using Core.Characters;
 using GameFolder.Scripts;
 using UnityEngine;
 

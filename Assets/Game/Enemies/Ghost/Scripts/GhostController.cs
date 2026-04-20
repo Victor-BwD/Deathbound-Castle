@@ -1,3 +1,4 @@
+using Core.Characters;
 using Player;
 using System.Collections;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Ghost
 
         private SpriteRenderer ghostRenderer;
         private CircleCollider2D ghostCollider;
+        private HealthComponent healthComponent;
 
         private bool goRight;
         private int damage = 1;
@@ -20,10 +22,22 @@ namespace Ghost
         {
             ghostRenderer = GetComponentInChildren<SpriteRenderer>();
             ghostCollider = GetComponent<CircleCollider2D>();
+            healthComponent = GetComponent<HealthComponent>();
+
+            // Conectar evento de morte
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
 
         void Update()
         {
+            if (healthComponent != null && healthComponent.IsDead)
+            {
+                return;
+            }
+
             if (goRight)
             {
                 skin.localScale = new Vector3(-1, 1, 1);
@@ -46,8 +60,6 @@ namespace Ghost
                     StartCoroutine(WaitAndDisappear());
                 }
 
-                
-
                 transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
             }
         }
@@ -59,6 +71,14 @@ namespace Ghost
             {
                 collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
             }
+        }
+
+        private void HandleDeath()
+        {
+            ghostRenderer.enabled = false;
+            ghostCollider.enabled = false;
+            this.enabled = false;
+            Destroy(gameObject, 2f);
         }
 
         IEnumerator WaitAndReturn(Vector3 point)

@@ -1,8 +1,9 @@
+using Core.Characters;
 using UnityEngine;
 
 /// <summary>
 /// Exemplo de como criar um novo tipo de inimigo usando IAttackable
-/// Este inimigo fica parado até ser atacado, então persegue o jogador por um tempo
+/// Este inimigo fica parado atï¿½ ser atacado, entï¿½o persegue o jogador por um tempo
 /// </summary>
 public class ExampleEnemyController : MonoBehaviour, IAttackable
 {
@@ -35,7 +36,7 @@ public class ExampleEnemyController : MonoBehaviour, IAttackable
             return;
         }
 
-        // Atualizar perseguição
+        // Atualizar perseguiï¿½ï¿½o
         if (isChasing)
         {
             chaseTimer -= Time.deltaTime;
@@ -64,7 +65,7 @@ public class ExampleEnemyController : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// Perseguir a última posição conhecida do jogador
+    /// Perseguir a ï¿½ltima posiï¿½ï¿½o conhecida do jogador
     /// </summary>
     private void ChasePlayer()
     {
@@ -80,17 +81,17 @@ public class ExampleEnemyController : MonoBehaviour, IAttackable
             skin.localScale = new Vector3(-Mathf.Abs(skin.localScale.x), skin.localScale.y, skin.localScale.z);
         }
 
-        // Mover em direção ao jogador
+        // Mover em direï¿½ï¿½o ao jogador
         transform.position = Vector3.MoveTowards(transform.position, lastPlayerPosition, speedChase * Time.deltaTime);
     }
 
     /// <summary>
-    /// Implementação da interface IAttackable
+    /// Implementaï¿½ï¿½o da interface IAttackable
     /// Chamado quando o jogador ataca este inimigo
     /// </summary>
     public void OnPlayerAttack(Vector3 attackerPosition)
     {
-        // Ativar perseguição
+        // Ativar perseguiï¿½ï¿½o
         isChasing = true;
         chaseTimer = chaseTime;
         lastPlayerPosition = attackerPosition;

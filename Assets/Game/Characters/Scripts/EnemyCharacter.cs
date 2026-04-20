@@ -1,26 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCharacter : Characters
+namespace Core.Characters
 {
-    [SerializeField]
-    private int soulValue;
-    private bool isDead = false;
-
-    protected override void OnDeath()
+    /// <summary>
+    /// Versão específica para inimigos
+    /// Adiciona comportamento de drop de souls
+    /// </summary>
+    public class EnemyCharacter : Characters
     {
-        if (isDead) return; 
-        isDead = true;
+        [SerializeField] private int soulValue = 1;
 
-        base.OnDeath();
-
-     
-        if (SoulManager.Instance != null)
+        protected override void OnDeath()
         {
-            SoulManager.Instance.AddSouls(soulValue);
+            base.OnDeath();  // Chama animação "Die"
+
+            // NOVO: Usar ServiceLocator ao invés de FindObjectOfType
+            var soulManager = FindObjectOfType<SoulManager>();  // TODO: Usar ServiceLocator depois
+            if (soulManager != null)
+            {
+                soulManager.AddSouls(soulValue);
+            }
+
+            // Schedule destruction AGORA
+            Destroy(gameObject, 2f);
         }
-      
-        Destroy(gameObject, 2f);
     }
 }
