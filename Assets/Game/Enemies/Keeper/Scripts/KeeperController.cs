@@ -15,17 +15,35 @@ namespace Keeper
         private Collider2D circleCollider;
         private Collider2D collider2D;
         private HealthComponent healthComponent;
-        private EnemyAttackComponent attackComponent;
+        [SerializeField] private EnemyAttackComponent attackComponent;
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
         private Transform playerTransform;
         private KeeperRange keeperRangeComponent;
-        private float nextAttackTime;
+
+        private void OnValidate()
+        {
+            if (attackComponent == null)
+            {
+                attackComponent = GetComponentInChildren<EnemyAttackComponent>();
+            }
+        }
         
         private void Awake()
         {
-            attackComponent = GetComponentInChildren<EnemyAttackComponent>();
-            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            if (attackComponent == null)
+            {
+                attackComponent = GetComponentInChildren<EnemyAttackComponent>();
+            }
+
+            if (attackComponent != null)
+            {
+                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            }
+            else
+            {
+                Debug.LogError("KeeperController: EnemyAttackComponent não encontrado no objeto/filhos.", gameObject);
+            }
             
             if (ServiceLocator.TryGet<KeeperSounds>(out var sounds))
             {
@@ -69,10 +87,9 @@ namespace Keeper
             // Checar se player está no range e atacar em loop
             if (keeperRangeComponent != null && keeperRangeComponent.IsPlayerInRange)
             {
-                if (Time.time >= nextAttackTime && attackComponent != null)
+                if (attackComponent != null && attackComponent.CanAttack())
                 {
                     receiveSkinAnimator.Play("KeeperAttack", -1);
-                    nextAttackTime = Time.time + attackComponent.AttackCooldown;
                 }
                 return;
             }
