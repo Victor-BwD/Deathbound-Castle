@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Characters;
 using UnityEngine;
 
 public class EnemyDoorController : MonoBehaviour
@@ -20,7 +21,7 @@ public class EnemyDoorController : MonoBehaviour
         if (previousLife != characters.life)
         {
             previousLife = characters.life;
-            characters.skin.GetComponent<Animator>().Play("DoorEnemy", -1);
+            characters.Skin.GetComponent<Animator>().Play("DoorEnemy", -1);
         }
 
         if (characters.life <= 0)

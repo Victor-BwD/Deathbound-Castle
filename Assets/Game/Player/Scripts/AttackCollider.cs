@@ -1,4 +1,5 @@
 using System;
+using Core.Characters;
 using GameFolder.Scripts;
 using UnityEngine;
 
@@ -16,16 +17,21 @@ namespace Player {
         
         private void OnTriggerEnter2D(Collider2D collision) {
             if (collision.CompareTag("Enemy")) {
-                Characters targetCharacters = collision.GetComponent<Characters>();
+                HealthComponent healthComponent = collision.GetComponent<HealthComponent>();
                 
-                if (targetCharacters != null)
+                if (healthComponent != null)
                 {
+                    int damageAmount = damage;
+                    
                     if(_playerCombo.ComboNumber == 1) {
-                        targetCharacters.life -= damage;
+                        damageAmount = damage;
                     }
                     if(_playerCombo.ComboNumber == 2) {
-                        targetCharacters.life -= damage + 1;
+                        damageAmount = damage + 1;
                     }
+
+                    // ✅ NOVO: Chamar o método correto de dano
+                    healthComponent.TakeDamage(damageAmount);
 
                     IAttackable attackableEnemy = collision.GetComponent<IAttackable>();
                     if (attackableEnemy != null)

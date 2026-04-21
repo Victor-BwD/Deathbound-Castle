@@ -1,3 +1,5 @@
+using Core.Characters;
+using Core.Combat;
 using Player;
 using System.Collections;
 using UnityEngine;
@@ -12,18 +14,33 @@ namespace Ghost
 
         private SpriteRenderer ghostRenderer;
         private CircleCollider2D ghostCollider;
+        private HealthComponent healthComponent;
+        private EnemyAttackComponent attackComponent;
 
         private bool goRight;
-        private int damage = 1;
 
         private void Start()
         {
             ghostRenderer = GetComponentInChildren<SpriteRenderer>();
             ghostCollider = GetComponent<CircleCollider2D>();
+            healthComponent = GetComponent<HealthComponent>();
+            attackComponent = GetComponent<EnemyAttackComponent>();
+            
+            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
 
         void Update()
         {
+            if (healthComponent != null && healthComponent.IsDead)
+            {
+                return;
+            }
+
             if (goRight)
             {
                 skin.localScale = new Vector3(-1, 1, 1);
@@ -46,19 +63,18 @@ namespace Ghost
                     StartCoroutine(WaitAndDisappear());
                 }
 
-                
-
                 transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
             }
         }
 
 
-        private void OnTriggerEnter2D(Collider2D collision)
+
+        private void HandleDeath()
         {
-            if (collision.CompareTag("Player"))
-            {
-                collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
-            }
+            ghostRenderer.enabled = false;
+            ghostCollider.enabled = false;
+            this.enabled = false;
+            Destroy(gameObject, 2f);
         }
 
         IEnumerator WaitAndReturn(Vector3 point)

@@ -1,3 +1,4 @@
+using Core.Services;
 using GameFolder.Scripts;
 using UnityEngine;
 
@@ -7,6 +8,11 @@ namespace Keeper
     {
         [SerializeField] private AudioClip keeperDieSound;
         [SerializeField] private AudioClip keeperAttackSound;
+
+        private void Awake()
+        {
+            ServiceLocator.Register<KeeperSounds>(this);
+        }
         
         public void DieSound()
         {

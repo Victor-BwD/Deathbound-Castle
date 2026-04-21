@@ -1,19 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Characters;
 using UnityEngine;
 
 namespace Traps
 {
     public class SpikeTrap : MonoBehaviour
     {
-        private Characters characterScript;
-        private Rigidbody2D rb;
+        private HealthComponent playerHealth;
+        private Rigidbody2D playerRb;
     
         // Start is called before the first frame update
         void Start()
         {
-            characterScript = GameObject.Find("Player").GetComponent<Characters>();
-            rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+            var playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                playerHealth = playerObj.GetComponent<HealthComponent>();
+                playerRb = playerObj.GetComponent<Rigidbody2D>();
+                
+                if (playerHealth == null)
+                {
+                    Debug.LogError("SpikeTrap: Player não tem HealthComponent!");
+                }
+                if (playerRb == null)
+                {
+                    Debug.LogError("SpikeTrap: Player não tem Rigidbody2D!");
+                }
+            }
+            else
+            {
+                Debug.LogError("SpikeTrap: Player não encontrado!");
+            }
         }
 
         // Update is called once per frame
@@ -26,14 +44,18 @@ namespace Traps
         {
             if (collision.CompareTag("Player"))
             {
-                rb.linearVelocity = Vector2.zero;
-                rb.AddForce(new Vector2(0, 150));
-                characterScript.PlayerTakaDamage(1);
-
-                if (characterScript.life <= 0)
+                if (playerRb != null)
                 {
-                    this.GetComponent<BoxCollider2D>().enabled = false;
+                    playerRb.linearVelocity = Vector2.zero;
+                    playerRb.AddForce(new Vector2(0, 150));
                 }
+
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(1);
+                }
+
+                this.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

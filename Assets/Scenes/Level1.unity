@@ -85691,7 +85691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9619753a47340af86fb86b684476419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicPhase1: {fileID: 0}
+  musicPhase1: {fileID: 8300000, guid: 28fa4d9c03eefa748adcaad2c9c46d6d, type: 3}
 --- !u!4 &1334818113
 Transform:
   m_ObjectHideFlags: 0
@@ -104375,11 +104375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688359788709692163, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3688359788709692163, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 3688359788709692163, guid: f38071eabaad51a428aa7c060a026fe1, type: 3}
       propertyPath: m_LocalPosition.z

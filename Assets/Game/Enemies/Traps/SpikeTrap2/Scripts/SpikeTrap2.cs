@@ -1,3 +1,4 @@
+using Core.Characters;
 using Player;
 using UnityEngine;
 
@@ -5,16 +6,25 @@ namespace Traps
 {
     public class SpikeTrap2 : MonoBehaviour
     {
-        private PlayerHealth playerHealth;
-        private Characters characters;
+        private HealthComponent playerHealth;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-            characters = GameObject.Find("Player").GetComponent<Characters>();
-
+            var playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                playerHealth = playerObj.GetComponent<HealthComponent>();
+                if (playerHealth == null)
+                {
+                    Debug.LogError("SpikeTrap2: Player não tem HealthComponent!");
+                }
+            }
+            else
+            {
+                Debug.LogError("SpikeTrap2: Player não encontrado!");
+            }
         }
 
         // Update is called once per frame
@@ -27,12 +37,12 @@ namespace Traps
         {
             if (collision.CompareTag("Player"))
             {
-                playerHealth.PlayerTakaDamage(1);
-
-                if (characters.life <= 0)
+                if (playerHealth != null)
                 {
-                    this.GetComponent<BoxCollider2D>().enabled = false;
+                    playerHealth.TakeDamage(1);
                 }
+
+                this.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

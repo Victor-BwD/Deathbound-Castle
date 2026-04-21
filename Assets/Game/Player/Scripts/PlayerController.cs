@@ -1,3 +1,4 @@
+using Core.Characters;
 using GameFolder.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
