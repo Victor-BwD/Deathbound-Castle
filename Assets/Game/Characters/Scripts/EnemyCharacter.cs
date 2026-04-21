@@ -1,11 +1,8 @@
+using Core.Services;
 using UnityEngine;
 
 namespace Core.Characters
 {
-    /// <summary>
-    /// Versão específica para inimigos
-    /// Adiciona comportamento de drop de souls
-    /// </summary>
     public class EnemyCharacter : Characters
     {
         [SerializeField] private int soulValue = 1;
@@ -14,8 +11,7 @@ namespace Core.Characters
         {
             base.OnDeath();  // Chama animação "Die"
 
-            // NOVO: Usar ServiceLocator ao invés de FindObjectOfType
-            var soulManager = FindObjectOfType<SoulManager>();  // TODO: Usar ServiceLocator depois
+            var soulManager = SoulManager.Instance;
             if (soulManager != null)
             {
                 soulManager.AddSouls(soulValue);

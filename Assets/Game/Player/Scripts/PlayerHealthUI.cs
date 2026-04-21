@@ -64,6 +64,7 @@ namespace Player
             {
                 healthComponent.OnDamageReceived.RemoveListener(OnPlayerDamaged);
                 healthComponent.OnHealthChanged.RemoveListener(OnHealthChanged);
+                healthComponent.OnDeath.RemoveListener(OnPlayerDeath);
             }
         }
     }

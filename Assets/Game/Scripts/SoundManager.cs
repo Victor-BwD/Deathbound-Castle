@@ -32,6 +32,17 @@ namespace GameFolder.Scripts
                 Destroy(gameObject);
             }
         }
+
+        // Cleanup ServiceLocator registration when destroyed.
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                ServiceLocator.Unregister<SoundManager>();
+                Instance = null;
+            }
+        }
+
         // Play a single clip through the sound effects source.
         public void Play(AudioClip clip)
         {

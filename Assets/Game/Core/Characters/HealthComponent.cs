@@ -22,8 +22,16 @@ namespace Core.Characters
 
         public int CurrentHealth => currentHealth;
         public int MaxHealth => maxHealth;
-        public float HealthPercent => (float)currentHealth / maxHealth;
+        public float HealthPercent => maxHealth > 0 ? (float)currentHealth / maxHealth : 0f;
         public bool IsDead => isDead;
+
+        private void OnValidate()
+        {
+            if (maxHealth < 1)
+            {
+                maxHealth = 1;
+            }
+        }
 
         private void Start()
         {
@@ -44,9 +52,12 @@ namespace Core.Characters
                 isDead = true;
                 OnDeath?.Invoke();
             }
-            else
+            
+            OnHealthChanged?.Invoke(currentHealth);
+
+            if (isDead)
             {
-                OnHealthChanged?.Invoke(currentHealth);
+                OnDeath?.Invoke();
             }
         }
         

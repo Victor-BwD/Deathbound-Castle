@@ -14,17 +14,13 @@ namespace Bats
         private HealthComponent healthComponent;
         private Collider2D circleCollider2D;
         private Rigidbody2D rb;
-        private EnemyAttackComponent attackComponent;
     
         void Start()
         {
             healthComponent = GetComponent<HealthComponent>();
             circleCollider2D = GetComponent<CircleCollider2D>();
             rb = GetComponent<Rigidbody2D>();
-            attackComponent = GetComponent<EnemyAttackComponent>();
             
-            // Configurar estratégia de ataque (Strategy Pattern!)
-            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
             
             if (healthComponent != null)
             {
@@ -54,18 +50,6 @@ namespace Bats
                     player.GetComponent<CapsuleCollider2D>().bounds.center,
                     chaseSpeed * Time.deltaTime
                 );
-            }
-            else
-            {
-                // Attack
-                if (attackComponent != null && attackComponent.CanAttack())
-                {
-                    var playerCollider = player.GetComponent<Collider2D>();
-                    if (playerCollider != null)
-                    {
-                        attackComponent.DoAttack(playerCollider);
-                    }
-                }
             }
         }
 
