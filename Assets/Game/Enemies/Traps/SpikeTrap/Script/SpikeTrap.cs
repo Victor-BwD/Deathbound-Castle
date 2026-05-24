@@ -57,10 +57,12 @@ namespace Traps
                     lastDamageTime = Time.time;
                     lastDamageFrame = Time.frameCount;
                     playerHealth.TakeDamage(1);
-                    this.GetComponent<BoxCollider2D>().enabled = false;
-                }
 
-                this.GetComponent<BoxCollider2D>().enabled = false;
+                    if (playerHealth.IsDead)
+                    {
+                        GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                }
             }
         }
 
