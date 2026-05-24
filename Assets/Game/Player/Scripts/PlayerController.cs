@@ -22,6 +22,13 @@ namespace Player
 
         void Start() {
             InitializeComponents();
+            
+            // 👂 Registrar listener AGORA, antes de qualquer dano
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandlePlayerDeath);
+            }
+            
             DontDestroyOnLoad(this.gameObject);
         }
 
@@ -30,12 +37,7 @@ namespace Player
             CheckSceneChange();
         }
 
-        void FixedUpdate()
-        {
-            if (!isInitialized || playerDead) return;
-            
-            CheckPlayerDeath();
-        }
+        // ❌ Remover FixedUpdate e CheckPlayerDeath — agora é event-driven!
 
         private void InitializeComponents()
         {
@@ -76,14 +78,6 @@ namespace Player
             if (spawnPoint != null)
             {
                 transform.position = spawnPoint.transform.position;
-            }
-        }
-
-        private void CheckPlayerDeath()
-        {
-            if (healthComponent.IsDead)
-            {
-                HandlePlayerDeath();
             }
         }
 

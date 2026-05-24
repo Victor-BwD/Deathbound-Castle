@@ -19,6 +19,7 @@ namespace Core.Characters
         [HideInInspector]
         public UnityEvent<int> OnDamageReceived = new();
 
+
         public int CurrentHealth => currentHealth;
         public int MaxHealth => maxHealth;
         public float HealthPercent => maxHealth > 0 ? (float)currentHealth / maxHealth : 0f;
