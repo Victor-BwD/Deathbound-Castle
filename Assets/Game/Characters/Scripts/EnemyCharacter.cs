@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCharacter : Characters
+namespace Core.Characters
 {
-    [SerializeField]
-    private int soulValue;
-    private bool isDead = false;
-
-    protected override void OnDeath()
+    public class EnemyCharacter : Characters
     {
-        if (isDead) return; 
-        isDead = true;
+        [SerializeField] private int soulValue = 1;
 
-        base.OnDeath();
-
-     
-        if (SoulManager.Instance != null)
+        protected override void OnDeath()
         {
-            SoulManager.Instance.AddSouls(soulValue);
+            base.OnDeath();
+
+            var soulManager = SoulManager.Instance;
+            if (soulManager != null)
+            {
+                soulManager.AddSouls(soulValue);
+            }
+            
+            Destroy(gameObject, 2f);
         }
-      
-        Destroy(gameObject, 2f);
     }
 }

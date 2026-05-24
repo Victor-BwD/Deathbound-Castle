@@ -1,3 +1,5 @@
+using Core.Characters;
+using Core.Combat;
 using UnityEngine;
 
 namespace Keeper
@@ -8,35 +10,60 @@ namespace Keeper
         [SerializeField] private Transform skin;
         [SerializeField] private Transform keeperRange;
         [SerializeField] private float speedPatrol = 2.2f;
-        
         private bool goRight;
         private Collider2D circleCollider;
         private Collider2D collider2D;
-        private Characters characters;
+        private HealthComponent healthComponent;
+        [SerializeField] private EnemyAttackComponent attackComponent;
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
         private Transform playerTransform;
+        private KeeperRange keeperRangeComponent;
+
+        private void OnValidate()
+        {
+            if (attackComponent == null)
+            {
+                attackComponent = GetComponentInChildren<EnemyAttackComponent>();
+            }
+        }
+        
+        private void Awake()
+        {
+            attackComponent = GetComponentInChildren<EnemyAttackComponent>();
+            if (attackComponent != null)
+            {
+                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            }
+
+            keeperSounds = GetComponentInChildren<KeeperSounds>();
+            if (keeperSounds == null)
+            {
+                Debug.LogWarning("KeeperSounds não encontrado no Keeper.");
+            }
+        }
 
         void Start() {
             collider2D = GetComponent<Collider2D>();
             circleCollider = GetComponentInChildren<CircleCollider2D>();
-            characters = GetComponent<Characters>();
+            healthComponent = GetComponent<HealthComponent>();
             receiveSkinAnimator = skin.GetComponent<Animator>();
-            keeperSounds = GetComponentInChildren<KeeperSounds>();
-            
-            GameObject playerObj = GameObject.FindWithTag("Player");
+            keeperRangeComponent = keeperRange.GetComponent<KeeperRange>();
+
+            var playerObj = GameObject.FindWithTag("Player");
             if (playerObj != null)
             {
                 playerTransform = playerObj.transform;
             }
+            
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
 
         void FixedUpdate() {
-            if(characters.life <= 0) {
-                keeperSounds.DieSound();
-                collider2D.enabled = false;
-                circleCollider.enabled = false;
-                this.enabled = false;
+            if(healthComponent != null && healthComponent.IsDead) {
                 return;
             }
     
@@ -44,7 +71,29 @@ namespace Keeper
                 return;
             }
 
+            // Checar se player está no range e atacar em loop
+            if (keeperRangeComponent != null && keeperRangeComponent.IsPlayerInRange)
+            {
+                if (attackComponent != null && attackComponent.CanAttack())
+                {
+                    receiveSkinAnimator.Play("KeeperAttack", -1);
+                }
+                return;
+            }
+
             Patrol();
+        }
+
+        private void HandleDeath()
+        {
+            if (keeperSounds != null)
+            {
+                keeperSounds.DieSound();
+            }
+
+            collider2D.enabled = false;
+            circleCollider.enabled = false;
+            this.enabled = false;
         }
 
         private void Patrol()
@@ -84,4 +133,3 @@ namespace Keeper
         }
     }
 }
-

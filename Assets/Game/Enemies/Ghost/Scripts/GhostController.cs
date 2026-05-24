@@ -1,9 +1,13 @@
+using Core.Characters;
+using Core.Combat;
 using Player;
 using System.Collections;
 using UnityEngine;
 
 namespace Ghost
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(EnemyAttackComponent))]
     public class GhostController : MonoBehaviour
     {
         [SerializeField] private Transform a_point, b_point;
@@ -12,18 +16,40 @@ namespace Ghost
 
         private SpriteRenderer ghostRenderer;
         private CircleCollider2D ghostCollider;
+        private HealthComponent healthComponent;
+        private EnemyAttackComponent attackComponent;
 
         private bool goRight;
-        private int damage = 1;
 
         private void Start()
         {
             ghostRenderer = GetComponentInChildren<SpriteRenderer>();
             ghostCollider = GetComponent<CircleCollider2D>();
+            healthComponent = GetComponent<HealthComponent>();
+            attackComponent = GetComponent<EnemyAttackComponent>();
+            
+            if (attackComponent != null)
+            {
+                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            }
+            else
+            {
+                Debug.LogWarning("GhostController: EnemyAttackComponent não encontrado no mesmo GameObject.");
+            }
+
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
         }
 
         void Update()
         {
+            if (healthComponent != null && healthComponent.IsDead)
+            {
+                return;
+            }
+
             if (goRight)
             {
                 skin.localScale = new Vector3(-1, 1, 1);
@@ -46,19 +72,16 @@ namespace Ghost
                     StartCoroutine(WaitAndDisappear());
                 }
 
-                
-
                 transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
             }
         }
 
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void HandleDeath()
         {
-            if (collision.CompareTag("Player"))
-            {
-                collision.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
-            }
+            ghostRenderer.enabled = false;
+            ghostCollider.enabled = false;
+            this.enabled = false;
+            Destroy(gameObject, 2f);
         }
 
         IEnumerator WaitAndReturn(Vector3 point)
@@ -80,6 +103,25 @@ namespace Ghost
             ghostCollider.enabled = true;
             ghostRenderer.enabled = true;
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player"))
+            {
+                return;
+            }
+
+            if (attackComponent != null)
+            {
+                attackComponent.DoAttack(collision);
+                return;
+            }
+
+            var targetHealth = collision.GetComponent<HealthComponent>();
+            if (targetHealth != null && !targetHealth.IsDead)
+            {
+                targetHealth.TakeDamage(1);
+            }
+        }
     }
 }
-

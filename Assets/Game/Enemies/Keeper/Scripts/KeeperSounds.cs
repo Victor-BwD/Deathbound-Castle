@@ -7,7 +7,7 @@ namespace Keeper
     {
         [SerializeField] private AudioClip keeperDieSound;
         [SerializeField] private AudioClip keeperAttackSound;
-        
+
         public void DieSound()
         {
             SoundManager.Instance.PlayMonsterEffect(keeperDieSound);

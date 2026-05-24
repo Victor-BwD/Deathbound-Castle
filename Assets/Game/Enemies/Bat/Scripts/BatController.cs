@@ -1,55 +1,145 @@
+using Core.Characters;
+using Core.Combat;
 using Player;
 using UnityEngine;
 
 namespace Bats
 {
+    [RequireComponent(typeof(EnemyAttackComponent))]
     public class BatController : MonoBehaviour
     {
         [SerializeField] public Transform player;
-        [SerializeField] private float attackTime;
+        [SerializeField] private float chaseSpeed = 2f;
+        [SerializeField] private float attackRange = 0.8f;
     
-        private Characters charactersController;
+        private HealthComponent healthComponent;
         private Collider2D circleCollider2D;
         private Rigidbody2D rb;
-        private int damage = 1;
-    
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private EnemyAttackComponent attackComponent;
+        private CapsuleCollider2D playerCapsule;
+        private Collider2D playerCollider;
+
+        private void OnValidate()
         {
-            attackTime = 0;
-            charactersController = GetComponent<Characters>();
-            circleCollider2D = GetComponent<CircleCollider2D>();
-            rb = GetComponent<Rigidbody2D>();
+            if (attackComponent == null)
+            {
+                attackComponent = GetComponent<EnemyAttackComponent>();
+            }
         }
     
-        // Update is called once per frame
-        void Update()
+        void Start()
         {
-            if (charactersController.life <= 0)
+            healthComponent = GetComponent<HealthComponent>();
+            circleCollider2D = GetComponent<CircleCollider2D>();
+            rb = GetComponent<Rigidbody2D>();
+            attackComponent = GetComponent<EnemyAttackComponent>();
+
+            if (attackComponent != null)
             {
-                circleCollider2D.enabled = false;
-                rb.gravityScale = 1;
-                this.enabled = false;
-    
-                Destroy(gameObject, 2);
-                BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
-                batTrigger.RemoveGameObject(this.gameObject.transform);
-            }
-    
-            if (Vector2.Distance(transform.position, player.GetComponent<CapsuleCollider2D>().bounds.center) > 0.8f)
-            {
-                attackTime = 0;
-                transform.position = Vector2.MoveTowards(transform.position,
-                    player.GetComponent<CapsuleCollider2D>().bounds.center, 2f * Time.deltaTime);
+                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
             }
             else
             {
-                attackTime += Time.deltaTime;
-                if (attackTime >= 0.5)
+                Debug.LogWarning("BatController: EnemyAttackComponent não encontrado no mesmo GameObject.");
+            }
+
+            if (player == null)
+            {
+                var playerObj = GameObject.FindWithTag("Player");
+                if (playerObj != null)
                 {
-                    attackTime = 0;
-                    player.GetComponent<PlayerHealth>().PlayerTakaDamage(damage);
+                    player = playerObj.transform;
                 }
+            }
+
+            if (player != null)
+            {
+                playerCapsule = player.GetComponent<CapsuleCollider2D>();
+                playerCollider = player.GetComponent<Collider2D>();
+            }
+            
+            if (healthComponent != null)
+            {
+                healthComponent.OnDeath.AddListener(HandleDeath);
+            }
+        }
+    
+        void Update()
+        {
+            if (healthComponent != null && healthComponent.IsDead)
+            {
+                return;
+            }
+    
+            if (player == null)
+            {
+                return;
+            }
+
+            if (playerCapsule == null)
+            {
+                playerCapsule = player.GetComponent<CapsuleCollider2D>();
+            }
+
+            if (playerCapsule == null)
+            {
+                return;
+            }
+
+            float distance = Vector2.Distance(transform.position, playerCapsule.bounds.center);
+            
+            if (distance > attackRange)
+            {
+                // Chase
+                transform.position = Vector2.MoveTowards(
+                    transform.position,
+                    playerCapsule.bounds.center,
+                    chaseSpeed * Time.deltaTime
+                );
+            }
+            else
+            {
+                TryAttackPlayer();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player"))
+            {
+                return;
+            }
+
+            playerCollider = collision;
+            TryAttackPlayer();
+        }
+
+        private void TryAttackPlayer()
+        {
+            if (attackComponent != null && attackComponent.CanAttack())
+            {
+                if (playerCollider == null && player != null)
+                {
+                    playerCollider = player.GetComponent<Collider2D>();
+                }
+
+                if (playerCollider != null)
+                {
+                    attackComponent.DoAttack(playerCollider);
+                }
+            }
+        }
+
+        private void HandleDeath()
+        {
+            circleCollider2D.enabled = false;
+            rb.gravityScale = 1;
+            this.enabled = false;
+            Destroy(gameObject, 2);
+            BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
+            if (batTrigger != null)
+            {
+                batTrigger.RemoveGameObject(this.gameObject.transform);
             }
         }
     }

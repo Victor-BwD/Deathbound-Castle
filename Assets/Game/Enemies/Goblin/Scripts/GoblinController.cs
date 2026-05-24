@@ -1,3 +1,5 @@
+using Core.Characters;
+using Core.Combat;
 using UnityEngine;
 
 public class GoblinController : MonoBehaviour
@@ -20,6 +22,8 @@ public class GoblinController : MonoBehaviour
     [SerializeField] private bool lockBoundsOnAwake = true;
 
     private Animator _animator;
+    private HealthComponent _healthComponent;
+    private EnemyAttackComponent _attackComponent;
     private Transform _target;
     private string _currentAnimation;
     private GoblinState _state;
@@ -38,10 +42,23 @@ public class GoblinController : MonoBehaviour
         }
         
         _animator = skin.GetComponent<Animator>();
+        _healthComponent = GetComponent<HealthComponent>();
+        _attackComponent = GetComponent<EnemyAttackComponent>();
+        
+        if (_attackComponent != null)
+        {
+            _attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+        }
 
         if (lockBoundsOnAwake)
         {
             CacheBoundsFromTransforms();
+        }
+
+        // Conectar evento de morte
+        if (_healthComponent != null)
+        {
+            _healthComponent.OnDeath.AddListener(HandleDeath);
         }
 
         SetState(GoblinState.Idle);
@@ -49,6 +66,11 @@ public class GoblinController : MonoBehaviour
 
     private void Update()
     {
+        if (_healthComponent != null && _healthComponent.IsDead)
+        {
+            return;
+        }
+
         if (!_target)
         {
             ClearTarget();
@@ -93,6 +115,15 @@ public class GoblinController : MonoBehaviour
         {
             if (Time.time >= _nextAttackTime)
             {
+                if (_attackComponent != null && _target != null)
+                {
+                    var targetCollider = _target.GetComponent<Collider2D>();
+                    if (targetCollider != null)
+                    {
+                        _attackComponent.DoAttack(targetCollider);
+                    }
+                }
+
                 _nextAttackTime = Time.time + attackCooldown;
                 SetState(GoblinState.Attacking);
             }
@@ -103,7 +134,7 @@ public class GoblinController : MonoBehaviour
             
             return; 
         }
-
+        
         var current = transform.position;
         var targetX = GetClampedTargetX();
         var nextX = Mathf.MoveTowards(current.x, targetX, moveSpeed * Time.deltaTime);
@@ -227,6 +258,19 @@ public class GoblinController : MonoBehaviour
     {
         _target = null;
         SetState(GoblinState.Idle);
+    }
+
+    private void HandleDeath()
+    {
+        _animator.Play("Die", -1);
+        this.enabled = false;
+        Destroy(gameObject, 2f);
+    }
+
+    public void OnPlayerAttack(Vector3 attackerPosition)
+    {
+        // Pode ser usado para reação ao ataque do player
+        _target = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     private void PlayAnimation(string animationName)
