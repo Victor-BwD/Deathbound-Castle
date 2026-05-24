@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace Ghost
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(EnemyAttackComponent))]
     public class GhostController : MonoBehaviour
     {
         [SerializeField] private Transform a_point, b_point;
@@ -26,8 +28,15 @@ namespace Ghost
             healthComponent = GetComponent<HealthComponent>();
             attackComponent = GetComponent<EnemyAttackComponent>();
             
-            attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
-            
+            if (attackComponent != null)
+            {
+                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
+            }
+            else
+            {
+                Debug.LogWarning("GhostController: EnemyAttackComponent não encontrado no mesmo GameObject.");
+            }
+
             if (healthComponent != null)
             {
                 healthComponent.OnDeath.AddListener(HandleDeath);
@@ -67,8 +76,6 @@ namespace Ghost
             }
         }
 
-
-
         private void HandleDeath()
         {
             ghostRenderer.enabled = false;
@@ -96,6 +103,25 @@ namespace Ghost
             ghostCollider.enabled = true;
             ghostRenderer.enabled = true;
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player"))
+            {
+                return;
+            }
+
+            if (attackComponent != null)
+            {
+                attackComponent.DoAttack(collision);
+                return;
+            }
+
+            var targetHealth = collision.GetComponent<HealthComponent>();
+            if (targetHealth != null && !targetHealth.IsDead)
+            {
+                targetHealth.TakeDamage(1);
+            }
+        }
     }
 }
-

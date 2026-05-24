@@ -136,7 +136,6 @@ namespace Core.Combat
                 attackStrategy = new MeleeAttackStrategy();
             }
             
-            // Se o target foi cachieado em OnTriggerEnter2D e não saiu via OnTriggerExit2D, está no range.
             if (lastPlayerCollider != null)
             {
                 if (lastPlayerCollider.CompareTag(targetTag))
