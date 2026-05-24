@@ -7,7 +7,6 @@
 ## 📦 O que foi criado (5 documentos + 1 índice)
 
 ```
-C:\Users\victo\OneDrive\Documents\dev\projetos\Deathbound-Castle\
 
 📄 README_ANALISE.md                  ← COMECE AQUI (Índice mestre)
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
