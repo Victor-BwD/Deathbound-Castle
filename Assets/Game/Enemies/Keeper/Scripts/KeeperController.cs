@@ -1,6 +1,5 @@
 using Core.Characters;
 using Core.Combat;
-using Core.Services;
 using UnityEngine;
 
 namespace Keeper
@@ -31,28 +30,16 @@ namespace Keeper
         
         private void Awake()
         {
-            if (attackComponent == null)
-            {
-                attackComponent = GetComponentInChildren<EnemyAttackComponent>();
-            }
-
+            attackComponent = GetComponentInChildren<EnemyAttackComponent>();
             if (attackComponent != null)
             {
                 attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
             }
-            else
+
+            keeperSounds = GetComponentInChildren<KeeperSounds>();
+            if (keeperSounds == null)
             {
-                Debug.LogError("KeeperController: EnemyAttackComponent não encontrado no objeto/filhos.", gameObject);
-            }
-            
-            if (ServiceLocator.TryGet<KeeperSounds>(out var sounds))
-            {
-                keeperSounds = sounds;
-            }
-            else
-            {
-                Debug.LogWarning("KeeperSounds não registrado no ServiceLocator!");
-                keeperSounds = GetComponentInChildren<KeeperSounds>();
+                Debug.LogWarning("KeeperSounds não encontrado no Keeper.");
             }
         }
 
@@ -99,7 +86,11 @@ namespace Keeper
 
         private void HandleDeath()
         {
-            keeperSounds.DieSound();
+            if (keeperSounds != null)
+            {
+                keeperSounds.DieSound();
+            }
+
             collider2D.enabled = false;
             circleCollider.enabled = false;
             this.enabled = false;
@@ -152,4 +143,3 @@ namespace Keeper
         }
     }
 }
-
