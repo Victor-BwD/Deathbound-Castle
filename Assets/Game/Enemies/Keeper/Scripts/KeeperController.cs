@@ -131,15 +131,5 @@ namespace Keeper
                 goRight = (b_point.position.x < a_point.position.x);
             }
         }
-
-        // Método chamado pelo Animation Event no frame de impacto da animação
-        public void OnAttackAnimationEvent()
-        {
-            if (attackComponent != null)
-            {
-                Debug.Log("KeeperController: OnAttackAnimationEvent chamado, executando ataque!");
-                attackComponent.DoAttackAnimationEvent();
-            }
-        }
     }
 }
