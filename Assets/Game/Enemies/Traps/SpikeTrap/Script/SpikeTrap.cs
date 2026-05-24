@@ -9,6 +9,9 @@ namespace Traps
     {
         private HealthComponent playerHealth;
         private Rigidbody2D playerRb;
+        [SerializeField] private float damageCooldown = 0.5f;
+        private float lastDamageTime = -1f;
+        private int lastDamageFrame = -1;
     
         // Start is called before the first frame update
         void Start()
@@ -34,16 +37,15 @@ namespace Traps
             }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
+                if (!CanDamageNow())
+                {
+                    return;
+                }
+
                 if (playerRb != null)
                 {
                     playerRb.linearVelocity = Vector2.zero;
@@ -52,12 +54,24 @@ namespace Traps
 
                 if (playerHealth != null)
                 {
+                    lastDamageTime = Time.time;
+                    lastDamageFrame = Time.frameCount;
                     playerHealth.TakeDamage(1);
+                    this.GetComponent<BoxCollider2D>().enabled = false;
                 }
 
                 this.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
+
+        private bool CanDamageNow()
+        {
+            if (Time.frameCount == lastDamageFrame)
+            {
+                return false;
+            }
+
+            return Time.time >= lastDamageTime + damageCooldown;
+        }
     }
 }
-

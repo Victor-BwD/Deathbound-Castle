@@ -11,14 +11,13 @@ namespace Core.Characters
         [SerializeField] private int maxHealth = 3;
         private int currentHealth;
         private bool isDead;
-
-        // Events para desacoplamento
+        
         [HideInInspector]
-        public UnityEvent<int> OnHealthChanged = new();  // Envia novo health
+        public UnityEvent<int> OnHealthChanged = new();
         [HideInInspector]
         public UnityEvent OnDeath = new();
         [HideInInspector]
-        public UnityEvent<int> OnDamageReceived = new();  // Envia dano
+        public UnityEvent<int> OnDamageReceived = new();
 
         public int CurrentHealth => currentHealth;
         public int MaxHealth => maxHealth;

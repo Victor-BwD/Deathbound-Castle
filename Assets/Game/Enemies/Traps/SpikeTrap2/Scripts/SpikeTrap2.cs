@@ -1,12 +1,16 @@
 using Core.Characters;
 using Player;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Traps
 {
     public class SpikeTrap2 : MonoBehaviour
     {
         private HealthComponent playerHealth;
+        [SerializeField] private float damageCooldown = 0.5f;
+        private float lastDamageTime = -1f;
+        private int lastDamageFrame = -1;
 
 
         // Start is called before the first frame update
@@ -27,24 +31,33 @@ namespace Traps
             }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
-                if (playerHealth != null)
+                if (!CanDamageNow())
                 {
-                    playerHealth.TakeDamage(1);
+                    return;
                 }
 
-                this.GetComponent<BoxCollider2D>().enabled = false;
+                if (playerHealth != null)
+                {
+                    lastDamageTime = Time.time;
+                    lastDamageFrame = Time.frameCount;
+                    playerHealth.TakeDamage(1);
+                    this.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
+        }
+
+        private bool CanDamageNow()
+        {
+            if (Time.frameCount == lastDamageFrame)
+            {
+                return false;
+            }
+
+            return Time.time >= lastDamageTime + damageCooldown;
         }
     }
 }
-
