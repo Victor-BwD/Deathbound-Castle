@@ -53,11 +53,6 @@ namespace Core.Characters
             }
             
             OnHealthChanged?.Invoke(currentHealth);
-
-            if (isDead)
-            {
-                OnDeath?.Invoke();
-            }
         }
         
         public void Heal(int amount)
