@@ -1,4 +1,3 @@
-using Core.Services;
 using UnityEngine;
 
 namespace Core.Characters
@@ -9,7 +8,7 @@ namespace Core.Characters
 
         protected override void OnDeath()
         {
-            base.OnDeath();  // Chama animação "Die"
+            base.OnDeath();
 
             var soulManager = SoulManager.Instance;
             if (soulManager != null)
