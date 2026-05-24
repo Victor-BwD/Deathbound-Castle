@@ -15,8 +15,7 @@ namespace Core.Characters
             {
                 soulManager.AddSouls(soulValue);
             }
-
-            // Schedule destruction AGORA
+            
             Destroy(gameObject, 2f);
         }
     }

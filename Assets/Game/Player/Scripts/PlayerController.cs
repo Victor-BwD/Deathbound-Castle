@@ -11,6 +11,7 @@ namespace Player
         
         private Rigidbody2D rb;
         private Characters charactersController;
+        private HealthComponent healthComponent;
         private PlayerMovement playerMovement;
         private AudioPlayer audioPlayer;
         private string currentLevel;
@@ -40,10 +41,11 @@ namespace Player
         {
             rb = GetComponent<Rigidbody2D>();
             charactersController = GetComponent<Characters>();
+            healthComponent = charactersController != null ? charactersController.Health : GetComponent<HealthComponent>();
             audioPlayer = GetComponent<AudioPlayer>();
             playerMovement = GetComponent<PlayerMovement>();
 
-            if (rb == null || charactersController == null || playerMovement == null)
+            if (rb == null || healthComponent == null || playerMovement == null)
             {
                 Debug.LogError("PlayerController: Missing required components!");
                 isInitialized = false;
@@ -75,15 +77,11 @@ namespace Player
             {
                 transform.position = spawnPoint.transform.position;
             }
-            else
-            {
-                Debug.LogWarning($"Spawn point not found in scene: {newScene}");
-            }
         }
 
         private void CheckPlayerDeath()
         {
-            if (charactersController.life <= 0)
+            if (healthComponent.IsDead)
             {
                 HandlePlayerDeath();
             }

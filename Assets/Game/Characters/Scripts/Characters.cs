@@ -9,16 +9,12 @@ namespace Core.Characters
     public class Characters : MonoBehaviour
     {
         [SerializeField] private Transform skin;
-
-        // COMPONENTES - cada um com responsabilidade clara
+        
         private HealthComponent healthComponent;
         private AnimationComponent animationComponent;
 
-        // LEGACY: Para não quebrar scripts antigos (REMOVER DEPOIS)
-        [HideInInspector] public int life;  // Obsoleto, usar Health.CurrentHealth
         public Transform Skin => skin;
-
-        // NOVO: Interface melhor
+        
         public HealthComponent Health { get; private set; }
         public AnimationComponent Animation { get; private set; }
 
@@ -46,25 +42,6 @@ namespace Core.Characters
             // Setup de eventos
             healthComponent.OnDeath.AddListener(OnDeath);
             healthComponent.OnDamageReceived.AddListener(OnDamageReceived);
-        }
-
-        private void Update()
-        {
-            // UPDATE SIMPLIFICADO - apenas gerenciar ciclo
-            // Lógica de morte foi para HealthComponent -> OnDeath event
-            
-            // LEGACY SUPPORT: Manter life sincronizado (REMOVER DEPOIS)
-            life = healthComponent.CurrentHealth;
-        }
-
-        /// <summary>
-        /// LEGACY: Mantém compatibilidade com código antigo (DEPRECADO)
-        /// Remova isto depois de migrar todos os scripts
-        /// </summary>
-        public void PlayerTakaDamage(int damage)
-        {
-            Debug.LogWarning("PlayerTakaDamage() está DEPRECADO! Use Health.TakeDamage() ao invés");
-            healthComponent.TakeDamage(damage);
         }
 
         /// <summary>
