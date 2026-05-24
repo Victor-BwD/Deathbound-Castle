@@ -63,7 +63,7 @@ namespace Core.Characters
             OnHealthChanged?.Invoke(currentHealth);
         }
         
-        public void Reset()
+        public void ResetHealth()
         {
             currentHealth = maxHealth;
             isDead = false;
