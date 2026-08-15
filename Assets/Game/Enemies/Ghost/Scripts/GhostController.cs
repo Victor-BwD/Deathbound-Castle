@@ -33,29 +33,24 @@ namespace Ghost
                 return;
             }
 
-            if (goRight)
+            bool wasMovingToB = goRight;
+            Skin.localScale = wasMovingToB ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+
+            transform.position = PatrolMath.Step(transform.position, a_point.position, b_point.position, speedPatrol, ref goRight, out bool reachedTarget);
+
+            if (!reachedTarget)
             {
-                Skin.localScale = new Vector3(-1, 1, 1);
+                return;
+            }
 
-                if (Vector2.Distance(transform.position, b_point.position) < 0.1f)
-                {
-                    StartCoroutine(WaitAndReturn(a_point.position));
-                    goRight = false;
-                }
-
-                transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
+            if (wasMovingToB)
+            {
+                StartCoroutine(WaitAndReturn(a_point.position));
             }
             else
             {
-                Skin.localScale = new Vector3(1, 1, 1);
-
-                if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
-                {
-                    StartCoroutine(WaitAndReturn(b_point.position));
-                    StartCoroutine(WaitAndDisappear());
-                }
-
-                transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
+                StartCoroutine(WaitAndReturn(b_point.position));
+                StartCoroutine(WaitAndDisappear());
             }
         }
 

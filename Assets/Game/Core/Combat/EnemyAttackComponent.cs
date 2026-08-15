@@ -3,62 +3,16 @@ using UnityEngine;
 
 namespace Core.Combat
 {
-    public interface IAttackStrategy
-    {
-        void Execute(Collider2D target, int damageAmount);
-        void Prepare();
-        void Cleanup();
-        string AttackName { get; }
-    }
-    
-    public class MeleeAttackStrategy : IAttackStrategy
-    {
-        public string AttackName => "Melee";
-
-        public void Execute(Collider2D target, int damageAmount)
-        {
-            var targetHealth = target.GetComponent<HealthComponent>();
-            if (targetHealth != null)
-            {
-                if (!targetHealth.IsDead)
-                {
-                    targetHealth.TakeDamage(damageAmount);
-                }
-            }
-        }
-
-        public void Prepare()
-        {
-            // Pode adicionar animação, som, efeitos aqui
-        }
-
-        public void Cleanup()
-        {
-            // Cleanup após ataque
-        }
-    }
-    
     public class EnemyAttackComponent : MonoBehaviour
     {
         [SerializeField] private int damageAmount = 1;
         [SerializeField] private float attackCooldown = 0.5f;
         [SerializeField] private string targetTag = "Player";
         [SerializeField] private bool autoAttackOnTrigger = true;
-        
-        private IAttackStrategy attackStrategy;
+
         private float nextAttackTime;
         private Collider2D lastPlayerCollider;
 
-        private void Awake()
-        {
-            attackStrategy ??= new MeleeAttackStrategy();
-        }
-
-        public void SetAttackStrategy(IAttackStrategy strategy)
-        {
-            attackStrategy = strategy;
-        }
-        
         public void CachePlayerCollider(Collider2D playerCollider)
         {
             if (playerCollider != null && playerCollider.CompareTag(targetTag))
@@ -79,15 +33,12 @@ namespace Core.Combat
                 return;
             }
 
-            if (attackStrategy == null)
+            var targetHealth = targetCollider.GetComponent<HealthComponent>();
+            if (targetHealth != null && !targetHealth.IsDead)
             {
-                return;
+                targetHealth.TakeDamage(damageAmount);
             }
 
-            attackStrategy.Prepare();
-            attackStrategy.Execute(targetCollider, damageAmount);
-            attackStrategy.Cleanup();
-            
             nextAttackTime = Time.time + attackCooldown;
         }
         
@@ -115,7 +66,7 @@ namespace Core.Combat
             // Sempre cacheia o alvo para ataques via Animation Event.
             lastPlayerCollider = collision;
 
-            if (autoAttackOnTrigger && attackStrategy != null)
+            if (autoAttackOnTrigger)
             {
                 DoAttack(collision);
             }
@@ -163,7 +114,6 @@ namespace Core.Combat
         public int DamageAmount => damageAmount;
         public float AttackCooldown => attackCooldown;
         public float TimeUntilNextAttack => Mathf.Max(0, nextAttackTime - Time.time);
-        public string CurrentStrategyName => attackStrategy?.AttackName ?? "None";
     }
 }
 

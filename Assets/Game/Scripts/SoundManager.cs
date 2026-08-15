@@ -1,4 +1,3 @@
-using Core.Services;
 using UnityEngine;
 
 namespace GameFolder.Scripts
@@ -22,9 +21,7 @@ namespace GameFolder.Scripts
             if (Instance == null)
             {
                 Instance = this;
-                
-                ServiceLocator.Register<SoundManager>(this);
-                            
+
                 DontDestroyOnLoad(gameObject);
             }
             else if (Instance != this)
@@ -33,12 +30,10 @@ namespace GameFolder.Scripts
             }
         }
 
-        // Cleanup ServiceLocator registration when destroyed.
         private void OnDestroy()
         {
             if (Instance == this)
             {
-                ServiceLocator.Unregister<SoundManager>();
                 Instance = null;
             }
         }

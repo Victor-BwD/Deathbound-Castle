@@ -90,24 +90,10 @@ namespace Keeper
 
         private void Patrol()
         {
-            if (goRight) {
-                Skin.localScale = new Vector3(Mathf.Abs(Skin.localScale.x), Skin.localScale.y, Skin.localScale.z);
+            var absScaleX = Mathf.Abs(Skin.localScale.x);
+            Skin.localScale = new Vector3(goRight ? absScaleX : -absScaleX, Skin.localScale.y, Skin.localScale.z);
 
-                if (Vector2.Distance(transform.position, b_point.position) < 0.1f) {
-                    goRight = false;
-                }
-
-                transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
-            }
-            else {
-                Skin.localScale = new Vector3(-Mathf.Abs(Skin.localScale.x), Skin.localScale.y, Skin.localScale.z);
-
-                if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
-                {
-                    goRight = true;
-                }
-                transform.position = Vector3.MoveTowards(transform.position, a_point.position, speedPatrol * Time.deltaTime);
-            }
+            transform.position = PatrolMath.Step(transform.position, a_point.position, b_point.position, speedPatrol, ref goRight, out _);
         }
 
         public void OnPlayerAttack(Vector3 attackerPosition)
