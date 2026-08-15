@@ -13,7 +13,7 @@ namespace Core.Characters
         private HealthComponent healthComponent;
         private AnimationComponent animationComponent;
 
-        public Transform Skin => skin;
+        public Transform Skin { get => skin; protected set => skin = value; }
         
         public HealthComponent Health { get; private set; }
         public AnimationComponent Animation { get; private set; }

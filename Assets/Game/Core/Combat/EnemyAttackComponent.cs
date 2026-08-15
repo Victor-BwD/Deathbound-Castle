@@ -49,6 +49,11 @@ namespace Core.Combat
         private float nextAttackTime;
         private Collider2D lastPlayerCollider;
 
+        private void Awake()
+        {
+            attackStrategy ??= new MeleeAttackStrategy();
+        }
+
         public void SetAttackStrategy(IAttackStrategy strategy)
         {
             attackStrategy = strategy;
@@ -131,11 +136,6 @@ namespace Core.Combat
 
         public void DoAttackAnimationEvent()
         {
-            if (attackStrategy == null)
-            {
-                attackStrategy = new MeleeAttackStrategy();
-            }
-            
             if (lastPlayerCollider != null)
             {
                 if (lastPlayerCollider.CompareTag(targetTag))

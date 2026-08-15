@@ -6,13 +6,12 @@ using UnityEngine;
 namespace Bats
 {
     [RequireComponent(typeof(EnemyAttackComponent))]
-    public class BatController : MonoBehaviour
+    public class BatController : EnemyCharacter
     {
         [SerializeField] public Transform player;
         [SerializeField] private float chaseSpeed = 2f;
         [SerializeField] private float attackRange = 0.8f;
-    
-        private HealthComponent healthComponent;
+
         private Collider2D circleCollider2D;
         private Rigidbody2D rb;
         [SerializeField] private EnemyAttackComponent attackComponent;
@@ -26,22 +25,12 @@ namespace Bats
                 attackComponent = GetComponent<EnemyAttackComponent>();
             }
         }
-    
+
         void Start()
         {
-            healthComponent = GetComponent<HealthComponent>();
             circleCollider2D = GetComponent<CircleCollider2D>();
             rb = GetComponent<Rigidbody2D>();
             attackComponent = GetComponent<EnemyAttackComponent>();
-
-            if (attackComponent != null)
-            {
-                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
-            }
-            else
-            {
-                Debug.LogWarning("BatController: EnemyAttackComponent não encontrado no mesmo GameObject.");
-            }
 
             if (player == null)
             {
@@ -57,20 +46,15 @@ namespace Bats
                 playerCapsule = player.GetComponent<CapsuleCollider2D>();
                 playerCollider = player.GetComponent<Collider2D>();
             }
-            
-            if (healthComponent != null)
-            {
-                healthComponent.OnDeath.AddListener(HandleDeath);
-            }
         }
-    
+
         void Update()
         {
-            if (healthComponent != null && healthComponent.IsDead)
+            if (Health.IsDead)
             {
                 return;
             }
-    
+
             if (player == null)
             {
                 return;
@@ -130,17 +114,19 @@ namespace Bats
             }
         }
 
-        private void HandleDeath()
+        protected override void OnDeath()
         {
             circleCollider2D.enabled = false;
             rb.gravityScale = 1;
             this.enabled = false;
-            Destroy(gameObject, 2);
+
             BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
             if (batTrigger != null)
             {
                 batTrigger.RemoveGameObject(this.gameObject.transform);
             }
+
+            base.OnDeath();
         }
     }
 }

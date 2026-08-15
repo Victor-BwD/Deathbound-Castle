@@ -2,7 +2,7 @@ using Core.Characters;
 using Core.Combat;
 using UnityEngine;
 
-public class GoblinController : MonoBehaviour
+public class GoblinController : EnemyCharacter
 {
     private enum GoblinState
     {
@@ -11,7 +11,6 @@ public class GoblinController : MonoBehaviour
         Attacking
     }
 
-    [SerializeField] private Transform skin;
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float attackRange = 1.9f;
     
@@ -22,7 +21,6 @@ public class GoblinController : MonoBehaviour
     [SerializeField] private bool lockBoundsOnAwake = true;
 
     private Animator _animator;
-    private HealthComponent _healthComponent;
     private EnemyAttackComponent _attackComponent;
     private Transform _target;
     private string _currentAnimation;
@@ -34,31 +32,21 @@ public class GoblinController : MonoBehaviour
     private float _cachedMaxBoundX;
     private bool _hasCachedBounds;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (skin == null)
+        base.Awake();
+
+        if (Skin == null)
         {
-            skin = transform;
+            Skin = transform;
         }
-        
-        _animator = skin.GetComponent<Animator>();
-        _healthComponent = GetComponent<HealthComponent>();
+
+        _animator = Skin.GetComponent<Animator>();
         _attackComponent = GetComponent<EnemyAttackComponent>();
-        
-        if (_attackComponent != null)
-        {
-            _attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
-        }
 
         if (lockBoundsOnAwake)
         {
             CacheBoundsFromTransforms();
-        }
-
-        // Conectar evento de morte
-        if (_healthComponent != null)
-        {
-            _healthComponent.OnDeath.AddListener(HandleDeath);
         }
 
         SetState(GoblinState.Idle);
@@ -66,7 +54,7 @@ public class GoblinController : MonoBehaviour
 
     private void Update()
     {
-        if (_healthComponent != null && _healthComponent.IsDead)
+        if (Health.IsDead)
         {
             return;
         }
@@ -220,18 +208,14 @@ public class GoblinController : MonoBehaviour
         var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("Attack"))
         {
-            Debug.Log($"Checking Attack animation progress: {stateInfo.normalizedTime}");
             return stateInfo.normalizedTime >= 0.9f;
         }
-        
+
         if (!_animator.IsInTransition(0))
         {
-            Debug.Log($"Expected to be in Attack animation, but currently in {stateInfo.shortNameHash}");
             return true;
         }
-        
-        Debug.Log("Not in Attack animation or transition, treating as finished.");
-        
+
         return false;
     }
 
@@ -260,11 +244,12 @@ public class GoblinController : MonoBehaviour
         SetState(GoblinState.Idle);
     }
 
-    private void HandleDeath()
+    protected override void OnDeath()
     {
         _animator.Play("Die", -1);
         this.enabled = false;
-        Destroy(gameObject, 2f);
+
+        base.OnDeath();
     }
 
     public void OnPlayerAttack(Vector3 attackerPosition)
@@ -291,8 +276,8 @@ public class GoblinController : MonoBehaviour
             return;
         }
 
-        var scale = skin.localScale;
+        var scale = Skin.localScale;
         scale.x = Mathf.Abs(scale.x) * Mathf.Sign(directionX);
-        skin.localScale = scale;
+        Skin.localScale = scale;
     }
 }

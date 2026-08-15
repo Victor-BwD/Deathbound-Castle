@@ -8,15 +8,13 @@ namespace Ghost
 {
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(EnemyAttackComponent))]
-    public class GhostController : MonoBehaviour
+    public class GhostController : EnemyCharacter
     {
         [SerializeField] private Transform a_point, b_point;
         [SerializeField]private float speedPatrol = 11f;
-        [SerializeField]private Transform skin;
 
         private SpriteRenderer ghostRenderer;
         private CircleCollider2D ghostCollider;
-        private HealthComponent healthComponent;
         private EnemyAttackComponent attackComponent;
 
         private bool goRight;
@@ -25,34 +23,19 @@ namespace Ghost
         {
             ghostRenderer = GetComponentInChildren<SpriteRenderer>();
             ghostCollider = GetComponent<CircleCollider2D>();
-            healthComponent = GetComponent<HealthComponent>();
             attackComponent = GetComponent<EnemyAttackComponent>();
-            
-            if (attackComponent != null)
-            {
-                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
-            }
-            else
-            {
-                Debug.LogWarning("GhostController: EnemyAttackComponent não encontrado no mesmo GameObject.");
-            }
-
-            if (healthComponent != null)
-            {
-                healthComponent.OnDeath.AddListener(HandleDeath);
-            }
         }
 
         void Update()
         {
-            if (healthComponent != null && healthComponent.IsDead)
+            if (Health.IsDead)
             {
                 return;
             }
 
             if (goRight)
             {
-                skin.localScale = new Vector3(-1, 1, 1);
+                Skin.localScale = new Vector3(-1, 1, 1);
 
                 if (Vector2.Distance(transform.position, b_point.position) < 0.1f)
                 {
@@ -64,7 +47,7 @@ namespace Ghost
             }
             else
             {
-                skin.localScale = new Vector3(1, 1, 1);
+                Skin.localScale = new Vector3(1, 1, 1);
 
                 if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
                 {
@@ -76,12 +59,13 @@ namespace Ghost
             }
         }
 
-        private void HandleDeath()
+        protected override void OnDeath()
         {
             ghostRenderer.enabled = false;
             ghostCollider.enabled = false;
             this.enabled = false;
-            Destroy(gameObject, 2f);
+
+            base.OnDeath();
         }
 
         IEnumerator WaitAndReturn(Vector3 point)

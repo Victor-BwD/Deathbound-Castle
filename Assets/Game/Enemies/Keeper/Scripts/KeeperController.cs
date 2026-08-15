@@ -4,16 +4,14 @@ using UnityEngine;
 
 namespace Keeper
 {
-    public class KeeperController : MonoBehaviour, IAttackable {
-        
+    public class KeeperController : EnemyCharacter, IAttackable {
+
         [SerializeField] private Transform a_point, b_point;
-        [SerializeField] private Transform skin;
         [SerializeField] private Transform keeperRange;
         [SerializeField] private float speedPatrol = 2.2f;
         private bool goRight;
         private Collider2D circleCollider;
         private Collider2D collider2D;
-        private HealthComponent healthComponent;
         [SerializeField] private EnemyAttackComponent attackComponent;
         private Animator receiveSkinAnimator;
         private KeeperSounds keeperSounds;
@@ -27,14 +25,12 @@ namespace Keeper
                 attackComponent = GetComponentInChildren<EnemyAttackComponent>();
             }
         }
-        
-        private void Awake()
+
+        protected override void Awake()
         {
+            base.Awake();
+
             attackComponent = GetComponentInChildren<EnemyAttackComponent>();
-            if (attackComponent != null)
-            {
-                attackComponent.SetAttackStrategy(new MeleeAttackStrategy());
-            }
 
             keeperSounds = GetComponentInChildren<KeeperSounds>();
             if (keeperSounds == null)
@@ -46,8 +42,7 @@ namespace Keeper
         void Start() {
             collider2D = GetComponent<Collider2D>();
             circleCollider = GetComponentInChildren<CircleCollider2D>();
-            healthComponent = GetComponent<HealthComponent>();
-            receiveSkinAnimator = skin.GetComponent<Animator>();
+            receiveSkinAnimator = Skin.GetComponent<Animator>();
             keeperRangeComponent = keeperRange.GetComponent<KeeperRange>();
 
             var playerObj = GameObject.FindWithTag("Player");
@@ -55,15 +50,10 @@ namespace Keeper
             {
                 playerTransform = playerObj.transform;
             }
-            
-            if (healthComponent != null)
-            {
-                healthComponent.OnDeath.AddListener(HandleDeath);
-            }
         }
 
         void FixedUpdate() {
-            if(healthComponent != null && healthComponent.IsDead) {
+            if (Health.IsDead) {
                 return;
             }
     
@@ -84,7 +74,7 @@ namespace Keeper
             Patrol();
         }
 
-        private void HandleDeath()
+        protected override void OnDeath()
         {
             if (keeperSounds != null)
             {
@@ -94,21 +84,23 @@ namespace Keeper
             collider2D.enabled = false;
             circleCollider.enabled = false;
             this.enabled = false;
+
+            base.OnDeath();
         }
 
         private void Patrol()
         {
             if (goRight) {
-                skin.localScale = new Vector3(Mathf.Abs(skin.localScale.x), skin.localScale.y, skin.localScale.z);
+                Skin.localScale = new Vector3(Mathf.Abs(Skin.localScale.x), Skin.localScale.y, Skin.localScale.z);
 
                 if (Vector2.Distance(transform.position, b_point.position) < 0.1f) {
                     goRight = false;
                 }
-    
+
                 transform.position = Vector3.MoveTowards(transform.position, b_point.position, speedPatrol * Time.deltaTime);
             }
             else {
-                skin.localScale = new Vector3(-Mathf.Abs(skin.localScale.x), skin.localScale.y, skin.localScale.z);
+                Skin.localScale = new Vector3(-Mathf.Abs(Skin.localScale.x), Skin.localScale.y, Skin.localScale.z);
 
                 if (Vector2.Distance(transform.position, a_point.position) < 0.1f)
                 {
