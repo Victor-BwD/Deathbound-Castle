@@ -10,8 +10,10 @@ namespace Bats {
             if (collision.CompareTag("Player"))
             {
                 foreach (Transform obj in bats) {
-                    obj.GetComponent<BatController>().enabled = true;
-                    obj.GetComponent<BatController>().player = collision.transform;
+                    BatController bat = obj.GetComponent<BatController>();
+                    bat.enabled = true;
+                    bat.player = collision.transform;
+                    bat.batTrigger = this;
                 }
             }
         }

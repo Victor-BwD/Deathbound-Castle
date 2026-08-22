@@ -9,9 +9,6 @@ namespace Core.Characters
     public class Characters : MonoBehaviour
     {
         [SerializeField] private Transform skin;
-        
-        private HealthComponent healthComponent;
-        private AnimationComponent animationComponent;
 
         public Transform Skin { get => skin; protected set => skin = value; }
         
@@ -21,27 +18,20 @@ namespace Core.Characters
         protected virtual void Awake()
         {
             // Cache de componentes
-            healthComponent = GetComponent<HealthComponent>();
-            if (healthComponent == null)
+            Health = GetComponent<HealthComponent>();
+            if (Health == null)
             {
                 Debug.LogError($"{gameObject.name}: HealthComponent não encontrado!");
                 enabled = false;
                 return;
             }
 
-            animationComponent = skin != null ? skin.GetComponent<AnimationComponent>() : null;
-            if (animationComponent == null && skin != null)
-            {
-                Debug.LogWarning($"{gameObject.name}: AnimationComponent não encontrado em {skin.name}");
-            }
-
-            // Expor componentes
-            Health = healthComponent;
-            Animation = animationComponent;
+            // AnimationComponent é opcional: nem todo inimigo roteia animação por ele.
+            Animation = skin != null ? skin.GetComponent<AnimationComponent>() : null;
 
             // Setup de eventos
-            healthComponent.OnDeath.AddListener(OnDeath);
-            healthComponent.OnDamageReceived.AddListener(OnDamageReceived);
+            Health.OnDeath.AddListener(OnDeath);
+            Health.OnDamageReceived.AddListener(OnDamageReceived);
         }
 
         /// <summary>
@@ -50,9 +40,9 @@ namespace Core.Characters
         /// </summary>
         protected virtual void OnDeath()
         {
-            if (animationComponent != null)
+            if (Animation != null)
             {
-                animationComponent.PlayAnimation("Die", -1);
+                Animation.PlayAnimation("Die", -1);
             }
         }
 
@@ -61,9 +51,9 @@ namespace Core.Characters
         /// </summary>
         protected virtual void OnDamageReceived(int damageAmount)
         {
-            if (animationComponent != null)
+            if (Animation != null)
             {
-                animationComponent.PlayAnimation("PlayerTakeDamage", 1);
+                Animation.PlayAnimation("PlayerTakeDamage", 1);
             }
         }
     }

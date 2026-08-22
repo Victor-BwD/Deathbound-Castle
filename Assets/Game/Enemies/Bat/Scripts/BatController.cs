@@ -12,7 +12,9 @@ namespace Bats
         [SerializeField] private float chaseSpeed = 2f;
         [SerializeField] private float attackRange = 0.8f;
 
-        private Collider2D circleCollider2D;
+        public BatTrigger batTrigger;
+
+        private CircleCollider2D circleCollider2D;
         private Rigidbody2D rb;
         [SerializeField] private EnemyAttackComponent attackComponent;
         private CapsuleCollider2D playerCapsule;
@@ -26,12 +28,24 @@ namespace Bats
             }
         }
 
-        void Start()
+        protected override void Awake()
         {
+            base.Awake();
+
+            // O bat começa desabilitado até o BatTrigger ativá-lo, mas o listener de
+            // OnDeath (registrado no Awake da base) roda de qualquer forma. Por isso
+            // essas referências precisam existir aqui, não no Start — senão um bat que
+            // morre antes de ser ativado estoura NullReferenceException em OnDeath.
             circleCollider2D = GetComponent<CircleCollider2D>();
             rb = GetComponent<Rigidbody2D>();
-            attackComponent = GetComponent<EnemyAttackComponent>();
+            if (attackComponent == null)
+            {
+                attackComponent = GetComponent<EnemyAttackComponent>();
+            }
+        }
 
+        void Start()
+        {
             if (player == null)
             {
                 var playerObj = GameObject.FindWithTag("Player");
@@ -48,7 +62,7 @@ namespace Bats
             }
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (Health.IsDead)
             {
@@ -70,16 +84,16 @@ namespace Bats
                 return;
             }
 
-            float distance = Vector2.Distance(transform.position, playerCapsule.bounds.center);
-            
+            float distance = Vector2.Distance(rb.position, playerCapsule.bounds.center);
+
             if (distance > attackRange)
             {
                 // Chase
-                transform.position = Vector2.MoveTowards(
-                    transform.position,
+                rb.MovePosition(Vector2.MoveTowards(
+                    rb.position,
                     playerCapsule.bounds.center,
-                    chaseSpeed * Time.deltaTime
-                );
+                    chaseSpeed * Time.fixedDeltaTime
+                ));
             }
             else
             {
@@ -120,7 +134,6 @@ namespace Bats
             rb.gravityScale = 1;
             this.enabled = false;
 
-            BatTrigger batTrigger = FindObjectOfType<BatTrigger>();
             if (batTrigger != null)
             {
                 batTrigger.RemoveGameObject(this.gameObject.transform);
